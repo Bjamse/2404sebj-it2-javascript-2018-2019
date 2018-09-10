@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css.css">
+    <meta charset="UTF-8">
+    <title>omregningskalkulator</title>
+    <script>
+        function kalkulerbmr() {
+            var x = document.getElementById("vekt").value;
+            var y = document.getElementById("høyde").value;
+            var z = document.getElementById("alder").value;
+            var s = document.getElementById("kjønn").value;
+            x = Number(x);
+            y = Number(y);
+            z = Number(z);
+            s = Number(s);
+
+            if (s == 1) {
+                document.getElementById("bmrOut").innerHTML = 66.47 + (13.75 * x) + (5 * y) - (6.75 * z);
+                return 66.47 + (13.75 * x) + (5 * y) - (6.75 * z);
+            } else {
+                document.getElementById("bmrOut").innerHTML = 655.1 + (9.56 * x) + (1.84 * y) - (4.67 * z);
+                return 655.1 + (9.56 * x) + (1.84 * y) - (4.67 * z);
+            }
+        }
+
+        function pal() {
+            var xp = kalkulerbmr();
+            var p = Number(document.getElementById("aktivitet").value);
+            var e = xp * p;
+            document.getElementById("pal").innerHTML = e;
+            return e;
+
+
+        }
+
+        function addnum(dx) {
+            var ax = document.getElementById("ind").value;
+            document.getElementById("ind").value = ax + dx;
+
+        }
+
+        function t(tx, ty) {
+
+            if (document.getElementById(tx + "spm").getAttribute("sant") == ty) {
+                document.getElementById(tx).innerText = "riktig";
+            }
+            else {
+                document.getElementById(tx).innerText = "ikke riktig";
+            }
+
+        }
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <h1>bmr og pal</h1>
+    <br><br><br>
+    <label for="vekt">vekt</label>
+    <input type="number" min="0" id="vekt"><br>
+    <label for="høyde">høyde</label>
+    <input type="number" min="0" id="høyde"><br>
+    <label for="alder">alder</label>
+    <input type="number" min="0" id="alder"><br>
+    <label for="kjønn">kjønn</label>
+    <select id="kjønn">
+        <option value="0">kvinne</option>
+        <option value="1">mann</option>
+    </select>
+
+    <button onclick="kalkulerbmr()">kalkuler bmr</button>
+
+    <br>
+    <p>bmr = </p>
+    <div id="bmrOut"></div>
+    <br>
+    <br>
+    <label for="aktivitet">velg en aktivitet :</label>
+    <select id="aktivitet">
+        <option value="1.2">sitte stille</option>
+        <option value="1.4"> går en tur</option>
+    </select>
+    <label for="bpal">beregn energiforbruket</label>
+    <button id="bpal" onclick="pal()">kalkuler</button>
+
+    <p>energiforbruk (beregn bmr først)</p>
+    <div id="pal"></div>
+
+    <hr>
+    <h1>ekstraoppgaver</h1>
+    <input type="text" disabled id="ind">
+    <table>
+        <tr>
+            <td>
+                <button onclick="addnum(1)">1</button>
+            </td>
+            <td>
+                <button onclick="addnum(2)">2</button>
+            </td>
+            <td>
+                <button onclick="addnum(3)">3</button>
+            </td>
+
+        </tr>
+        <tr>
+            <td>
+                <button onclick="addnum(4)">4</button>
+            </td>
+            <td>
+                <button onclick="addnum(5)">5</button>
+            </td>
+            <td>
+                <button onclick="addnum(6)">6</button>
+            </td>
+
+        </tr>
+        <tr>
+            <td>
+                <button onclick="addnum(7)">7</button>
+            </td>
+            <td>
+                <button onclick="addnum(8)">8</button>
+            </td>
+            <td>
+                <button onclick="addnum(9)">9</button>
+            </td>
+
+        </tr>
+        <tr>
+            <td>
+
+            </td>
+            <td>
+                <button onclick="addnum(0)">0</button>
+            </td>
+            <td>
+                <button onclick="document.getElementById('ind').value = '';">clear</button>
+            </td>
+
+        </tr>
+    </table>
+
+
+    <hr>
+    <hr>
+
+    <div calss="inl">
+        <p sant="1" id="1spm">2+2=4</p>
+        <button onclick="t(1,1)">sann</button>
+        <button onclick="t(1,0)">usant</button>
+        <p id="1"></p>
+    </div>
+    <hr>
+    <div calss="inl">
+        <p sant="0" id="2spm">alle blier er gule</p>
+        <button onclick="t(2,1)">sann</button>
+        <button onclick="t(2,0)">usant</button>
+        <p id="2"></p>
+    </div>
+    <hr>
+    <div calss="inl">
+        <p sant="0" id="3spm">jula varer helt til påske</p>
+        <button onclick="t(3,1)">sann</button>
+        <button onclick="t(3,0)">usant</button>
+        <p id="3"></p>
+    </div>
+    <hr>
+    <div calss="inl">
+        <p sant="1" id="4spm">alle like bamsemoms</p>
+        <button onclick="t(4,1)">sann</button>
+        <button onclick="t(4,0)">usant</button>
+        <p id="4"></p>
+    </div>
+</div>
+</body>
+</html>

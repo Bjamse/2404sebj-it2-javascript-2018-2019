@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css.css">
+    <meta charset="UTF-8">
+    <title>event</title>
+
+    <script>
+        function oppgave1() {
+            document.getElementById("1").innerHTML = "<h1> noe tekst</h1> <br> <input type=\"button\" onclick=\"oppgave2()\" value=\"oppgave 2\">";
+        }
+
+        function oppgave2() {
+            document.getElementById("2").innerHTML = "<img src=\"https://media.giphy.com/media/o0vwzuFwCGAFO/giphy.gif\" style=\"width:auto;height:342px;top:50%;left:50%;\" align=\"middle\"> <br>";
+            document.getElementById("inputfordiv3").innerHTML = "<label for='textdiv3'>skri inn noe tekst</label><input type='text' id='textdiv3'> <input type=\"button\" onclick=\"oppgave3()\" value=\"send tekst\">";
+        }
+
+        function oppgave3() {
+            document.getElementById("3").innerHTML = document.getElementById("textdiv3").value;
+            document.getElementById("4").innerHTML = "<input type='text' id='text4'><input type=\"button\" onclick=\"oppgave4()\" value=\"oppgave4\">";
+
+        }
+
+        function oppgave4() {
+            document.getElementById("text4").value = "Hallo!"
+        }
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <h1>Evnetplanlegger</h1>
+    <hr>
+    <input type="button" onclick="oppgave1()" value="oppgave 1">
+    <div id="1">
+
+    </div>
+    <div id="2">
+
+    </div>
+    <div id="inputfordiv3"></div>
+    <div id="3">
+    </div>
+    <div id="4">
+
+    </div>
+</div>
+</body>
+</html>

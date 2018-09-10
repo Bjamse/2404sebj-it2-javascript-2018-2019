@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css.css">
+    <meta charset="UTF-8">
+    <title>løkker</title>
+    <script>
+
+        function f() {
+            //oppgave 1
+            for (i = 0; i < 5; i++) {
+                document.getElementById("1").innerText += "*"
+            }
+
+            //oppgave 2
+            for (y = 0; y < 4; y++) {
+                for (i = 0; i < 5; i++) {
+                    document.getElementById("2").innerText += "*"
+                }
+                document.getElementById("2").innerText += "\n";
+            }
+            //oppgave 3
+            for (y = 0; y < 5; y++) {
+                for (i = 0; i < y + 1; i++) {
+                    document.getElementById("3").innerText += "*"
+                }
+                document.getElementById("3").innerText += "\n"
+            }
+
+            //oppgave 4
+            document.getElementById("4").innerText = "hø? \n Jeg ser ikke møsneteret";
+
+            //oppgave 5
+            for (y = 0; y < 5; y++) {
+                for (i = 0; i < 5 - y; i++) {
+                    document.getElementById("5").innerText += "*"
+                }
+                document.getElementById("5").innerText += "\n"
+            }
+
+            //oppgave 6
+            document.getElementById("6").value += "a) \n";
+            for (i = 0; i < 101; i++) {
+                document.getElementById("6").value += i + ", ";
+            }
+
+            document.getElementById("6").value += " \nb) \n";
+            for (i = 0; i < 101; i++) {
+                if (i % 2 == 0) {
+                    document.getElementById("6").value += i + ", ";
+                }
+            }
+
+            document.getElementById("6").value += " \nc) \n";
+            for (i = 0; i < 101; i++) {
+                if (i % 2 != 0) {
+                    document.getElementById("6").value += i + ", ";
+                }
+            }
+
+            document.getElementById("6").value += " \nd) \n";
+            for (i = 1; i < 101; i++) {
+                if (i % 5 == 0) {
+                    document.getElementById("6").value += i + ", ";
+                }
+            }
+            document.getElementById("6").value += " \ne) \n";
+            for (i = 1; i < 101; i++) {
+                if (i % 5 == 0 && i % 2 == 0) {
+                    document.getElementById("6").value += i + ", ";
+                }
+            }
+
+
+        }
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <h1>
+        Løkker
+    </h1>
+    <hr>
+    <button onclick="f()">gjør oppgavene</button>
+    <p>oppgave1</p>
+    <div id="1">
+
+    </div>
+    <p>oppgave 2</p>
+    <div id="2">
+
+    </div>
+    <p>oppgave 3</p>
+    <div id="3">
+
+    </div>
+    <p>oppgave 4</p>
+    <div id="4">
+
+    </div>
+    <p>oppgave5</p>
+    <div id="5">
+
+    </div>
+    <p>oppgave6</p>
+    <textarea id="6" cols="40" rows="16"></textarea>
+
+    <br><br><br>
+
+
+</div>
+</body>
+</html>

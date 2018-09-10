@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css.css">
+    <meta charset="UTF-8">
+    <title>loop the loop</title>
+    <script>
+        function f() {
+            // oppgave 1
+            for (i = 1; i < 100; i++) {
+                document.getElementById("1").value += i + ", ";
+            }
+
+            // oppgave 2
+            for (i = 99; i > 0; i--) {
+                document.getElementById("2").value += i + ", ";
+            }
+            // oppgave 3
+            for (i = 1; i < 100; i += 2) {
+                document.getElementById("3").value += i + ", ";
+            }
+            // oppgave 4
+            for (i = 1; i < 101; i++) {
+                document.getElementById("4").value += i * * 2 + ", ";
+            }
+            // oppgave 5
+            for (y = 0; y < 100; y++) {
+                for (i = 0; i < y + 1; i++) {
+                    document.getElementById("5").value += "*"
+                }
+                document.getElementById("5").value += "\n"
+            }
+            // oppgave 6
+            var n = 6;
+
+            for (i = 0; i < n; i++) {
+                document.getElementById("6").value += (n - i) * "-" + i * 2 * "*" + (n - i) * "-" + "\n";
+            }
+
+        }
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <h1>
+        loop th loop
+    </h1>
+    <hr>
+
+    <button onclick="f()">gjør oppgavene</button>
+
+    <p>oppgave1</p>
+    <textarea id="1" cols="40" rows="16"></textarea>
+    <p>oppgave2</p>
+    <textarea id="2" cols="40" rows="16"></textarea>
+    <p>oppgave3</p>
+    <textarea id="3" cols="40" rows="16"></textarea>
+    <p>oppgave4</p>
+    <textarea id="4" cols="40" rows="16"></textarea>
+    <p>oppgave5</p>
+    <textarea id="5" cols="40" rows="16"></textarea>
+    <p>oppgave6</p>
+    <textarea id="6" cols="40" rows="16"></textarea>
+
+
+</div>
+</body>
+</html>

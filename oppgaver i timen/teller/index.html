@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css.css">
+    <meta charset="UTF-8">
+    <title>teller</title>
+</head>
+<body>
+<div id="wrapper">
+    <h1>teller</h1>
+    <button onclick="tall_0 +=1">+1</button>
+    <button onclick="tall_0 -=1">-1</button>
+    <button onclick="tall_0 +=5">+5</button>
+    <button onclick="tall_0 -= 5">-5</button>
+    <button onclick="tall_0 = 0">null ut</button>
+    <button onclick="tall_0 /= 2">halvparten</button>
+
+
+    <div id="tag_0"> 0</div>
+
+
+    <script>
+        var tall_0 = 0;
+        var intervid = setInterval(updatedock, 100);
+
+        function updatedock() {
+            document.getElementById("tag_0").innerHTML = tall_0;
+        }
+    </script>
+
+</div>
+</body>
+</html>

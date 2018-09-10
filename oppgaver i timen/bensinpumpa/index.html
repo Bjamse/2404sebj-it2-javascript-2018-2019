@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css.css">
+    <meta charset="UTF-8">
+    <title>Bensinpumpa</title>
+    <script>
+        function f() {
+            var x = document.getElementById("drivstoff").value;
+            var y = document.getElementById("liter").value;
+            x = Number(x);
+            y = Number(y);
+            if (y > 80) {
+                alert("beklager, vi har ikke så mye")
+            }
+            else if (y > 0 && y < 5) {
+                alert("vi selger ikke så lite");
+            }
+            else if (y < 0) {
+                alert("sorry vi tar ikke imot drivstoff her");
+            }
+            else {
+                document.getElementById("pris").innerText = x * y;
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <h1>Bensinpumpa</h1>
+    <table>
+        <tr>
+            <td>
+                Velg drivstoff
+            </td>
+            <td>
+                <select id="drivstoff">
+                    <option value="13.40">bensin : 13,40kr</option>
+                    <option value="12.90">diesel: 12,90kr</option>
+                </select>
+                per liter
+            </td>
+        </tr>
+        <tr>
+            <td>velg antall liter</td>
+            <td><input type="number" id="liter"> liter</td>
+        </tr>
+    </table>
+    <input type="button" value="kalkuler pris" onclick="f()">
+    <h3> Din pris! <i id="pris">---</i> kr</h3>
+
+</div>
+</body>
+</html>

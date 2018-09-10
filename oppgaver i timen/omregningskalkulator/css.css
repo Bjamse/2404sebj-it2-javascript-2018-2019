@@ -1,0 +1,24 @@
+html, body {
+    width: auto;
+    height: auto;
+    font-family: "Comic Sans MS", serif;
+}
+
+body {
+    background-image: url("http://www.radio-circuits.com/images/Gray-plain-website-background.jpg");
+}
+
+div#wrapper {
+    margin: auto;
+    height: 90%;
+    width: 70%;
+    background-color: lightgray;
+    border-radius: 25px;
+    padding: 20px;
+    border: 2px black solid;
+}
+
+div.inl {
+    display: inline-block;
+
+}

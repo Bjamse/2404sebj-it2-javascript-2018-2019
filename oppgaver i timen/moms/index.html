@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css.css">
+    <meta charset="UTF-8">
+    <title>moms</title>
+    <script>
+        function bergen() {
+            var x = document.getElementById("pris_inn").value;
+            x = Number(x);
+            var y = document.getElementById("vare").value;
+            y = Number(y);
+            document.getElementById("pris_ut").innerText = x * y;
+
+        }
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <h1>MOMS</h1>
+    <hr>
+    <p>
+        Merverdiavgift betales ved omsetning av de fleste varer og tjenester. Satsen er generelt 25 prosent. For
+        næringsmidler: 15 prosent, for kinobilletter og persontransport: 8 prosent.
+    </p>
+    <label for="pris_inn">Pris før moms : </label><input type="text" id="pris_inn"> kr<br>
+    <label for="vare">varetype : </label>
+    <select name="vare" id="vare">
+        <option value="1.25">Generell</option>
+        <option value="1.08">Transport</option>
+        <option value="1.15">Mat</option>
+
+    </select>
+    <button onclick="bergen()">Kalkuler</button>
+
+    <p>Din pris med moms :
+        <j id="pris_ut">0</j>
+        kr
+    </p>
+</div>
+</body>
+</html>

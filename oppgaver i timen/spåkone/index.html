@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css.css">
+    <meta charset="UTF-8">
+    <title>spåkone</title>
+    <script>
+        function bergen() {
+            var x = document.getElementById("kjønn").value;
+            var z = document.getElementById("alder").value;
+            var y = document.getElementById("høyde").value;
+            var magicValue;
+            if (x = 0) {
+                magicValue = z * * 2 - y;
+            }
+            else {
+                magicValue = z * y - 3;
+            }
+            if (magicValue % 2 == 0) {
+                alert("Det vil gå deg godt her i verden... \nFor at spådommen skal gå i oppfyllelse, må du betale inn 100 kr til følgende kontonummer: 1234.12.12345")
+            }
+            else {
+                alert("Stakkars deg! Alt kommer til å gå deg galt... \nFor at spådommen ikke skal gå i oppfyllelse, må du betale inn 100 kr til følgende kontonummer: 1234.12.12345")
+            }
+
+        }
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <h1>Spådom!</h1>
+    <hr>
+    <img src="http://www.feelings.no/CMS/galleri/2354.jpg" alt=""> <br>
+    <br>
+
+    <label for="kjønn"> velg et kjønn</label>
+
+
+    <select id="kjønn">
+        <option value="0">Mann</option>
+        <option value="1">Kvinne</option>
+    </select>
+    <br>
+    <label for="alder"> skriv inn alder</label>
+
+    <input type="number" id="alder"><br>
+
+    <label for="høyde"> skriv inn høyde</label>
+
+    <input type="number" id="høyde"><br>
+    <button onclick="bergen()">Se din spådom!</button>
+
+</div>
+</body>
+</html>
