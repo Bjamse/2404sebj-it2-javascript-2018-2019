@@ -11,16 +11,16 @@
             var y = document.getElementById("høyde").value;
             var magicValue;
             if (x = 0) {
-                magicValue = z * * 2 - y;
+                magicValue = Math.pow(x, 2) - y;
             }
             else {
                 magicValue = z * y - 3;
             }
             if (magicValue % 2 == 0) {
-                alert("Det vil gå deg godt her i verden... \nFor at spådommen skal gå i oppfyllelse, må du betale inn 100 kr til følgende kontonummer: 1234.12.12345")
+                alert("Det vil gå deg godt her i verden... \nFor at spådommen skal gå i oppfyllelse, må du betale inn 100 kr til følgende kontonummer: 1210.10.50104")
             }
             else {
-                alert("Stakkars deg! Alt kommer til å gå deg galt... \nFor at spådommen ikke skal gå i oppfyllelse, må du betale inn 100 kr til følgende kontonummer: 1234.12.12345")
+                alert("Stakkars deg! Alt kommer til å gå deg galt... \nFor at spådommen ikke skal gå i oppfyllelse, må du betale inn 100 kr til følgende kontonummer: 1210.10.50104")
             }
 
         }
