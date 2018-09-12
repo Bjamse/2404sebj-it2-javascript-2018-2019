@@ -17,3 +17,6 @@ div#wrapper {
     padding: 20px;
     border: 2px black solid;
 }
+div#wrapper * {
+    margin: auto;
+}
