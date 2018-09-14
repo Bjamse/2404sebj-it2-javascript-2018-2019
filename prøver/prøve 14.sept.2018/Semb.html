@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>prøve 14.sept.2018</title>
+    <style>
+        html, body{
+            height: 90%;
+
+        }
+        body {
+            /* linken til bildet fant jeg ifra tidligere bruk i andre filer */
+            background-image: url("http://www.radio-circuits.com/images/Gray-plain-website-background.jpg");
+            height: 100%;
+
+        }
+
+        div#wrapper {
+            background: lightgray;
+            border: 2px solid black;
+            padding: 10px;
+            border-radius: 25px;
+            height: 100%;
+            margin: auto;
+            width: 80%;
+        }
+    </style>
+    <script>
+        function beregn() {
+            // henter fra bruker
+            var navn = document.getElementById("navn").value;
+            var adr = document.getElementById("adresse").value;
+            var dato = document.getElementById("dato").value;
+            var prod = document.getElementById("produkt").value;
+            var stk = document.getElementById("stkpris").value;
+            var antall = document.getElementById("antall").value;
+            // lager en variable totalpris og gir den standard-verdiene
+            var totalpris = antall * stk;
+
+            // hvis vi skal ha moms så blir det ganget inn her
+            if (document.getElementById("moms").checked == true) {
+                totalpris *= 1.25;
+            }
+            //skriver tekst ut til skjeremen
+            document.getElementById("utskrift").innerText = navn + " som bor i " + adr + "  har bestilt" + prod + " i et antall av" + antall + "med stykkpris " + stk + "kr som gir en totalpris av " + totalpris + "kr.";
+
+        }
+
+        function vis() {
+            // viser bildet ved å gi det style block
+            document.getElementById("bil").style.display = "block";
+        }
+
+        function fjern() {
+            // fjerner bildet ved å gi den display none
+            document.getElementById("bil").style.display = "none";
+        }
+
+        function flytt() {
+            // flytter bildet frem og tilbake på skjermen alt etter som om den står til høyre eller venstre
+            if (document.getElementById("bil").style.float == "right") {
+                document.getElementById("bil").style.float = "left";
+            }
+            else {
+                document.getElementById("bil").style.float = "right";
+            }
+        }
+
+    </script>
+</head>
+<body>
+<div id="wrapper">
+
+
+    <h1>
+        Prøve 14.sept.2018 Bjørn-Tore Semb
+    </h1>
+    <hr>
+    Navn: <input type="text" id="navn" value="navn"> <br>
+    Adresse: <input type="text" id="adresse" value="plass"><br>
+    Dato: <input type="date" id="dato" ><br>
+    Produkt navn: <input type="text" id="produkt" value="produktnavn"><br>
+    Stykkpris: <input type="number" id="stkpris" value="100">kr<br>
+    Antall: <input type="number" id="antall" value="3"><br>
+    Mva. 25%: <input type="checkbox" id="moms"><br>
+
+    <button onclick="beregn()">Skriv rapport</button>
+    <button onclick="vis()">Vis bilde</button>
+    <button onclick="fjern()">Fjern bilde</button>
+    <button onclick="flytt()">Flytt bilde</button>
+
+    <br>
+    <br>
+
+    <p id="utskrift"></p>
+
+    <img src="biler.jpg" alt="her sak biler bildet stå" style="display: none; float: left; width: 20%; height: auto;"
+         id="bil">
+
+</div>
+</body>
+</html>
