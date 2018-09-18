@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css.css">
+    <meta charset="UTF-8">
+    <title>2.6</title>
+
+</head>
+<body>
+<div id="wrapper">
+    <canvas width="800" height="600" id="box" style="height: auto; width: 100%">
+    </canvas>
+    <script>
+        const c = document.getElementById("box");
+        const ctx = c.getContext("2d");
+        ctx.moveTo(100, 100);
+        ctx.lineTo(160, 100);
+        ctx.lineTo(130, 80);
+        ctx.lineTo(100, 100);
+        ctx.lineTo(100, 140);
+        ctx.lineTo(160, 140);
+        ctx.lineTo(160, 100);
+        ctx.moveTo(140, 140);
+        ctx.lineTo(140, 120);
+        ctx.lineTo(150, 120);
+        ctx.lineTo(150, 140);
+        ctx.moveTo(110,110);
+        ctx.lineTo(110, 130);
+        ctx.lineTo(130, 130);
+        ctx.lineTo(130, 110);
+        ctx.lineTo(110, 110);
+        ctx.moveTo(120, 110);
+        ctx.lineTo(120, 130);
+        ctx.moveTo(130, 120);
+        ctx.lineTo(110,120);
+        ctx.stroke();
+
+    </script>
+
+
+</div>
+</body>
+</html>

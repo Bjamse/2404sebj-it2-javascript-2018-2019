@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css.css">
+    <meta charset="UTF-8">
+    <title>2.5</title>
+    <script>
+        function addnum(dx) {
+            let ax = document.getElementById("ind").value;
+            document.getElementById("ind").value = ax + dx;
+
+        }
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <input type="number" disabled id="ind">
+    <table>
+        <tr>
+            <td>
+                <button onclick="addnum(1)">1</button>
+            </td>
+            <td>
+                <button onclick="addnum(2)">2</button>
+            </td>
+            <td>
+                <button onclick="addnum(3)">3</button>
+            </td>
+
+        </tr>
+        <tr>
+            <td>
+                <button onclick="addnum(4)">4</button>
+            </td>
+            <td>
+                <button onclick="addnum(5)">5</button>
+            </td>
+            <td>
+                <button onclick="addnum(6)">6</button>
+            </td>
+
+        </tr>
+        <tr>
+            <td>
+                <button onclick="addnum(7)">7</button>
+            </td>
+            <td>
+                <button onclick="addnum(8)">8</button>
+            </td>
+            <td>
+                <button onclick="addnum(9)">9</button>
+            </td>
+
+        </tr>
+        <tr>
+            <td>
+
+            </td>
+            <td>
+                <button onclick="addnum(0)">0</button>
+            </td>
+            <td>
+                <button onclick="document.getElementById('ind').value = '';">clear</button>
+            </td>
+
+        </tr>
+    </table>
+</div>
+</body>
+</html>

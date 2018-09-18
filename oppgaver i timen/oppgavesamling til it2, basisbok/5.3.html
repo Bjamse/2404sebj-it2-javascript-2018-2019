@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css.css">
+    <meta charset="UTF-8">
+    <title>5.3</title>
+    <script>
+
+        function start() {
+            // oppgave a)
+            for(i = 0; i<= 100; i +=2){
+                document.getElementById("1").innerText += " " + i;
+            }
+            // oppgave b)
+            for(i = 1; i<= 100; i +=2){
+                document.getElementById("2").innerText += " " + i;
+            }
+            // oppgave c)
+            for(i = 1; i<= 100; i++){
+                if (i % 5 == 0) {
+                    document.getElementById("3").innerText += " " + i;
+                }
+            }
+            // oppgave d)
+            for(i = 1; i<= 100; i++){
+                if (i % 5 == 0 && i % 2 == 0) {
+                    document.getElementById("4").innerText += " " + i;
+                }
+            }
+            // oppgave e)
+            for(i = 1; i<= 100; i++){
+                if (i % 8 == 0 || i % 3 == 0) {
+                    document.getElementById("5").innerText += " " + i;
+                }
+            }
+        }
+
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <button onclick="start()">Gjør oppgavene</button>
+    <br>
+    a)
+    <p id="1"></p>
+    b)
+    <p id="2"></p>
+    c)
+    <p id="3"></p>
+    d)
+    <p id="4"></p>
+    e)
+    <p id="5"></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css.css">
+    <meta charset="UTF-8">
+    <title>5.6</title>
+    <script>
+        function f() {
+            for(let i = document.getElementById("n").value; i > 0; i--){
+                document.getElementById("print").innerText += i + " little monkeys jumping on the bed\n" +
+                                                              "One fell off and bumped his head\n" +
+                                                              "Mama called the Doctor and the Doctor said\n";
+                if(Number(i) === 1){
+                    document.getElementById("print").innerText += "'Put those monkeys straight to bed!' \n \n \n";
+                }else{
+                    document.getElementById("print").innerText += "'No more monkeys jumping on the bed!' \n \n \n";
+                }
+            }
+
+
+
+        }
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <label for="n">Antall apekatter</label><input type="number" id="n">
+    <button onclick="f()">Skriv ut sangen</button>
+    <p id="print"></p>
+</div>
+</body>
+</html>

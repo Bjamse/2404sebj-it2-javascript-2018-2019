@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css.css">
+    <meta charset="UTF-8">
+    <title>5.4</title>
+    <script>
+        function f() {
+            let x = document.getElementById("in").value;
+            let y = document.getElementById("amount").value;
+            for (let i = 0; i < y; i++){
+                document.getElementById("out").innerText += x +"  \n";
+            }
+
+        }
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <label for="in">text</label><input type="text" id="in"> <br>
+    <label for="amount">antall</label><input type="number" min="1" id="amount"> <br>
+    <button onclick="f()">skriv</button>
+    <hr>
+    <p id="out"></p>
+</div>
+</body>
+</html>

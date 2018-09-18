@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css.css">
+    <meta charset="UTF-8">
+    <title>2.3</title>
+    <script>
+        function t(tx, ty) {
+
+            if (document.getElementById(tx + "spm").getAttribute("sant") == ty) {
+                document.getElementById(tx).innerText = "Det du svarte var riktig";
+            }
+            else {
+                document.getElementById(tx).innerText = "Det du svarte var ikke riktig";
+            }
+
+        }
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <div calss="inl">
+        <p sant="1" id="1spm">2+2=4</p>
+        <button onclick="t(1,1)">sann</button>
+        <button onclick="t(1,0)">usant</button>
+        <p id="1"></p>
+    </div>
+    <hr>
+    <div calss="inl">
+        <p sant="0" id="2spm">alle blier er gule</p>
+        <button onclick="t(2,1)">sann</button>
+        <button onclick="t(2,0)">usant</button>
+        <p id="2"></p>
+    </div>
+    <hr>
+    <div calss="inl">
+        <p sant="0" id="3spm">jula varer helt til påske</p>
+        <button onclick="t(3,1)">sann</button>
+        <button onclick="t(3,0)">usant</button>
+        <p id="3"></p>
+    </div>
+    <hr>
+    <div calss="inl">
+        <p sant="1" id="4spm">alle like bamsemoms</p>
+        <button onclick="t(4,1)">sann</button>
+        <button onclick="t(4,0)">usant</button>
+        <p id="4"></p>
+    </div>
+</div>
+</body>
+</html>
