@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css.css">
+    <meta charset="UTF-8">
+    <title>4.10</title>
+    <script>
+        function f() {
+            if (Number(document.getElementById("tall").value) %2 === 0 ){
+                document.getElementById("out").innerText = "tallet er et partall";
+            }else{
+                document.getElementById("out").innerText = "tallet er et oddetall";
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <input type="number" id="tall" placeholder="skriv inn et tall">
+    <button onclick="f()">test</button>
+    <p id="out"></p>
+</div>
+</body>
+</html>

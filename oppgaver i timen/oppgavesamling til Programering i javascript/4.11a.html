@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css.css">
+    <meta charset="UTF-8">
+    <title>4.11a</title>
+    <script>
+        function f() {
+            let y = Number(document.getElementById("tall").value);
+            let x = Number(document.getElementById("tall2").value);
+            if (x < y){
+                document.getElementById("out").innerText = y+" er større enn "+x;
+            } else{
+                document.getElementById("out").innerText = x+" er større enn "+y;
+            }
+
+        }
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <input type="number" id="tall" placeholder="skriv inn et tall"><input type="number" id="tall2" placeholder="skriv inn et tall">
+    <button onclick="f()">test</button>
+    <p id="out"></p>
+</div>
+</body>
+</html>

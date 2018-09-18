@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css.css">
+    <meta charset="UTF-8">
+    <title>4.12</title>
+    <script>
+        function f() {
+            let x = document.getElementById("tall").value;
+            let dictionary = {
+                "Januar" : 31, "januar" : 31,
+                "Februar" : 28, "februar" : 28,
+                "Mars" : 31, "mars" : 31,
+                "April" : 30, "april" : 30,
+                "Mai" : 31, "mai" : 31,
+                "Juni" : 30, "juni" : 30,
+                "Juli" : 31, "juli" : 31,
+                "August" : 31, "august" : 31,
+                "September" : 30, "september" : 30,
+                "Oktober" : 31, "oktober" : 31,
+                "November" : 30,"november" : 30,
+                "Desember" : 31,"desember" : 31
+            };
+            document.getElementById("out").innerText = x+" har "+dictionary[x]+ " dager";
+        }
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <input type="text" id="tall" placeholder="skriv inn et navnet på en måned">
+    <button onclick="f()">test</button>
+    <p id="out"></p>
+</div>
+</body>
+</html>

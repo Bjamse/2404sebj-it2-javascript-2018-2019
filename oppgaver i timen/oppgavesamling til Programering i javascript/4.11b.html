@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css.css">
+    <meta charset="UTF-8">
+    <title>4.11b</title>
+    <script>
+        function f() {
+            let y = Number(document.getElementById("tall").value);
+            let x = y;
+            let t, m, s;
+            t = Math.floor(y/3600);
+            y -= 3600*t
+            m = Math.floor(y/60);
+            y-= 60*m;
+            s = y;
+
+            document.getElementById("out").innerText = "Det er "+t+" timer, "+m+" minutter og "+s+" sekunder i "+ x +" sekunder";
+
+        }
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <input type="number" id="tall" placeholder="skriv inn et tall">
+    <button onclick="f()">test</button>
+    <p id="out"></p>
+</div>
+</body>
+</html>
