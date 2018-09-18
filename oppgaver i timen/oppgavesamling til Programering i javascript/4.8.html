@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css.css">
+    <meta charset="UTF-8">
+    <title>4.8</title>
+    <script>
+        window.onload = oppstart;
+        var hemmli;
+        var fors0k;
+        function oppstart() {
+            hemmli = Math.floor(Math.random()*101);
+            fors0k = 10;
+            document.getElementById("tall").value = "";
+            document.getElementById("gjett").disabled = false;
+            document.getElementById("out").innerText = "";
+        }
+        function f() {
+            fors0k -=1;
+            let x = Number(document.getElementById("tall").value);
+            let out;
+            let dsl;
+            if(x === hemmli){
+                out = "gratulerer du klarte det!"
+                dsl = true;
+            }else if (fors0k <=0){
+                out = "du klarte ikke å gjette " + hemmli;
+                dsl = true;
+            } else if (x < hemmli){
+                out = "du gjetta for lite";
+            }else {
+                out = "du gjetta for mye";
+            }
+            document.getElementById("out").innerText = out;
+            document.getElementById("gjett").disabled = dsl;
+        }
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <p>
+        <i>
+            !NB: koden er ikke identisk med den i boka fordi det ville tatt lengere tid å skrive.alikevel gjør koden min det samme. Er det dumt så send meg en tilbakemelding.
+        </i>
+    </p>
+    <p>
+        Tall: <input type="number" id="tall" placeholder="gjett et tall"><br>
+        <button onclick="f()" id="gjett"> Gjett</button> <button onclick="oppstart()">reset</button>
+        <p id="out"></p>
+    </p>
+</div>
+</body>
+</html>

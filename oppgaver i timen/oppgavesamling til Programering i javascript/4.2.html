@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css.css">
+    <meta charset="UTF-8">
+    <title>4.2</title>
+    <script>
+        function f() {
+            let x = Number( document.getElementById("svar").value);
+            if(x === (4-3)/2){
+              document.getElementById("out").innerText = "riktig";
+            }else {
+                document.getElementById("out").innerText = "feil";
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <p>2x+3 = 4</p>
+    <input type="number" placeholder="Skriv in verdien til x her" id="svar"> <input type="button" value="besvar" onclick="f()">
+    <p id="out"></p>
+
+</div>
+</body>
+</html>

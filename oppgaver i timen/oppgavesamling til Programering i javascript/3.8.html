@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css.css">
+    <meta charset="UTF-8">
+    <title>3.8</title>
+    <script>
+        function gebiv(x) {
+            return document.getElementById(x).value;
+        }
+
+        function f(){
+            let x = gebiv("kjønn");
+            let n1 = gebiv("n1");
+            let n2 = gebiv("n2");
+            let name = gebiv("navn");
+
+            n2 = Number(n2);
+            n1 = Number(n1);
+
+            let text = "Det var en gang en "+ x+ " som het " + name + ". \n" +
+                name + " er " + n1 + " år gammel, og kommer til å leve i "+ n2+ " år til.";
+            document.getElementById("print").innerText= text;
+        }
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <h1>historie generator</h1>
+    <hr>
+    <p>dette er ikke en god historie generator men viser konseptet. lag en selv om du vil ha en bedre</p>
+    velg et  kjønn : <select id="kjønn">
+        <option value="gutt"> Gutt</option>
+        <option value="jente"> Jente</option>
+    </select> <br>
+    velg et navn <input type="text" id="navn" value="harrald">
+    Velg et tall <input type="number" max="120" min="0" id="n1" value="2"><br>
+    Velg et tall <input type="number" max="120" min="0" id="n2" value="321"><br>
+    <button onclick="f()">lag historie</button>
+
+
+    <p id="print"></p>
+</div>
+</body>
+</html>

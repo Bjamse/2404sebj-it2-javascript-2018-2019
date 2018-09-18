@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css.css">
+    <meta charset="UTF-8">
+    <title>3.9</title>
+    <script>
+        function kalkulerbmr() {
+            var x = document.getElementById("vekt").value;
+            var y = document.getElementById("høyde").value;
+            var z = document.getElementById("alder").value;
+            var s = document.getElementById("kjønn").value;
+            x = Number(x);
+            y = Number(y);
+            z = Number(z);
+            s = Number(s);
+
+            if (s == 1) {
+                document.getElementById("bmrOut").innerHTML = 66.47 + (13.75 * x) + (5 * y) - (6.75 * z);
+                return 66.47 + (13.75 * x) + (5 * y) - (6.75 * z);
+            } else {
+                document.getElementById("bmrOut").innerHTML = 655.1 + (9.56 * x) + (1.84 * y) - (4.67 * z);
+                return 655.1 + (9.56 * x) + (1.84 * y) - (4.67 * z);
+            }
+        }
+
+        function pal() {
+            var xp = kalkulerbmr();
+            var p = Number(document.getElementById("aktivitet").value);
+            var e = xp * p;
+            document.getElementById("pal").innerHTML = e;
+            return e;
+
+
+        }
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <h1>bmr og pal</h1>
+    <br><br><br>
+    <label for="vekt">vekt</label>
+    <input type="number" min="0" id="vekt"><br>
+    <label for="høyde">høyde</label>
+    <input type="number" min="0" id="høyde"><br>
+    <label for="alder">alder</label>
+    <input type="number" min="0" id="alder"><br>
+    <label for="kjønn">kjønn</label>
+    <select id="kjønn">
+        <option value="0">kvinne</option>
+        <option value="1">mann</option>
+    </select>
+
+    <button onclick="kalkulerbmr()">kalkuler bmr</button>
+
+    <br>
+    <p>bmr = </p>
+    <div id="bmrOut"></div>
+    <br>
+    <br>
+    <label for="aktivitet">velg en aktivitet :</label>
+    <select id="aktivitet">
+        <option value="1.2">sitte stille</option>
+        <option value="1.4"> går en tur</option>
+    </select>
+    <label for="bpal">beregn energiforbruket</label>
+    <button id="bpal" onclick="pal()">kalkuler</button>
+
+    <p>energiforbruk (beregn bmr først)</p>
+    <div id="pal"></div>
+
+</div>
+</body>
+</html>

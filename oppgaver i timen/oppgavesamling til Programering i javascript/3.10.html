@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css.css">
+    <meta charset="UTF-8">
+    <title>3.10</title>
+    <script>
+        var x = 0;
+        function f() {
+           x += Number(document.getElementById("1").value);
+           document.getElementById("print").innerText = x;
+        }
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <input type="number" id="1" value="1"> <button onclick="f()">adder</button>
+    <p id="print">0</p>
+</div>
+</body>
+</html>

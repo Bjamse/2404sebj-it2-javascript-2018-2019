@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css.css">
+    <meta charset="UTF-8">
+    <title>4.7</title>
+    <script>
+        function f() {
+            let alder = Number(document.getElementById("alder").value);
+            let mann = document.getElementById("Mann").checked;
+            let hoyde = Number(document.getElementById("hoyde").value);
+            if ((mann === true && alder >= 16 && alder <= 18 )|| (mann === false && hoyde > 190 && alder === 25)){
+                document.getElementById("print").innerText = "Du er ønsket inn i foreningen";
+            }else{
+                document.getElementById("print").innerText = "Du er ikke ønsket inn i foreningen";
+            }
+
+        }
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <h1>oppgave 4.7</h1>
+    <p>Er du rett for vår forening?</p>
+    <input type="number" placeholder="alder" id="alder"><br>
+    Er du mann? <input type="checkbox" id="Mann"><br>
+    <input type="number" id="hoyde" placeholder="høyde"><br>
+    <button onclick="f()">Test</button>
+    <p id="print"></p>
+</div>
+</body>
+</html>

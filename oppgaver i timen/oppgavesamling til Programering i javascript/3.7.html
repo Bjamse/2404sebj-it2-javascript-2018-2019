@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css.css">
+    <meta charset="UTF-8">
+    <title>3.7</title>
+    <script>
+        function f() {
+            let p = Number(document.getElementById("pris").value);
+            document.getElementById("out").innerText = p *1.25;
+        }
+        function g() {
+            let p = Number(document.getElementById("pris").value);
+            document.getElementById("out").innerText = p /1.25;
+        }
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <label for="pris">Pris på produkt</label><input type="number" id="pris">kr <input type="button" value="beregn med moms" onclick="f()"><input type="button" value="beregn uten moms" onclick="g()"><br>
+    <a id="out">0</a>kr
+</div>
+</body>
+</html>
