@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        html, body {
+        width: auto;
+        height: auto;
+        font-family: "Comic Sans MS", serif;
+    }
+
+    body {
+        background-image: url("http://xn--krk-ula.com/grayBack.jpg");
+    }
+
+    div#wrapper {
+        margin: auto;
+        height: 90%;
+        width: 70%;
+        background-color: lightgray;
+        border-radius: 25px;
+        padding: 20px;
+        border: 2px black solid;
+    }
+    </style>
+    <script>
+        function clearALL() {
+            document.getElementById("oppgaverom").innerText = "";
+            document.getElementById("out").innerText = "";
+        }
+        function f5_3 (){
+            clearALL();
+            let out = "0 er et partall";
+            for(i = 1; i<=100; i++){
+                out +="<br>"+i;
+                if (i%2===0)out += " er et partall";
+                else out += " er et oddetall";
+                if(i%3===0)out += ", delelig på 3";
+                if(i%5===0)out += ", delelig på 5";
+                if(i%8===0)out += ", delelig på 8";
+
+            }
+            document.getElementById("out").innerHTML = out;
+        }
+        function f5_4(z) {
+            if (z !== 1){
+                clearALL();
+                document.getElementById("oppgaverom").innerHTML = '<label for="in">text</label><input type="text" id="in"> <br>\n' +
+                    '<label for="amount">antall</label><input type="number" min="1" id="amount"> <br>\n' +
+                    '<button onclick="f5_4(1)">skriv</button>';
+                return 0;
+            }
+            let x = document.getElementById("in").value;
+            let y = document.getElementById("amount").value;
+            let out = "";
+            for (let i = 0; i < y; i++){
+                out += x +"  \n";
+            }
+            document.getElementById("out").innerText = out;
+        }
+        function f5_5() {
+            clearALL();for(i = 0; i<=100;i++) document.getElementById("out").innerHTML += i+" * "+i+" = "+Math.pow(i,2)+"<br>";
+
+        }
+        function f5_6(z) {
+            if (z !== 1){
+
+            }
+            for(let i = document.getElementById("n").value; i > 0; i--){
+                document.getElementById("print").innerText += i + " little monkeys jumping on the bed\n" +
+                    "One fell off and bumped his head\n" +
+                    "Mama called the Doctor and the Doctor said\n";
+                if(Number(i) === 1){
+                    document.getElementById("out").innerText += "'Put those monkeys straight to bed!' \n \n \n";
+                }else{
+                    document.getElementById("out").innerText += "'No more monkeys jumping on the bed!' \n \n \n";
+                }
+            }
+            
+        }
+    </script>
+    <title>kap 5 oppgaver</title>
+</head>
+<body>
+<div id="wrapper">
+    <button onclick="f5_3()">oppgave 5.3</button><button onclick="f5_4()">oppgave 5.4</button><button onclick="f5_5()">oppgave 5.5</button>
+    <p id="oppgaverom"></p>
+    <p id="out">
+
+    </p>
+</div>
+
+</body>
+</html>
