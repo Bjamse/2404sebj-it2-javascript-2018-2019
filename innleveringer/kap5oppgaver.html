@@ -4,46 +4,53 @@
     <meta charset="UTF-8">
     <style>
         html, body {
-        width: auto;
-        height: auto;
-        font-family: "Comic Sans MS", serif;
-    }
+            width: auto;
+            height: auto;
+            font-family: "Comic Sans MS", serif;
+        }
 
-    body {
-        background-image: url("http://xn--krk-ula.com/grayBack.jpg");
-    }
+        body {
+            background-image: url("http://xn--krk-ula.com/grayBack.jpg");
+        }
 
-    div#wrapper {
-        margin: auto;
-        height: 90%;
-        width: 70%;
-        background-color: lightgray;
-        border-radius: 25px;
-        padding: 20px;
-        border: 2px black solid;
-    }
+        div#wrapper {
+            margin: auto;
+            height: 90%;
+            width: 70%;
+            background-color: lightgray;
+            border-radius: 25px;
+            padding: 20px;
+            border: 2px black solid;
+        }
     </style>
     <script>
+
         function clearALL() {
-            document.getElementById("oppgaverom").innerText = "";
-            document.getElementById("out").innerText = "";
+            document.getElementById("oppgaverom").innerText = " ";
+            document.getElementById("out").innerText = " ";
         }
-        function f5_3 (){
+
+
+        // oppgve 5.3
+        function f5_3() {
             clearALL();
             let out = "0 er et partall";
-            for(i = 1; i<=100; i++){
-                out +="<br>"+i;
-                if (i%2===0)out += " er et partall";
+            for (i = 1; i <= 100; i++) {
+                out += "<br>" + i;
+                if (i % 2 === 0) out += " er et partall";
                 else out += " er et oddetall";
-                if(i%3===0)out += ", delelig på 3";
-                if(i%5===0)out += ", delelig på 5";
-                if(i%8===0)out += ", delelig på 8";
+                if (i % 3 === 0) out += ", delelig på 3";
+                if (i % 5 === 0) out += ", delelig på 5";
+                if (i % 8 === 0) out += ", delelig på 8";
 
             }
             document.getElementById("out").innerHTML = out;
         }
+
+
+        // oppgve 5.4
         function f5_4(z) {
-            if (z !== 1){
+            if (z !== 1) {
                 clearALL();
                 document.getElementById("oppgaverom").innerHTML = '<label for="in">text</label><input type="text" id="in"> <br>\n' +
                     '<label for="amount">antall</label><input type="number" min="1" id="amount"> <br>\n' +
@@ -53,38 +60,137 @@
             let x = document.getElementById("in").value;
             let y = document.getElementById("amount").value;
             let out = "";
-            for (let i = 0; i < y; i++){
-                out += x +"  \n";
+            for (let i = 0; i < y; i++) {
+                out += x + "  \n";
             }
             document.getElementById("out").innerText = out;
         }
+
+
+        // oppgve 5.5
         function f5_5() {
-            clearALL();for(i = 0; i<=100;i++) document.getElementById("out").innerHTML += i+" * "+i+" = "+Math.pow(i,2)+"<br>";
+            clearALL();
+            for (i = 0; i <= 100; i++) document.getElementById("out").innerHTML += i + " * " + i + " = " + Math.pow(i, 2) + "<br>";
 
         }
-        function f5_6(z) {
-            if (z !== 1){
 
+
+        // oppgve 5.6
+        function f5_6(z) {
+            if (z !== 1) {
+                clearALL();
+                document.getElementById("oppgaverom").innerHTML = '<label for="n">Antall apekatter </label><input type="number" id="n">\n' +
+                    '    <button onclick="f5_6(1)">Skriv ut sangen</button>';
+                return 0;
             }
-            for(let i = document.getElementById("n").value; i > 0; i--){
-                document.getElementById("print").innerText += i + " little monkeys jumping on the bed\n" +
+            let out = "";
+            let antall = Number(document.getElementById("n").value);
+            for (let i = antall; i > 0; i--) {
+                out += i + " little monkeys jumping on the bed\n" +
                     "One fell off and bumped his head\n" +
                     "Mama called the Doctor and the Doctor said\n";
-                if(Number(i) === 1){
-                    document.getElementById("out").innerText += "'Put those monkeys straight to bed!' \n \n \n";
-                }else{
-                    document.getElementById("out").innerText += "'No more monkeys jumping on the bed!' \n \n \n";
+                if (Number(i) === 1) {
+                    out += "'Put those monkeys straight to bed!' \n \n \n";
+                } else {
+                    out += "'No more monkeys jumping on the bed!' \n \n \n";
                 }
             }
-            
+            document.getElementById("out").innerText = out;
         }
+
+
+        // oppgve 5.7
+        function f5_7(z) {
+            if (z !== 1) {
+                clearALL();
+                document.getElementById("oppgaverom").innerHTML = '<input type="number" id="beløp" placeholder="Pengebeløp"> kr<br>\n' +
+                    '        <input type="number" id="aar" placeholder="Antall år"><br>\n' +
+                    '        <input type="text" id="rente" placeholder="Rente i decimaltall"><br>\n' +
+                    '        <input type="button" onclick="f5_7(1)" value="beregn">';
+                return 0;
+            }
+            // jeg valgte å løse oppgave n med en forloop siden det virka siom om dette var en gjennomgående tema. kan lettere løses med matte
+            let penger = Number(document.getElementById("beløp").value);
+            let antall = Number(document.getElementById("aar").value);
+            let rente = Number(document.getElementById("rente").value);
+            for(i=0 ; i < antall; i++){
+                penger*= rente;
+            }
+            document.getElementById("out").innerText = "Etter "+antall+" år har du "+ penger + " kr ved "+ rente + " rente";
+        }
+
+
+        // oppgave 5.8
+        function f5_8() {
+            clearALL();
+            let a = "";
+            let b = "";
+            let li = [1,2,3,4,5];
+            for ( i in li){
+                for (j in li){
+                    a += li[i].toString() + li[j].toString() + "\n";
+                }
+            }
+            for ( i in li){
+                for (j in li){
+                    for (k in li){
+                        b += li[i].toString() + li[j].toString() + li[k].toString()+ "\n";
+                    }
+                }
+            }
+            document.getElementById("out").innerText = "a)\n" + a + " \n \nb)\n" + b;
+        }
+
+        //oppgave 5.9
+        function f5_9(z){
+            if (z !== 1) {
+                clearALL();
+                document.getElementById("oppgaverom").innerHTML = 'Velg hvilke bilder mellom 1 og 10 som skal vises <br> <input type="number" placeholder="start" id="start" min="1" max="10"> <input type="number" placeholder="slutt" id="slutt" min="1" max="10"><input type="button" value="kjør" onclick="f5_9(1)">';
+                return 0;
+            }
+            let out = "";
+            let start = Number(document.getElementById("start").value);
+            let stop = Number(document.getElementById("slutt").value);
+            for (i = start; i <=stop; i++){
+                out += '<img src="testbilder/bilde'+ i +'.jpg">';
+            }
+            document.getElementById("out").innerHTML = out;
+        }
+
+        //oppgave 5.10
+        function f5_10() {
+            clearALL();
+            let out = "<table>";
+
+            for(i = 0; i< 4; i++){
+                out+= "<tr>";
+                for (j = 0; j < 4 ; j++){
+                    out += "<td><img src='http://pacbannerworks.com/wp-content/uploads/2015/01/circle.jpg' alt=''></td>"
+                }
+
+                out+="</tr>";
+            }
+            out += "</table>";
+
+            document.getElementById("out").innerHTML = out;
+        }
+
     </script>
-    <title>kap 5 oppgaver</title>
+    <title>kap 5 oppgaver Bjørn-Tore Semb 3stb</title>
 </head>
 <body>
 <div id="wrapper">
-    <button onclick="f5_3()">oppgave 5.3</button><button onclick="f5_4()">oppgave 5.4</button><button onclick="f5_5()">oppgave 5.5</button>
-    <p id="oppgaverom"></p>
+    <button onclick="f5_3()">oppgave 5.3</button>
+    <button onclick="f5_4()">oppgave 5.4</button>
+    <button onclick="f5_5()">oppgave 5.5</button>
+    <button onclick="f5_6()">oppgave 5.6</button>
+    <button onclick="f5_7()">oppgave 5.7</button>
+    <button onclick="f5_8()">oppgave 5.8</button>
+    <button onclick="f5_9()">oppgave 5.9</button>
+    <button onclick="f5_10()">oppgave 5.10</button>
+    <div id="oppgaverom">
+
+    </div>
     <p id="out">
 
     </p>
