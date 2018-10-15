@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css.css">
+    <meta charset="UTF-8">
+    <title>5.7</title>
+    <script>
+        function f() {
+            let penger = Number(document.getElementById("beløp").value);
+            let antall = Number(document.getElementById("aar").value);
+            let rente = Number(document.getElementById("rente").value);
+            for(let i=0 ; i < antall; i++){
+                penger*= rente;
+            }
+            document.getElementById("out").innerText = "Etter "+antall+" år har du "+ penger + " kr ved "+ rente + " rente";
+        }
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <input type="number" id="beløp" placeholder="Pengebeløp"> kr<br>
+    <input type="number" id="aar" placeholder="Antall år"><br>
+    <input type="text" id="rente" placeholder="Rente i decimaltall"><br>
+    <input type="button" onclick="f()" value="beregn">
+    <p id="out"></p>
+</div>
+</body>
+</html>

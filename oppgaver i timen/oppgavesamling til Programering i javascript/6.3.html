@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css.css">
+    <meta charset="UTF-8">
+    <title>6.3</title>
+    <script>
+        function f() {
+              let out ="a) "+ tall + " \n";
+            out += "b) ";
+            for(i in tall){
+                out += tall[tall.length-i-1]+ ", ";
+            }
+            out += "\nc)";
+            for(let i=0; i < tall.length; i+=2) {
+                out += tall[i] + ", ";
+            }
+            out += "\nd)";
+            for(i in tall){
+                if (tall[i] < 10) out += tall[i] + ", ";
+            }
+            out += "\ne)";
+            for(i in tall){
+                if (i % 2 === 0) out += tall[i] + ", ";
+            }
+
+            document.getElementById("out").innerText = out;
+
+        }
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <h1>6.3</h1>
+    <input type="button" onclick="f()" value="utfør oppgaven">
+    <p id="out"></p>
+</div>
+</body>
+</html>

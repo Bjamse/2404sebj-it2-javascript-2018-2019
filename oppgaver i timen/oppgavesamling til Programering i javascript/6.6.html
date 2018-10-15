@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css.css">
+    <meta charset="UTF-8">
+    <title>6.6</title>
+    <style>
+
+    </style>
+    <script>
+        function f() {
+            let out = "";
+            let alpha = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+            for(const i in alpha){
+                out += (Number(i)+1) + ": ";
+                for(let j =0; j < Number(i)+1; j++){out += alpha[i];}
+                out += " \n";
+            }
+            document.getElementById("out").innerText+= out;
+        }
+    </script>
+</head>
+<body>
+<div id="wrapper">
+<input type="button" onclick="f()" value="utfør oppgaven">
+<div id="out" style="width: 100%;">
+
+</div>
+</div>
+</body>
+</html>

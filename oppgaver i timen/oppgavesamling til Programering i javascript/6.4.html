@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css.css">
+    <meta charset="UTF-8">
+    <title>6.4</title>
+    <script>
+        function add(a, b) {
+            return a + b;
+        }
+        function f() {
+            let temptall = 0;
+            const tall = [34,53,2,3,24,26,85,3,4,98,2,12];
+            let out =" a)" + tall.reduce(add, 0)+"\nb)";
+
+            for(i in tall)if(tall[i] < 0)out += tall[i] + ", ";
+
+            out += "\nc)" + (tall.reduce(add, 0)/tall.length)+ " \nd)" + tall.reduce((a, b) => Math.min(a, b))+"\nc) ";
+
+            for(i in tall)if (tall[i] %2 ===0)temptall += tall[i];
+
+            out += temptall;
+
+            document.getElementById("out").innerText = out;
+
+        }
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <input type="button" onclick="f()" value="utfør oppgaven">
+    <p id="out"></p>
+</div>
+</body>
+</html>
