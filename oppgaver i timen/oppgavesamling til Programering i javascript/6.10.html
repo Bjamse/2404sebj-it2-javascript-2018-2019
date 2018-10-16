@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css.css">
+    <meta charset="UTF-8">
+    <title>6.10</title>
+    <script>
+        const navn = ["Hans", "Ole", "Nils", "Olav", "Per", "Knut", "Kari", "Line", "Pia"];
+
+        function isInArray(x,y) {
+            for(i in y)if (x === y[i]) return true;
+            return false
+        }
+
+        function f() {
+            let utvalg = [], i = 0, temp = "";
+            while (i < 3) {
+
+                temp = navn[Math.floor(Math.random() * navn.length)];
+
+                if (!isInArray(temp,utvalg)) {
+                    utvalg.push(temp);
+                    i++;
+                }
+                document.getElementById("out").innerText = "orginal array : " + navn + " \n\n utvalg : " + utvalg;
+            }
+        }
+
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <input type="button" value="gjør oppgava" onclick="f()">
+    <div id="out">
+
+    </div>
+</div>
+</body>
+</html>

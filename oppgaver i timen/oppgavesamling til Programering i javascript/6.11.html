@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css.css">
+    <meta charset="UTF-8">
+    <title>6.11</title>
+    <script>
+        function isInArray(element,arr) {
+            for(let part in arr)if (element === arr[part]) return true;
+            return false
+        }
+
+        const ord = ["J","a","v","a","s","c","r","i","p","t"];
+
+        function f() {
+            let bokstav = document.getElementById("in").value;
+            if(isInArray(bokstav, ord)){
+                alert(bokstav+" er i ordet!");
+            }
+            else{
+                alert(bokstav+" er ikke i ordet!");
+            }
+
+        }
+
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <label for="in">Skriv inn en bokstav og test </label><input type="text" id="in">
+    <input type="button" value="test" onclick="f()">
+</div>
+</body>
+</html>

@@ -1,10 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="css.css">
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>6.7</title>
+
+    <script>
+
+        function f() {
+            // lista med det som skal telles
+            const tall = [34, 53, 2, 3, 34, 26, 26, 85, 3, 4, 98, 2, 12, 34, 53, 2, 3, 24, 26, 85, 3, 4, 98, 2, 12, 4, 5, 2, 3, 4, 6, 1, 2, 0, 9, 7, 6, 8, 5, 6, 4, 2, 3, 4, 7, 3];
+            // lager en liste for ting som dukker opp flere ganger, her vil index 1 inneholde hvilke plasser index 1 dukker opp i i lista tall
+            let forekommer = {};
+
+            // legger til indexen y til x på plassen x i forekommer lista
+            for (i in tall) {
+                if (forekommer[tall[i]]) {
+                    forekommer[tall[i]].push(i);
+                }
+                else {
+                    forekommer[tall[i]] = [i];
+                }
+            }
+
+            // variabel for det som skal skrives til skjermen
+            let out = "tall lista inneholder :" + tall + "\n\n";
+
+            //legger til otput for hvert av tallene i lista hvis de har dukket opp mer en en gang og hvor det var
+            for (i in forekommer) {
+                if(forekommer[i].length > 1){
+                    out += i + " finnes ved disse indexene : " + forekommer[i] + "\n ";
+                }
+            }
+            //skriver ut til skjermen
+            document.getElementById("out").innerText = out + "\n\n\n";
+        }
+
+    </script>
 </head>
 <body>
-
+<div id="wrapper">
+    <input type="button" onclick="f()" value="utfør oppgaven">
+    <div id="out"></div>
+</div>
 </body>
 </html>
