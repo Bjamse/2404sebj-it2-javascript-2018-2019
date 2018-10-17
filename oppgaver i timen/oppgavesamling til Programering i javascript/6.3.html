@@ -5,12 +5,11 @@
     <meta charset="UTF-8">
     <title>6.3</title>
     <script>
+        const tall = [34,53,2,3,34,26,26,85,3,4,98,2,12];
         function f() {
               let out ="a) "+ tall + " \n";
-            out += "b) ";
-            for(i in tall){
-                out += tall[tall.length-i-1]+ ", ";
-            }
+            out += "b) "+ tall.reverse().join("")+ ", ";
+
             out += "\nc)";
             for(let i=0; i < tall.length; i+=2) {
                 out += tall[i] + ", ";
