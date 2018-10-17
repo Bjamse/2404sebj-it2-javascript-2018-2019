@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css.css">
+    <meta charset="UTF-8">
+    <title>6.12</title>
+    <script>
+        const ord = ["J","a","v","a","s","c","r","i","p","t"];
+        var riktig = [], feil = [];
+
+
+
+        function isInArray(element,arr) {
+            for(part in arr)if (element === arr[part]) return true;
+            return false
+        }
+
+        function f() {
+            // hvis brukeren har skrevet for mange feil vil nettsia si ifra.
+            if (feil.length > 4) return alert("Du har gjort for mange feil!");
+
+            let out ="";
+            let bokstav = document.getElementById("in").value;
+
+            // hvis brukeren har gjetta bokstaven tidligere vil nettsia si ifra
+            if(isInArray(bokstav,riktig) || isInArray(bokstav,feil))return alert("dun har allerede gjetta '"+bokstav+"'!");
+
+            //legger til bokstaven i riktig eller galt array
+            if(isInArray(bokstav, ord)){
+                riktig.push(bokstav);
+            }else{
+                feil.push(bokstav);
+            }
+
+            //lager en fin output som skrives til skjermen
+            for(i in ord){
+                if(isInArray(ord[i],riktig)) out += ord[i]+" ";
+                else out += "_ ";
+            }
+
+            // skriver ut riktig og feil til skjermen
+            document.getElementById("riktig").innerText = out;
+            document.getElementById("feil").innerText = feil+"";
+
+        }
+
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <h1>Hangman!</h1>
+    <hr>
+    <p>
+        Dette er en enkel utgave av hangman. <br>
+        Du kan gjøre optil 5 feil. <br>
+        Lykke til!
+    </p>
+
+    <label for="in">Skriv inn <b><u>en</u></b> bokstav og test </label>
+    <input type="text" id="in">
+
+    <input type="button" value="test" onclick="f()">
+
+
+    <div id="out">
+        Riktige gjetta bokstaver : <span id="riktig"></span><br>
+        Ikke riktige bokstaver: <span id="feil"></span>
+    </div>
+</div>
+</body>
+</html>

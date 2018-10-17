@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css.css">
+    <meta charset="UTF-8">
+    <title>6.9</title>
+    <script>
+        const tall = [4, 5, 2, 3, 4, 6, 1, 2, 0, 9, 7, 6, 8, 5, 6, 4, 2, 3, 4, 7, 2];
+
+        function f() {
+            document.getElementById("out").innerText = document.getElementById("inp").value in tall
+        }
+
+        // bare en ekstra knapp for å kunne vise lista uten å se på kildekoden
+        function g() {
+            document.getElementById("lista").innerText = tall+"";
+            if(document.getElementById('juks!').style.display === 'block')document.getElementById('juks!').style.display = 'none';
+            else document.getElementById('juks!').style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <code>Test om et tall er i det hemmelige arrayet</code><br>
+    <input type="number" placeholder="er tallet i det hemmelige arrayet?" id="inp">
+    <input type="button" value="test" onclick="f()">
+    <input type="button" value="se arrayet(juks!)" style="float: right" onclick="g()">
+
+    <div id="out"></div>
+
+    <!--Linja under er bare for morroskyld, den viser arrayet om du ikkke vil gjette deg frem til det.
+     altså juks...
+     -->
+    <div id="juks!" style="background-color: gray; border-radius: 4px; display: none;"><code><span style="color: orange">const</span> <span style="color: deepskyblue">tall</span> = [<span id="lista"></span>]<span style="color: orange">;</span></code></div>
+</div>
+</body>
+</html>

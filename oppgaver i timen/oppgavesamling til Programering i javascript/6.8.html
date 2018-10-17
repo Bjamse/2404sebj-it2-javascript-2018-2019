@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css.css">
+    <meta charset="UTF-8">
+    <title>6.8</title>
+    <script>
+        function f() {
+            /*
+            oppgaven ble løst på en linje i onclick eventen, men her er et lengere eksempel hvis du vil se hva som egentlig skjer
+
+            const months = [31,28,31,30,31,30,31,31,30,31,30,31];
+
+            let num = document.getElementById.value;
+            let antallDager = months[(num-1)];
+
+            legg til %12 etter (num-1) hvis du vil at brukeren sakl kunne taste inn måneder over eller under et år
+
+            document.getElementById('out').innerHTML = antallDager;
+
+             */
+        }
+
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <p>hvor mange dager er det i måned x (der x er nummeret til måneden)</p>
+    <input type="number" id="måned" placeholder="skriv inn tallet til en måned">
+    <input type="button" value="få antal dager" onclick="document.getElementById('out').innerHTML= [31,28,31,30,31,30,31,31,30,31,30,31][(document.getElementById('måned').value-1)%12]+''">
+    <div id="out"></div>
+</div>
+</body>
+</html>
