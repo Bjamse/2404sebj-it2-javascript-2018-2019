@@ -11,7 +11,7 @@
             let tall = [4, 5, 2, 3, 4, 6, 1, 2, 0, 9, 7, 6, 8, 5, 6, 4, 2, 3, 4, 7, 3];
             let forekomst = {0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0};
             for (i in tall) {
-                forekomst[tall[i]] += 1;
+                forekomst[tall[i]]++;
             }
             for (i in forekomst) {
                 let p = document.createElement("p");

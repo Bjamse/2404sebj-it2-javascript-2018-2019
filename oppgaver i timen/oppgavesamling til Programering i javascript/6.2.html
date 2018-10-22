@@ -5,17 +5,26 @@
     <meta charset="UTF-8">
     <title>6.2</title>
     <script>
+        var opptelling = [];
+        for(i = 0; i<1000; i++){
+            opptelling[Math.floor(Math.random() * 2)]++
+        }
         function f() {
-
-
-            document.getElementById("out").innerText = out;
+            let p = document.createElement("p");
+            p.innerHTML = i + " : ";
+    
+            let span = document.createElement("span");
+    
+            span.className= "bar";
+            span.style.width = opptelling[i]+ "%";
+            p.appendChild(span);
+            document.getElementById("out").appendChild(p);
 
         }
     </script>
 </head>
 <body>
 <div id="wrapper">
-    <h1>6.3</h1>
     <input type="button" onclick="f()" value="utfør oppgaven">
     <p id="out"></p>
 </div>
