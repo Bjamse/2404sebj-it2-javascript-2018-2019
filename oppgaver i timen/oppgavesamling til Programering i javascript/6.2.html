@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <title>6.2</title>
     <script>
-        var opptelling = [];
+        var opptelling = [0,0];
         for(i = 0; i<1000; i++){
             opptelling[Math.floor(Math.random() * 2)]++
         }
         function f() {
             let p = document.createElement("p");
             p.innerHTML = i + " : ";
-    
+
             let span = document.createElement("span");
     
             span.className= "bar";
