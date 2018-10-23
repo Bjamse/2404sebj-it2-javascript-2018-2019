@@ -7,8 +7,8 @@
     <script>
         const navn = ["Hans", "Ole", "Nils", "Olav", "Per", "Knut", "Kari", "Line", "Pia"];
 
-        function isInArray(x,y) {
-            for(i in y)if (x === y[i]) return true;
+        function isInArray(element,arr) {
+            for(let x in arr)if (arr[x] === element  ) return true;
             return false
         }
 

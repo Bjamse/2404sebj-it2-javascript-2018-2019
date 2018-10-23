@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Oppgave 6.9</title>
+</head>
+<script>
+    const tall = [4, 5, 2, 3, 4, 6, 1, 2, 21, 9, 7, 6, 8, 5, 6, 4, 2, 3, 4, 7, 2];
+
+    function f() {
+        let input = Number(document.getElementById("input").value);
+        let out = "";
+        for(i in tall){
+            if(tall[i] === input){
+                out = "true";
+            }
+        }
+        if (out === "") out = "false";
+        document.getElementById("utskrift").innerHTML = out;
+    }
+</script>
+<body>
+<p>Test om et tall er i det hemmelige arrayet</p><br>
+<input type="number" placeholder="er tallet i det hemmelige arrayet?" id="input">
+<input type="button" value="test" onclick="f()">
+<div id="utskrift"></div>
+</body>
+</html>
