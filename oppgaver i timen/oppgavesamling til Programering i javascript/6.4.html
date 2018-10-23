@@ -13,9 +13,11 @@
             const tall = [34,53,2,3,24,26,85,3,4,98,2,12];
             let out =" a)" + tall.reduce(add, 0)+"\nb)";
 
-            for(i in tall)if(tall[i] < 0)out += tall[i] + ", ";
+            for(i in tall)if(tall[i] < 0)temptall++;
 
-            out += "\nc)" + (tall.reduce(add, 0)/tall.length)+ " \nd)" + tall.reduce((a, b) => Math.min(a, b))+"\nc) ";
+            out += temptall + "\nc)" + (tall.reduce(add, 0)/tall.length)+ " \nd)" + tall.reduce((a, b) => Math.min(a, b))+"\nc) ";
+
+            temptall = 0;
 
             for(i in tall)if (tall[i] %2 ===0)temptall += tall[i];
 
