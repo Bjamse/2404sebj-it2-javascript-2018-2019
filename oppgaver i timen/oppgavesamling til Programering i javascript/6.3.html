@@ -8,17 +8,17 @@
         const tall = [34,53,2,3,34,26,26,85,3,4,98,2,12];
         function f() {
               let out ="a) "+ tall + " \n";
-            out += "b) "+ tall.reverse().join("")+ ", ";
+            out += "b) "+ tall.reverse().join(",")  ;
 
-            out += "\nc)";
+            out += "\nc) ";
             for(let i=0; i < tall.length; i+=2) {
                 out += tall[i] + ", ";
             }
-            out += "\nd)";
+            out += "\nd) ";
             for(i in tall){
                 if (tall[i] < 10) out += tall[i] + ", ";
             }
-            out += "\ne)";
+            out += "\ne) ";
             for(i in tall){
                 if (i % 2 === 0) out += tall[i] + ", ";
             }
@@ -30,7 +30,6 @@
 </head>
 <body>
 <div id="wrapper">
-    <h1>6.3</h1>
     <input type="button" onclick="f()" value="utfør oppgaven">
     <p id="out"></p>
 </div>
