@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css.css">
+    <meta charset="UTF-8">
+    <title>7.7</title>
+    <script>
+        const alpha = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","æ","ø","å"];
+
+        function getLetter() {
+            return alpha[Math.floor(Math.random() * alpha.length)]
+        }
+        function makeWord(numLetters) {
+            let out = "";
+            for(let i = 0; i < numLetters; i++) out += getLetter();
+            return out;
+        }
+
+        // ikke spør meg hvorfor random må se så rart ut. det bare ville ikke hvis ikke....
+        // men nå funker alt så da lar vi det være!
+        // kan hende det hadde noe med datatypene fra input taggene å gjøre. vet ikkke helt :P.
+        function makeSentence(numWords,minLetters,maxLetters) {
+            let out = "";
+            for(let j = 0; j < numWords; j++)out +=" "+makeWord(Number( Math.floor(Math.random() * (maxLetters-minLetters+1) )+ minLetters));
+            return out + ".";
+        }
+
+        function f() {
+            let ord = Number(document.getElementById("ord").value);
+            let minOrd = Number(document.getElementById("min").value);
+            let maxOrd = Number(document.getElementById("max").value);
+            document.getElementById("out").innerText = makeSentence(ord,minOrd,maxOrd);
+        }
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    Antall ord: <input type="number" id="ord" value="12"><br>
+    Minimum lengde ord: <input type="number" id="min" value="2"><br>
+    Maximum lengde ord: <input type="number" id="max" value="6"><br>
+    <input type="button" onclick="f()" value="lag settning?">
+    <p id="out"></p>
+
+</div>
+</body>
+</html>

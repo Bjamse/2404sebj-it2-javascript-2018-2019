@@ -2,27 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Oppgave 6.9</title>
+    <title>Title</title>
 </head>
 <script>
-    const tall = [4, 5, 2, 3, 4, 6, 1, 2, 21, 9, 7, 6, 8, 5, 6, 4, 2, 3, 4, 7, 2];
-
+    var arr = ["Hans","Ole","Nils","Olav","Per","Knut","Kari","Line","Pia"];
+    var ny = [];
     function f() {
-        let input = Number(document.getElementById("input").value);
-        let out = "";
-        for(i in tall){
-            if(tall[i] === input){
-                out = "true";
-            }
+        for (i=0; i<=3; i++) {
+            ny.push(arr)
         }
-        if (out === "") out = "false";
-        document.getElementById("utskrift").innerHTML = out;
+        document.getElementById("utskrift").innerHTML = "Her er noen randomme navn " + ny;
     }
+
 </script>
 <body>
-<p>Test om et tall er i det hemmelige arrayet</p><br>
-<input type="number" placeholder="er tallet i det hemmelige arrayet?" id="input">
-<input type="button" value="test" onclick="f()">
-<div id="utskrift"></div>
+<input type="button" onclick="f()" value="Random navn">
+<p id="utskrift"></p>
 </body>
 </html>

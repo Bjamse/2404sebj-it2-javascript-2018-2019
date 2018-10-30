@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css.css">
+    <meta charset="UTF-8">
+    <title>7.2</title>
+    <script>
+        // VIKTIG!
+        // funkjoner jeg skref fordi jeg er lat
+        // ved å bruke getValID(<id>) så er det det samme som document.getElementByID(<id>).value
+        // ved å bruke printToID(<id>,<value>) så er det det samme som document.getElementByID(<id>).innerHTML = <value>
+        function getValID(id){
+            return document.getElementById(id).value;
+        }
+        function printToID(id, value){
+            document.getElementById(id).innerHTML = value + "";
+        }
+
+
+
+        // --------------------------------
+        //funksjonene oppgava faktisk spurete om...
+        function fraTommerTilCm(tommer) {
+            return tommer * 2.54;
+        }
+
+        function innenforIntervall(tall, fra, til) {
+            if (fra > til)return "error, 'fra' verdi mer enn 'til' verdi";
+            return fra<= tall && tall <= til
+        }
+
+        function gjennomsnitt(tall1,tall2) {
+            return (tall1+tall2)/2
+        }
+        function erPartall(tall) {
+            return tall % 2 === 0
+        }
+        function absoluttverdi(tall) {
+            if (tall < 0) return tall * -1;
+            return tall
+        }
+        function tilfeldigTallFraNullTilHundre() {
+            return Math.floor(Math.random() * 100);
+        }
+        function tilfeldigTall(fra, til) {
+            fra = Number(fra);
+            til = Number(til);
+            if (fra > til) return "error, 'fra' verdi mer enn 'til' verdi";
+            return Number( Math.floor(Math.random() * (til-fra+1) )+ fra)
+        }
+
+        //-------------------------------------
+        // et mellomledd mellom gui-en (det grafiske bruker grensesnittet/sia du faktisk ser)
+        // og  det som skjer i javascriptet, har fått litt peper for at jeg skriver
+        // kompakt kode så her er det blåst skikkelig opp!
+        // bare hyggelig.
+        //
+        // NB! getValID() og printToID er egene funksjoner som jeg har skrevet, se toppen av dokumentet for mer info.
+
+        function a() {
+            let antallTommer = getValID("tommer");
+            let centimeter = fraTommerTilCm(antallTommer);
+            printToID("tommer-out",centimeter)
+        }
+
+        function b() {
+            let tall = getValID("intervall-tall");
+            let fra = getValID("intervall-fra");
+            let til = getValID("intervall-til");
+            let resultat = innenforIntervall(tall, fra, til);
+            printToID("intervall-out", resultat);
+        }
+
+        function c() {
+            let f0rsteTall = getValID("gjen-1");
+            let andretall = getValID("gjen-2");
+            let res = gjennomsnitt(f0rsteTall,andretall);
+            printToID("gjen-out",res);
+        }
+
+        function d(){
+            let tall = getValID("partall");
+            let resultalt = erPartall(tall);
+            printToID("partall-out", resultalt);
+        }
+
+        function e(){
+            let tall = getValID("absol");
+            let res = absoluttverdi(tall);
+            printToID("absol-out", res);
+        }
+
+
+        function f() {
+            let tilfeldiTall = tilfeldigTallFraNullTilHundre();
+            printToID("tilfeldi-tall", tilfeldiTall);
+        }
+
+        function g() {
+            let x = getValID("t1");
+            let y = getValID("t2");
+            let randomTall = tilfeldigTall(x, y);
+            printToID("t-out", randomTall)
+        }
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <p>Dette er oppgave 7.2 <br>
+    Jeg har fått litt pepper for å skirve kompakt kode så dene fila er skikkelig lang med en del kommentarer...<br>
+    Bare hyggelig! <br> <sub>bare ikke tro det kommer til å bli en vane... kan hende jeg gjør det igjen hvis noen spør...</sub></p>
+    <hr>
+    <!-- oppgave a)-->
+    <input type="button" value="a) fra tommer til cm" onclick="a()"><br>
+    antall tommer: <input type="number" id="tommer" value="5"><br>
+    <p>centimeter :<span id="tommer-out"></span></p><br>
+
+    <!-- oppgave b)-->
+    <input type="button" value="b) innenfor intervall" onclick="b()"><br>
+    tall: <input type="number" id="intervall-tall" value="3"><br>
+    fra: <input type="number" id="intervall-fra" value="2"><br>
+    til: <input type="number" id="intervall-til" value="5"><br>
+    <p>er i intervall:<span id="intervall-out"></span></p><br>
+
+    <!-- oppgave c)-->
+    <input type="button" value="c) gjennomsnitt" onclick="c()"><br>
+    første tall: <input type="number" id="gjen-1" value="2"><br>
+    andre tall: <input type="number" id="gjen-2" value="5"><br>
+    <p>gjennomsnitt:<span id="gjen-out"></span></p><br>
+
+    <!-- oppgave d)-->
+    <input type="button" value="d) x er partall?" onclick="d()"><br>
+    tall: <input type="number" id="partall" value="2"><br>
+    <p> er partall :<span id="partall-out"></span></p><br>
+
+    <!-- oppgave e)-->
+    <input type="button" value="e) absoluttverdi" onclick="e()"><br><br>
+    tall: <input type="number" id="absol" value="-2"><br>
+    <p> absoluttverdi :<span id="absol-out"></span></p><br>
+
+    <!-- oppgave f)-->
+    <input type="button" value="f) tilfeldig tall fra null til hundre" onclick="f()"><br>
+    <p> et tilfeldi tall:<span id="tilfeldi-tall"></span></p><br>
+
+    <!-- oppgave g)-->
+    <input type="button" value="g) tilfeldig tall fra x og til y" onclick="g()"><br>
+    x: <input type="number" id="t1" value="2"><br>
+    y: <input type="number" id="t2" value="5"><br>
+    <p> tilfeldi tall mellom x og y :<span id="t-out"></span></p><br>
+
+</div>
+</body>
+</html>

@@ -5,21 +5,18 @@
     <meta charset="UTF-8">
     <title>6.4</title>
     <script>
-        function add(a, b) {
-            return a + b;
-        }
         function f() {
             let temptall = 0;
             const tall = [34,53,2,3,24,26,85,3,4,98,2,12];
-            let out =" a)" + tall.reduce(add, 0)+"\nb)";
+            let out =" a)" + tall.reduce((a,b) => a+b, 0)+"\nb)";
 
-            for(i in tall)if(tall[i] < 0)temptall++;
+            for(let i in tall)if(tall[i] < 0)temptall++;
 
-            out += temptall + "\nc)" + (tall.reduce(add, 0)/tall.length)+ " \nd)" + tall.reduce((a, b) => Math.min(a, b))+"\nc) ";
+            out += temptall + "\nc)" + (tall.reduce((a,b) => a+b, 0)/tall.length)+ " \nd)" + tall.reduce((a, b) => Math.min(a, b))+"\nc) ";
 
             temptall = 0;
 
-            for(i in tall)if (tall[i] %2 ===0)temptall += tall[i];
+            for(let i in tall)if (tall[i] %2 ===0)temptall += tall[i];
 
             out += temptall;
 
