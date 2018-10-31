@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, th, td {
+    border: 1px solid black;
+}
+</style>
+
+<script>
+	window.onload = oppstart;
+	function oppstart() {
+        gangUt();
+		//document.getElementById("demo").innerHTML = tall1;
+	}
+
+	function gangUt() {
+		var antTall = 3
+		var tall1 = [];
+		for (i=0;i<antTall;i++){tall1.push(i+1)};
+		
+        var streng = "";
+		streng +="<table>";
+		for (j=0;j<tall1.length;j++){
+			streng +="<tr>";
+			for (i=0;i<tall1.length;i++){
+				streng += "<th>";
+				streng +=tall1[i]*tall1[j]+"</th>";
+			}
+			streng +="</tr>";
+		}
+		streng +="</table>";
+		document.getElementById("utskrift").innerHTML += streng;
+		streng="";
+	}
+</script>
+
+</head>
+<body>
+<table>
+    <tr>
+        <td>1</td><td>2</td><td>3</td>
+    </tr>
+    <tr>
+        <td>2</td><td>4</td><td>6</td>
+    </tr>
+    <tr>
+        <td>3</td><td>6</td><td>9</td>
+    </tr>
+</table>
+<p id="utskrift"></p>
+</body>
+</html>

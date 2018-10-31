@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Testside</title>
+<script>
+	
+	window.onload = oppstart;
+
+	function oppstart() {
+		var ctx = document.getElementById("myCanvas").getContext("2d");
+		
+	
+		
+		/*ctx.beginPath();
+		ctx.moveTo(50,0);
+		ctx.lineTo(150,75);
+		ctx.lineTo(50,75);
+		ctx.lineTo(50,100);
+		ctx.stroke();*/
+		
+		//Tegne firkant
+		ctx.beginPath();
+		ctx.rect(100,200,300,100);
+		ctx.fillStyle="blue";
+		ctx.fill();
+		ctx.lineWidth=2;
+		ctx.strokeStyle="black";
+		ctx.stroke();
+		
+		
+		//tegne tak (trekant)
+		ctx.beginPath();
+		ctx.moveTo(100,200);
+		ctx.lineTo(250,100);
+		ctx.lineTo(400,200);
+		ctx.lineTo(100,200);
+		ctx.fillStyle="green";
+		ctx.stroke();
+		ctx.fill();
+		
+		
+
+		//tegne vindu og dør
+		ctx.beginPath();
+		ctx.rect(150,220,50,50);
+		ctx.rect(300,220,50,80);
+		ctx.fillStyle="white";
+		ctx.fill();
+		ctx.stroke();
+
+
+		//tegne sprosser i vindu
+		ctx.beginPath();
+		ctx.moveTo(175,220);
+		ctx.lineTo(175,270);
+		ctx.moveTo(150,245);
+		ctx.lineTo(200,245);
+		ctx.stroke();
+		
+	}
+	
+
+	
+	
+
+
+	
+</script>
+<style>
+</style>
+</head>
+<body>
+<canvas id="myCanvas" width="600" height="600">
+</canvas>
+</body>
+</html>
+
+
+
+
