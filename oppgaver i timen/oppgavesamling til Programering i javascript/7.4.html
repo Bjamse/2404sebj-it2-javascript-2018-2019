@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css.css">
+    <meta charset="UTF-8">
+    <title>7.4</title>
+    <script>
+        const dagerPerM8ned = [31,27,31,30,31,30,31,31,30,31,30,31];
+        function godkjennDato(dd,mm,yyyy) {
+            if (yyyy > 2100 || yyyy < 0) return "ugyldig årstall";
+            if (mm > 12 || mm < 1) return "ugyldig måned";
+            if (dd > dagerPerM8ned[mm-1] || dd < 1) return "ugyldig dag";
+            return "gyldig dato";
+            // kan også returnere true hvis du bare bytter om til ture
+            // egentlig kan hele greie skrives som et boolean statement:
+            //
+            // return (yyyy > 2100 || yyyy < 0)&&(mm > 12 || mm < 1)&&(dd > dagerPerM8ned[mm-1] || dd < 1)
+            //
+            //da trenger du ikke de andre if statemenene over...
+        }
+
+        function f() {
+            let dag = document.getElementById("dag").value;
+            let m8ned = document.getElementById("m8ned").value;
+            let aar = document.getElementById("8r").value;
+            document.getElementById("out").innerText = godkjennDato(dag,m8ned,aar);
+        }
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <h1> Skjekk om datoen stemmer! <sub>oppgave 7.4</sub></h1>
+    <hr>
+    dag : <input type="number" id="dag">
+    måned: <input type="number" id="m8ned">
+    år : <input type="number" id="8r">
+    <input type="button" onclick="f()" value="test">
+    <p id="out"></p>
+    <sub><code>se kildekode for kommentarer</code></sub>
+</div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    var arr = ["Hans","Ole","Nils","Olav","Per","Knut","Kari","Line","Pia"];
+    var ny = [];
+    function f() {
+        for (i=0; i<=3; i++) {
+            ny.push(arr)
+        }
+        document.getElementById("utskrift").innerHTML = "Her er noen randomme navn " + ny;
+    }
+
+</script>
+<body>
+<input type="button" onclick="f()" value="Random navn">
+<p id="utskrift"></p>
+</body>
+</html>

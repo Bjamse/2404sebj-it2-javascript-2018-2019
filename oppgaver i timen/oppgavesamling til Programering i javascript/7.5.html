@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css.css">
+    <meta charset="UTF-8">
+    <title>7.5</title>
+    <script>
+        const liste = [4, 5, 2, 3, 4, 6, -1, 2, 0, -9, 7, 6, 8, 5, 6, 4, 2, 3, 4, -7, 3,4, 5, -2, 3,-4, 6, 1, 2, 0, 9, 7, 6, 8, 5, 6, 4, 2, 3, 4, 7, 3];
+
+        function sumArray(arr) {
+            return arr.reduce((a,b) => a+b, 0)
+        }
+        function snittArray(arr) {
+            return arr.reduce((a,b) => a+b, 0)/arr.length
+        }
+        function maxArray(arr) {
+            return arr.reduce((a, b) => Math.max(a, b))
+        }
+        function numNegativeInArr(arr) {
+            let temptall =0;
+            for(let i in arr)if(arr[i] < 0)temptall++;
+            return temptall;
+        }
+        function isInArray(element,arr) {
+            for(let x in arr)if (arr[x] === element) return true;
+            return false
+        }
+        function snittArrayUtvalg(arr, start, stop) {
+            return snittArray(arr.slice(start, stop))
+        }
+
+
+        function f() {
+            let out = "a) Sum : " + sumArray(liste) + "\n";
+            out += "b) Gjennomsnitt : " + snittArray(liste) + "\n";
+            out += "c) Høyeste tall i lista : " + maxArray(liste) + "\n";
+            out += "d) Antall negative tall : " + numNegativeInArr(liste) + "\n";
+            out += "e) Er 3 i lista? : " + isInArray(3, liste) + "\n";
+            out += "f) Snittet av talla i lista mellom 3 og 10 : " + snittArrayUtvalg(liste, 3, 10) + "\n";
+
+            document.getElementById("out").innerText = out;
+            
+        }
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <!--syntax highlighting, bare for morro skyld-->
+    Dette er arrayet : <br><code style="background: #909090; border-radius: 3px;"><span style="color: orange">lista = </span><span style="color: aqua">[<span id="array"></span>]</span><span style="color: orange;">;</span></code>
+    <br>
+    <input type="button" value="utfør opppgavene" onclick="f()">
+    <p id="out"></p>
+</div>
+<!-- dette er bare for å printe lista i toppen av dokumentet-->
+<script> document.getElementById("array").innerHTML = liste +"";</script>
+</body>
+</html>
