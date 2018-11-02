@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css.css">
+    <meta charset="UTF-8">
+    <title>3a</title>
+    <script>
+
+
+        window.onload = oppstart;
+
+        function oppstart() {
+            document.getElementById("out").innerHTML = "<canvas id=\"myCanvas\" width=\"600\" height=\"600\" style=\"border: solid black 3px\"></canvas>\n";
+            let ctx = document.getElementById("myCanvas").getContext("2d");
+            let x = -100 ;
+            let y = -100 ;
+
+            /*ctx.beginPath();
+            ctx.moveTo(50,0);
+            ctx.lineTo(150,75);
+            ctx.lineTo(50,75);
+            ctx.lineTo(50,100);
+            ctx.stroke();*/
+
+            //Tegne firkant
+            ctx.beginPath();
+            ctx.rect(100+x,200+y,300,100);
+            ctx.fillStyle="red";
+            ctx.fill();
+            ctx.lineWidth=2;
+            ctx.strokeStyle="black";
+            ctx.stroke();
+
+
+            //tegne tak (trekant)
+            ctx.beginPath();
+            ctx.moveTo(100+x,200+y);
+            ctx.lineTo(250+x,100+y);
+            ctx.lineTo(400+x,200+y);
+            ctx.lineTo(100+x,200+y);
+            ctx.fillStyle="green";
+            ctx.stroke();
+            ctx.fill();
+
+
+
+            //tegne vindu og dør
+            ctx.beginPath();
+            ctx.rect(150+x,220+y,50,50);
+            ctx.rect(300+x,220+y,50,80);
+            ctx.fillStyle="white";
+            ctx.fill();
+            ctx.stroke();
+
+
+            //tegne sprosser i vindu
+            ctx.beginPath();
+            ctx.moveTo(175+x,220+y);
+            ctx.lineTo(175+x,270+y);
+            ctx.moveTo(150+x,245+y);
+            ctx.lineTo(200+x,245+y);
+            ctx.stroke();
+
+        }
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <div id="out">
+    </div>
+</div>
+</body>
+</html>

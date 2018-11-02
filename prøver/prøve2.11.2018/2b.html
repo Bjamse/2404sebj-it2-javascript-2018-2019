@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css.css">
+    <meta charset="UTF-8">
+    <title>2b</title>
+    <script>
+        function f() {
+            document.getElementById("out").innerHTML = "";
+            let tall = [];
+            for(i = 0; i < 100; i++) tall.push(Math.floor(Math.random() * 10))
+            let forekomst = {0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0};
+            for (i in tall) {
+                forekomst[tall[i]]++;
+            }
+            let ut= "opptelling : ";
+            for (i in forekomst) {
+                // arrayet mitt går fra null til ni så denne linja endrer bare sånn at det visuelt ser ut som 1 til 10
+                let x = Number(Number(i)+Number(1));
+                let p = document.createElement("p");
+                p.innerHTML = "Antall "+x+ "'ere : "+forekomst[i]+" ";
+
+                if (forekomst[i] < 10 && i < 9)p.innerHTML += "&nbsp;"; // bare for at ting skal ligge på linje
+
+                let span = document.createElement("span");
+
+
+                if(x % 2 === 0)span.style.backgroundColor = "green";
+                if(x % 3 === 0)span.style.backgroundColor = "yellow";
+                if(x % 5 === 0)span.style.backgroundColor = "blue";
+
+                span.className= "bar";
+                span.style.width = forekomst[i] * 15 + "px";
+                p.appendChild(span);
+                document.getElementById("out").appendChild(p);
+                ut += "{"+ x + " : " + forekomst[i]+ "} ";
+
+            }
+            document.getElementById("opptelling").innerText = ut;
+
+        }
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <p id="opptelling"></p>
+    <div id="out" style="width: 100%; font-family: Monospace;">
+
+    </div>
+</div>
+<script>f()</script>
+</body>
+</html>;

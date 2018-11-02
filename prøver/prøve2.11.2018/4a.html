@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css.css">
+    <meta charset="UTF-8">
+    <title>4a</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
+    <script>
+        function gangUt() {
+            let antTall = Number(document.getElementById("input").value);
+            let tall1 = [];
+            for (i=0;i<antTall;i++){tall1.push(i+1)};
+
+            let streng ="<table>";
+
+            for (j=0;j<tall1.length;j++){
+                streng +="<tr>";
+                for (i=0;i<tall1.length;i++){
+                    streng += "<th>";
+                    streng +=tall1[i]*tall1[j]+"</th>";
+                }
+                streng +="</tr>";
+            }
+            streng +="</table>";
+            document.getElementById("out").innerHTML = streng;
+        }
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <input type="number" id="input" value="16"> <input type="button" value="gangUt" onclick="gangUt()"> <br>
+    <p id="out"></p>
+</div>
+</body>
+</html>

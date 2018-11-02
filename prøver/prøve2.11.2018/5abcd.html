@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css.css">
+    <meta charset="UTF-8">
+    <title>5abcd</title>
+    <script>
+        const tall = [2,4,3,6,-3,7,-3,2,4,5,2,4,2,2,-2];
+
+        function sum(arr) {
+            return arr.reduce((a,b) => a+b, 0);
+        }
+        function gjennomsnitt(arr) {
+            return sum(arr)/arr.length
+        }
+        function maks(arr) {
+            return arr.reduce((a, b) => Math.max(a, b))
+        }
+        function antNeg(arr) {
+            let temptall =0;
+            for(let i in arr)if(arr[i] < 0)temptall++;
+            return temptall;
+        }
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <script>
+        document.write("Tall i strengen er: " + tall +"<br>");
+        document.write("sum: " + sum(tall) +"<br>");
+        document.write("gjennomsnitt: " + gjennomsnitt(tall) +"<br>");
+        document.write("maks: " + maks(tall) +"<br>");
+        document.write("antNeg: " + antNeg(tall) +"<br>");
+    </script>
+
+</div>
+</body>
+</html>
