@@ -16,7 +16,9 @@
             }
             for (i in forekomst) {
                 let p = document.createElement("p");
-                p.innerHTML = i + ": ";
+                if (i % 2 === 0 ){p.innerHTML = "kron"}
+                else {p.innerHTML = "mynt"}
+                p.innerHTML += " = " + forekomst[i] + ": ";
 
                 let span = document.createElement("span");
 

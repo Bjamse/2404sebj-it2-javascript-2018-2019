@@ -29,6 +29,10 @@
             return snittArray(arr.slice(start, stop))
         }
 
+        function list(names){
+            return (names.length > 2)? names[0][name] +", "+ list(names.slice(1)): names[0][name] +" & "+ names[1][name]
+        }
+
 
         function f() {
             let out = "a) Sum : " + sumArray(liste) + "\n";

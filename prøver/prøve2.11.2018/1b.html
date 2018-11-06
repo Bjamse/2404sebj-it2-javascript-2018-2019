@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css.css">
+    <meta charset="UTF-8">
+    <title>1b</title>
+    <script>
+        function f() {
+            let x = document.getElementById("input").value;
+            let out = x + " NOK gir " + ((1*x) /7.591).toFixed(2) + " Euro \n";
+            out += x + " NOK gir " + ((1*x) /8.963).toFixed(2) + " GBP \n";
+            out += x + " NOK gir " + ((1*x) /5.779).toFixed(2) + " USD \n";
+            out += x + " NOK gir " + ((1*x) * 1.1249859376757791).toFixed(2) + " SEK \n";
+
+            document.getElementById("out").innerText = out;
+
+        }
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    Nok <input type="number" id="input" value="160"> <input type="button" value="beregn" onclick="f()"> <br>
+    <p id="out"></p>
+
+
+    <sub><code>
+        NB! oppgava viser ingen desimaler, det gjør min men den er kuttet ned til kun to. var usikker på hvor mange du ville ha...
+        <br>
+        hvis du ikke vil ha noen kan du endre toFixed(2) => toFixed(0)
+    </code></sub>
+</div>
+</div>
+</body>
+</html>
