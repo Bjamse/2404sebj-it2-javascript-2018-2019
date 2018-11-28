@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css.css">
+    <meta charset="UTF-8">
+    <title>2.2</title>
+    <style>
+        #box {
+
+            position: absolute;
+            background-image: url("https://maxcdn.icons8.com/office/PNG/512/Data/dvd_logo-512.png");
+            width:  10px;
+            height: 10px;
+        }
+    </style>
+   <script>
+        window.onload = oppstart;
+        var boks;
+        var x = 50;
+        var y = 50;
+        var grader = 0;
+        var speedx = 1; var speedy= 2; var speedr = -0;
+        var border = 600;
+
+        function oppstart(){
+            boks = document.getElementById("box");
+            setInterval(flytt, 10);
+        }
+
+        function flytt(){
+
+            boks.style.top = y + "px";
+            boks.style.left = x + "px";
+            boks.style.transform = "rotate(" + grader+ "deg)";
+            x+=speedx;
+            y+=speedy;
+            grader+=speedr;
+            if ( x >=border+400 || x === 0) {speedx*=-1;speedr *=-1}
+            if ( y >=border|| y === 0) {speedy*=-1;speedr *=-1}
+
+
+
+        }
+
+    </script>
+</head>
+<body>
+    <div id="box" style="padding: auto;"></div>
+</body>
+</html>
