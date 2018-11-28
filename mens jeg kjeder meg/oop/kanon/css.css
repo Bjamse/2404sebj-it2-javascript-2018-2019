@@ -1,0 +1,31 @@
+#kanon{
+    background-image: url("kanon.png");
+    background-size: 150px 150px;
+    background-repeat: no-repeat;
+    position: fixed;
+    bottom:0;
+    left: 10px;
+    width: 150px;
+    height: 150px;
+    z-index: 1;
+}
+.kule {
+    background-image: url("kule.png");
+    background-size: 40px 40px;
+    background-repeat: no-repeat;
+    position: fixed;
+    width: 40px;
+    height: 40px;
+}
+#info{
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+#maal{
+    background-image: url("blink.png");
+    background-size: 50px 50px;
+    position: fixed;
+    width: 50px;
+    height: 50px;
+}
