@@ -4,29 +4,42 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="css.css">
+    <script src="klasser.js"></script>
     <script>
-        window.onload = oppstart;
+
+        window.onload = bootUP;
 
         const taster = {OPP: 38, NED: 40, VENSTRE: 37, HOEYRE: 39, SPACE: 32};
         let kanon;
         let kuler = [];
         let maal;
+        const gravity = 0.1;
 
-
-        function kanonkule(x, y, speed) {
-            this.x = x;
-            this.y = y;
-            this.speed = speed;
-            this.move = function (x,y) {
-
-            };
+        function buttonPush(evt) {
+            document.onkeydown = buttonPush;
+            let key = evt.keyCode;
+            if (key === taster.OPP){
+                kanon.changeRot(-5);
+            }
+            if (key === taster.NED){
+                kanon.changeRot(5);
+            }
         }
+
+
+        function bootUP() {
+            document.onkeydown = buttonPush;
+            kanon = new artillery();
+            maal = document.getElementById("maal");
+
+        }
+
     </script>
 </head>
 <body>
-<div id="info"></div>
-<div id="kanon"></div>
-<div id="maal"></div>
-<div id="kuler"></div>
+    <div id="info"></div>
+    <div id="kanon"></div>
+    <div id="maal"></div>
+    <div id="kuler"></div>
 </body>
 </html>
