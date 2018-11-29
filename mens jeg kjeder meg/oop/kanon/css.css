@@ -1,5 +1,5 @@
 #kanon{
-    background-image: url("kanon.png");
+    background-image: url("kanon3.png");
     background-size: 150px 150px;
     background-repeat: no-repeat;
     position: fixed;
@@ -10,7 +10,7 @@
     z-index: 1;
 }
 .kule {
-    background-image: url("kule.png");
+    background-image: url("kule2.png");
     background-size: 40px 40px;
     background-repeat: no-repeat;
     position: fixed;
@@ -21,6 +21,13 @@
     position: fixed;
     top: 0;
     left: 0;
+    font-size: xx-large;
+    font-family: "Comic Sans MS", serif;
+    padding: 10px;
+    color: black;
+    border: solid black 3px;
+    border-radius: 10px;
+    background-color: gray;
 }
 #maal{
     background-image: url("blink.png");

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Target practice!</title>
     <link rel="stylesheet" href="css.css">
     <script src="klasser.js"></script>
     <script>
@@ -13,33 +13,76 @@
         let kanon;
         let kuler = [];
         let maal;
+        let speed = 15;
+        let poeng = 0;
         const gravity = 0.1;
 
         function buttonPush(evt) {
             document.onkeydown = buttonPush;
             let key = evt.keyCode;
-            if (key === taster.OPP){
+            if (key === taster.OPP) {
                 kanon.changeRot(-5);
             }
-            if (key === taster.NED){
+            else if (key === taster.NED) {
                 kanon.changeRot(5);
             }
+            else if (key === taster.VENSTRE) {
+                speed --;
+                speed = Math.max(0,speed);
+
+            }
+            else if (key === taster.HOEYRE) {
+                speed ++;
+                speed = Math.min(25, speed);
+            }
+            else if (key === taster.SPACE) {
+                kuler.push(new kanonkule(speed, kanon.rotation));
+
+
+                //make kanon go "BOOM!!  sound"
+            }
+        }
+
+        function flytt() {
+
+            for (i in kuler){
+                if (kuler[i] === null){continue}
+                kuler[i].move();
+
+
+                if (kuler[i].outOfBounds()){
+                    kuler[i] = null;
+                    poeng--;
+                }
+                else if (maal.collide(kuler[i])){
+                    kuler[i].htmlDestroctor();
+                    kuler[i] = null;
+                    poeng++;
+                    maal.moveRandom();
+                    //make sound
+
+                }
+            }
+
+            document.getElementById("info").innerHTML =
+                "Rotasjon : " + kanon.rotation + " <br>Fart : "+ speed+ "<br>Poeng : " + poeng;
         }
 
 
         function bootUP() {
             document.onkeydown = buttonPush;
             kanon = new artillery();
-            maal = document.getElementById("maal");
+            maal = new blink();
+            setInterval(flytt, 10);
 
         }
 
     </script>
 </head>
 <body>
-    <div id="info"></div>
-    <div id="kanon"></div>
-    <div id="maal"></div>
-    <div id="kuler"></div>
+<div id="info"></div>
+<div id="kanon"></div>
+<div id="maal"></div>
+<div id="kuler"></div>
 </body>
 </html>
