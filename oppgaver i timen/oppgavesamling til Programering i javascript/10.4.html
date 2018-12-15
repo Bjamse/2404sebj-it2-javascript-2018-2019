@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="resurser/css.css">
+    <title>10.4</title>
+    <script>
+        let a = [new Audio("resurser/lyd1.mp3"), new Audio("resurser/lyd2.mp3"), new Audio("resurser/lyd3.mp3"), new Audio("resurser/lyd4.mp3"), new Audio("resurser/lyd5.mp3"), new Audio("resurser/lyd6.mp3")];
+
+        function playSounds(evt) {
+            if (evt.target.nodeName !== "td") return;
+
+            let x = evt.target.innerText;
+            a[Number(x)-1].play();
+        }
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <h1>Soundboard</h1>
+    <style>
+        td {
+            height: 80px;
+            width: 80px;
+            background-color: #989898;
+            border: solid black 3px;
+            border-radius: 10px;
+        }
+    </style>
+    <table onclick="playSounds(event)">
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+        </tr>
+
+    </table>
+
+</div>
+</body>
+</html>

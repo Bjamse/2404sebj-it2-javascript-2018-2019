@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="resurser/css.css">
+    <title>9.4</title>
+    <script>
+        let d;
+        let t;
+
+        function reactStart() {
+            document.getElementById("sirkel").style.visibility = "hidden";
+            setTimeout(
+                function () {
+                document.getElementById("sirkel").style.visibility = "visible";
+                d = new Date();
+                },
+                (Math.random()*3+2)*1000
+            );
+        }
+
+        function reactSlutt(){
+            t = new Date();
+            document.getElementById("R-score").innerText = (t.getTime() - d.getTime())/1000
+        }
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <h1>Test din reaksjonstid</h1>
+    <div>
+        <div>Du brukte <i id="R-score">--:--</i> sekunder</div>
+        <img src="knapp.PNG" alt="kanppen" onclick="reactStart()" width="100px" style="float: right;">
+        <br>
+        <img src="running.png" alt="" onclick="reactSlutt()" width="20%" id="sirkel">
+
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="resurser/css.css">
+    <title>10.1,2,4</title>
+    <style>
+        td {
+            height: 80px;
+            width: 80px;
+            background-color: #989898;
+            border: solid black 3px;
+            border-radius: 10px;
+        }
+    </style>
+    <script>
+        // html for hver oppgave
+        const content = [
+            "<p>" +
+            "programert animasjon vil si å bruke javascript til å kalkulere hver frame av en animasjon. " +
+            "<br>Så for eksempel hvilken pixel en ball som spretter skl stå på hvis den har en fart på n." +
+            "</p>",
+
+            '<h1>Trykk på en knapp</h1>',
+
+            '<h1>Soundboard</h1>' +
+            '<table onclick="playSounds(event)">' +
+            '        <tr>' +
+            '            <td>1</td>' +
+            '            <td>2</td>' +
+            '            <td>3</td>' +
+            '        </tr>' +
+            '        <tr>' +
+            '            <td>4</td>' +
+            '            <td>5</td>' +
+            '            <td>6</td>' +
+            '        </tr>' +
+            '\n' +
+            '    </table>'
+        ];
+        const a = [new Audio("resurser/lyd1.mp3"), new Audio("resurser/lyd2.mp3"), new Audio("resurser/lyd3.mp3"), new Audio("resurser/lyd4.mp3"), new Audio("resurser/lyd5.mp3"), new Audio("resurser/lyd6.mp3")];
+        function velgOppgave(evt) {
+            let x = evt.target.innerText;
+            let c = document.getElementById("content");
+
+            switch (x) {
+                case "10.1":
+                    c.innerHTML = content[0];
+                    break;
+                case "10.2":
+                    c.innerHTML = content[1];
+                    break;
+                case "10.4":
+                    c.innerHTML = content[2];
+            }
+
+        }
+
+        function playSounds(evt) {
+            if (evt.target.nodeName !== "td") return;
+            let x = evt.target.innerText;
+            a[Number(x)-1].play();
+        }
+
+        document.onkeydown = function () {let x = new Audio("resurser/lyd1.mp3");if(document.getElementById("content").innerHTML === '<h1>Trykk på en knapp</h1>' ){x.play()}}
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <h1> Oppgave 10.[1,2,4] av Bjørn-Tore Semb</h1>
+    <div id="oppgaveknapper" onclick="velgOppgave(event)"><button>10.1</button><button>10.2</button><button>10.4</button></div>
+    <div id="content">
+    </div>
+</div>
+</body>
+</html>

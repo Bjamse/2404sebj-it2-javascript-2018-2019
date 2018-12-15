@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="resurser/css.css">
+    <title>9.1</title>
+    <style>
+        h1#fargetag:hover {
+            color: #336699;
+        }
+    </style>
+    <script>
+        // html for hver oppgave
+        const content = [
+            '<ol><li>En hendelse er ting som skjer med html elementer. javascript brukes til  reagere på dette.</li>' +
+            '<li>Sender er koden som kaller opp lytterene når hendelsene oppstår</li>' +
+            '<li>Lytter er funksjonen som kalles når hendelsen oppstår.</li>' +
+            '<li>Et hendelsesobjekt er noe som blir lagt ved et hendelsesobjekt som et parameter i funksjonskallet. objektet inneholder informasjon om handelsen.' +
+            '            For eksempel ved keypress vil hvilken kanpp det var være med.</li>' +
+            '<li>Target viser hvilket element som utløste senderen.</li><li>Så du kan sette en sender til en div og så vil den reagere på alt innholdet. target vil da være det elementet som utløste senderen.' +
+            '            men hvis du bruker currentTarget så vil du alltid få elementet senderen er festet til.</li>' +
+            '<li>en sender som utløses til et gitt intervall</li>' +
+            '<li>setTimeout er en sendern som utløses etter en gitt tid</li></ol>'
+            ,
+
+            '    <h1 id="fargetag">Denne teksten bruker kun css for å skifte farge</h1>' +
+            '    <h1 onmouseover="this.style.color = \'orange\';" onmouseleave="this.style.color = \'black\';">Denne teksten bruker javascript til å manipulere css for å skifte farge</h1>'
+            ,
+
+            '<h1>Test din reaksjonstid</h1>' +
+            '    <div>\n' +
+            '        <div>Du brukte <i id="R-score">--:--</i> sekunder</div>' +
+            '        <img src="resurser/knapp.PNG" alt="kanppen" onclick="reactStart()" width="100px" style="float: right;">' +
+            '        <br>' +
+            '        <img src="resurser/running.png" alt="" onclick="reactSlutt()" width="20%" id="sirkel">' +
+            '' +
+            '    </div>'
+        ];
+        let d;
+        let t;
+
+        function velgOppgave(evt) {
+            let x = evt.target.innerText;
+            let c = document.getElementById("content");
+
+            switch (x) {
+                case "9.1":
+                    c.innerHTML = content[0];
+                    break;
+                case "9.3":
+                    c.innerHTML = content[1];
+                    break;
+                case "9.4":
+                    c.innerHTML = content[2];
+            }
+        }
+
+        function reactStart() {
+            document.getElementById("sirkel").style.visibility = "hidden";
+            setTimeout(
+                function () {
+                    document.getElementById("sirkel").style.visibility = "visible";
+                    d = new Date();
+                },
+                (Math.random() * 3 + 2) * 1000
+            );
+        }
+
+        function reactSlutt() {
+            t = new Date();
+            document.getElementById("R-score").innerText = (t.getTime() - d.getTime()) / 1000
+        }
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <h1> Oppgave 10.[1,2,4] av Bjørn-Tore Semb</h1>
+    <div id="oppgaveknapper" onclick="velgOppgave(event)">
+        <button>9.1</button>
+        <button>9.3</button>
+        <button>9.4</button>
+    </div>
+    <div id="content">
+    </div>
+</div>
+</body>
+</html>
