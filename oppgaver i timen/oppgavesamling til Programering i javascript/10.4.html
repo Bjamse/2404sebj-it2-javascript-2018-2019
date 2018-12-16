@@ -7,11 +7,15 @@
     <script>
         let a = [new Audio("resurser/lyd1.mp3"), new Audio("resurser/lyd2.mp3"), new Audio("resurser/lyd3.mp3"), new Audio("resurser/lyd4.mp3"), new Audio("resurser/lyd5.mp3"), new Audio("resurser/lyd6.mp3")];
 
+        let pause;
         function playSounds(evt) {
-            if (evt.target.nodeName !== "td") return;
-
-            let x = evt.target.innerText;
-            a[Number(x)-1].play();
+            if (pause === true){return;}
+            let x = Number(evt.target.innerText)-1;
+            a[x].play();
+            pause = true;
+            setTimeout(function () {
+                pause = false; console.log("pause slutt")
+            } ,Number(a[x].duration * 1000));
         }
     </script>
 </head>
