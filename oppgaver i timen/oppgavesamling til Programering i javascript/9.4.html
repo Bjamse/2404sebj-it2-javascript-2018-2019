@@ -8,20 +8,24 @@
         let d;
         let t;
 
+        let done = true;
         function reactStart() {
             document.getElementById("sirkel").style.visibility = "hidden";
             setTimeout(
                 function () {
-                document.getElementById("sirkel").style.visibility = "visible";
-                d = new Date();
+                    document.getElementById("sirkel").style.visibility = "visible";
+                    d = new Date();
                 },
-                (Math.random()*3+2)*1000
+                (Math.random() * 3 + 2) * 1000
             );
+            done = false;
         }
 
-        function reactSlutt(){
+        function reactSlutt() {
+            if (done){return;}
             t = new Date();
-            document.getElementById("R-score").innerText = (t.getTime() - d.getTime())/1000
+            document.getElementById("R-score").innerText = (t.getTime() - d.getTime()) / 1000;
+            done = true;
         }
     </script>
 </head>
@@ -30,9 +34,9 @@
     <h1>Test din reaksjonstid</h1>
     <div>
         <div>Du brukte <i id="R-score">--:--</i> sekunder</div>
-        <img src="knapp.PNG" alt="kanppen" onclick="reactStart()" width="100px" style="float: right;">
+        <img src="resurser/knapp.PNG" alt="kanppen" onclick="reactStart()" width="100px" style="float: right;">
         <br>
-        <img src="running.png" alt="" onclick="reactSlutt()" width="20%" id="sirkel">
+        <img src="resurser/running.png" alt="" onclick="reactSlutt()" width="20%" id="sirkel">
 
     </div>
 </div>

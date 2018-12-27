@@ -54,7 +54,7 @@
                     c.innerHTML = content[2];
             }
         }
-
+        let done = true;
         function reactStart() {
             document.getElementById("sirkel").style.visibility = "hidden";
             setTimeout(
@@ -64,11 +64,14 @@
                 },
                 (Math.random() * 3 + 2) * 1000
             );
+            done = false;
         }
 
         function reactSlutt() {
+            if (done){return;}
             t = new Date();
-            document.getElementById("R-score").innerText = (t.getTime() - d.getTime()) / 1000
+            document.getElementById("R-score").innerText = (t.getTime() - d.getTime()) / 1000;
+            done = true;
         }
     </script>
 </head>
