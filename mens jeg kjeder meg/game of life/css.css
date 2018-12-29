@@ -1,0 +1,15 @@
+html, body{
+    margin: 0;
+    padding: 0;
+}
+
+td{
+    width: 30px;
+    height: 30px;
+    border:solid black 1px;
+    margin: 0;
+    padding: 0;
+}
+table {
+    border-spacing: 0;
+}
