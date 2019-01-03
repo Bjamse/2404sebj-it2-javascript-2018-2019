@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="resurser/css.css">
+    <title>spleising</title>
+    <script>
+        let debtors = [];
+        let updateTime = 500;
+
+
+        window.onload = boot;
+
+        function boot() {
+            setInterval(writeTableOfDebtors, updateTime);
+            setInterval(writeStatus, updateTime);
+            writeDebtorSelector();
+        }
+
+        // legg til ny person
+        function addDebtor() {
+            // hver person i lista debtors er et assosiativt array med navn og hvor mye de har betalt
+            let newDebtor = {
+                name: document.getElementById("inputDebtorName").value,
+                paid: 0
+            };
+            document.getElementById("log").innerText += newDebtor.name + " ble lagt til \n";
+            // legger til i liste av personer
+            debtors.push(newDebtor);
+            writeDebtorSelector();
+        }
+
+        function addDebtToDebtor() {
+            let debtor = debtors[document.getElementById("debtorSelector").value];
+            debtor.paid += Number(document.getElementById("debtorPayment").value);
+            document.getElementById("log").innerText += debtor.name + " betalte inn " + document.getElementById("debtorPayment").value + " \n";
+        }
+
+        // skriv til tabell med innbetalinger
+        function writeTableOfDebtors() {
+            let output = "<table>";
+            output += "<tr><th>Navn</th><th>Innbetalt</th><th>Overbetalt</th><th><sub>Fjern</sub></th></tr>";
+            for (let i in debtors) {
+                output += "<tr>" +
+                    "<td>" + debtors[i].name + "</td>" +
+                    "<td>" + debtors[i].paid + " kr</td>" +
+                    "<td>" + (debtors[i].paid - Number(document.getElementById('debtorsShouldPay').innerText)) + "</td>" +
+                    "<td><button onclick='debtors.splice(" + i + ",1);writeDebtorSelector()'>x</button></td>" + // bare for å fjerne en person ifra tabellen
+                    "</tr>";
+            }
+            output += "</table>";
+            document.getElementById("tableOfDebtors").innerHTML = output;
+        }
+
+        // skriv til selectboksen man bruker når man legger til ny betaling
+        function writeDebtorSelector() {
+            let output = "";
+            for (let i in debtors) {
+                output += "<option value='" + i + "'>" + debtors[i].name + "</option>";
+            }
+            document.getElementById("debtorSelector").innerHTML = output;
+            document.getElementById("addDebtButton").disabled = debtors.length === 0;
+        }
+
+        // skriv status på innbetalinger
+        function writeStatus() {
+            let totaltPaid = 0;
+            let bill = document.getElementById("debtCheckBoxIndividual").checked ? Number(document.getElementById("debt").value) * debtors.length : Number(document.getElementById("debt").value);
+            for (let i in debtors) {
+                totaltPaid += debtors[i].paid;
+            }
+
+            document.getElementById("TotalPaid").innerHTML = totaltPaid;
+            document.getElementById("percentTotalPaid").innerHTML = (totaltPaid / bill * 100).toFixed(2);
+            document.getElementById("NumberOfDebtors").innerHTML = debtors.length;
+            document.getElementById("debtorsShouldPay").innerHTML = (bill / debtors.length).toFixed(2);
+            document.getElementById("averagePaid").innerHTML = (totaltPaid / debtors.length).toFixed(2);
+        }
+
+        // sørger for at når du trykker på den ene så blir den andre "unclicked"
+        function flipDebtTotalSelector(obj) {
+            if (obj.id === "debtCheckBoxIndividual") {
+                document.getElementById("debtCheckBoxCommon").checked = false;
+            } else {
+                document.getElementById("debtCheckBoxIndividual").checked = false;
+            }
+        }
+
+        // vis eller skjul loggen av ting som har skjedd
+        function showHideLog() {
+            if (document.getElementById("log").style.display === "none") {
+                document.getElementById("log").style.display = "block";
+            } else {
+                document.getElementById("log").style.display = "none";
+            }
+        }</script>
+</head>
+<body>
+<div id="wrapper">
+    <h1>Spleising</h1>
+    <hr>
+
+    <!--input hvor mye hver enkelet burde skylde/hvor mye som totalt skal betales-->
+    <div id="DebtTotalSelector">
+        <input type="number" id="debt" placeholder=" Beløp"> kr, er hvor mye folk skylder: <br>
+        idividuelt <input type="checkbox" id="debtCheckBoxIndividual" onclick="flipDebtTotalSelector(this)" checked>
+        eller felles <input type="checkbox" id="debtCheckBoxCommon" onclick="flipDebtTotalSelector(this)">
+    </div>
+    <br>
+    <!--input av navn for å lage en debtor-->
+    <div id="inputDebtor">
+        Legg til en pesron som skal være med å spleise <br>
+        <input type="text" id="inputDebtorName" placeholder="Navn på person">
+        <button onclick="addDebtor()">legg til</button>
+    </div>
+    <br>
+
+    <!--velg bruker og legg til hvor mye de har betalt-->
+    <div id="addDebtToDebtor">
+        Velg en peson og hvor mye de har betalt inn. <br>
+        Her kan du legge til flere innbetalinger. <sub>se logg fil for historikk</sub><br>
+        <select name="DebtorSelector" id="debtorSelector"></select>
+        <input type="number" id="debtorPayment" placeholder=""> kr
+        <button onclick="addDebtToDebtor()" id="addDebtButton">legg til</button>
+    </div>
+    <br>
+
+    <!--print tabell-->
+    <div id="tableOfDebtors"></div>
+    <br>
+
+    <!--print stats:-->
+    <div id="stats">
+        <!--total innbetaling-->
+        Totalt betalt: <span id="TotalPaid"></span> kr <br>
+        <!--prosent av total kostnad betalt -->
+        Prosent av total kostnadd betalt : <span id="percentTotalPaid">0</span>% <br>
+        <!--antall-->
+        Antall deltagere i spleiselaget: <span id="NumberOfDebtors"></span><br>
+        <!--burde betale-->
+        Sum hver enkelt burde betale: <span id="debtorsShouldPay"></span> kr<br>
+        <!--gjennomsnittsbetaling-->
+        gjennomsnittelig betaling av hver bruker: <span id="averagePaid"></span> kr <br>
+    </div>
+    <!--log innbetalinger-->
+    <button onclick="showHideLog()">show/hide Logg</button>
+    <div><code id="log" style="display: none">logg <br></code></div>
+
+</div>
+</body>
+</html>
