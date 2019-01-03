@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="resurser/css.css">
+    <title>spleising</title>
+    <script src="resurser/scripts.js"></script>
+</head>
+<body>
+<div id="wrapper">
+    <h1>Spleising</h1>
+    <hr>
+
+    <!--input hvor mye hver enkelet burde skylde/hvor mye som totalt skal betales-->
+    <div id="DebtTotalSelector">
+        <input type="number" id="debt" placeholder=" Beløp"> kr, er hvor mye folk skylder: <br>
+        idividuelt <input type="checkbox" id="debtCheckBoxIndividual" onclick="flipDebtTotalSelector(this)" checked>
+        eller felles <input type="checkbox" id="debtCheckBoxCommon" onclick="flipDebtTotalSelector(this)">
+    </div>
+    <br>
+    <!--input av navn for å lage en debtor-->
+    <div id="inputDebtor">
+        Legg til en pesron som skal være med å spleise <br>
+        <input type="text" id="inputDebtorName" placeholder="Navn på person">
+        <button onclick="addDebtor()">legg til</button>
+    </div>
+    <br>
+
+    <!--velg bruker og legg til hvor mye de har betalt-->
+    <div id="addDebtToDebtor">
+        Velg en peson og hvor mye de har betalt inn. <br>
+        Her kan du legge til flere innbetalinger. <sub>se logg fil for historikk</sub><br>
+        <select name="DebtorSelector" id="debtorSelector"></select>
+        <input type="number" id="debtorPayment" placeholder=""> kr
+        <button onclick="addDebtToDebtor()" id="addDebtButton">legg til</button>
+    </div>
+    <br>
+
+    <!--print tabell-->
+    <div id="tableOfDebtors"></div>
+    <br>
+
+    <!--print stats:-->
+    <div id="stats">
+    <!--total innbetaling-->
+        Totalt betalt: <span id="TotalPaid"></span> kr <br>
+    <!--prosent av total kostnad betalt -->
+        Prosent av total kostnadd betalt : <span id="percentTotalPaid">0</span>% <br>
+    <!--antall-->
+        Antall deltagere i spleiselaget: <span id="NumberOfDebtors"></span><br>
+    <!--burde betale-->
+        Sum hver enkelt burde betale: <span id="debtorsShouldPay"></span> kr<br>
+    <!--gjennomsnittsbetaling-->
+        gjennomsnittelig betaling av hver bruker: <span id="averagePaid"></span> kr <br>
+    </div>
+    <!--log innbetalinger-->
+    <button onclick="showHideLog()">show/hide Logg</button>
+    <div><code id="log" style="display: none">logg <br></code></div>
+
+</div>
+</body>
+</html>
