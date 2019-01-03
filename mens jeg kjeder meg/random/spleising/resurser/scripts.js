@@ -17,16 +17,21 @@ function addDebtor() {
         name : document.getElementById("inputDebtorName").value,
         paid : 0
     };
-    document.getElementById("log").innerText += newDebtor.name + " ble lagt til \n";
+    document.getElementById("log").innerHTML += newDebtor.name + " ble lagt til <br>";
     // legger til i liste av personer
     debtors.push(newDebtor);
+    writeDebtorSelector();
+}
+function debtorRemove(x){
+    document.getElementById("log").innerHTML += "fjernet " + debtors[x].name + ", hadde bidratt med "+debtors[x].paid+ " kr <br>";
+    debtors.splice(x,1);
     writeDebtorSelector();
 }
 
 function addDebtToDebtor() {
     let debtor = debtors[document.getElementById("debtorSelector").value];
     debtor.paid += Number(document.getElementById("debtorPayment").value);
-    document.getElementById("log").innerText += debtor.name + " betalte inn " + document.getElementById("debtorPayment").value + " \n";
+    document.getElementById("log").innerHTML += debtor.name + " betalte inn " + document.getElementById("debtorPayment").value + " <br>";
 }
 
 // skriv til tabell med innbetalinger
@@ -38,7 +43,7 @@ function writeTableOfDebtors(){
             "<td>"+ debtors[i].name +"</td>" +
             "<td>"+ debtors[i].paid +" kr</td>" +
             "<td>"+ (debtors[i].paid - Number(document.getElementById('debtorsShouldPay').innerText))+"</td>" +
-            "<td><button onclick='debtors.splice("+i+",1);writeDebtorSelector()'>x</button></td>" + // bare for å fjerne en person ifra tabellen
+            "<td><button onclick='debtorRemove("+i+")'>x</button></td>" + // bare for å fjerne en person ifra tabellen
             "</tr>";
     }
     output += "</table>";
