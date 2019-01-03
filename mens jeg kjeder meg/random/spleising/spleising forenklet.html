@@ -37,7 +37,7 @@
     function addDebtToDebtor() {
         let debtor = debtors[document.getElementById("debtorSelector").value];
         debtor.paid += Number(document.getElementById("debtorPayment").value);
-        document.getElementById("log").innerHTML += debtor.name + " betalte inn " + document.getElementById("debtorPayment").value + " <br>";
+        document.getElementById("log").innerHTML += debtor.name + " betalte inn " + document.getElementById("debtorPayment").value + " kr <br>";
     }
 
     // skriv til tabell med innbetalinger
