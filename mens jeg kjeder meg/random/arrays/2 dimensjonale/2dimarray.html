@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2dimArray</title>
+    <link rel="stylesheet" href="resurser/css.css">
+    <script>
+        window.onload = boot;
+
+        function boot() {
+            setInterval(visualExp, 500);
+        }
+    </script>
+    <script src="resurser/script.js"></script>
+
+</head>
+<body>
+<div id="wrapper">
+    <h1>2 dimmensjonale arrays</h1>
+    <hr>
+    <p>et to dimmensjonalt array er en liste mend lister inni. man kan tenke på det som en tabell der hver rad er en liste av alle cellene i den raden og alle radene er i en liste. da ender man opp med en stor liste(tabellen) med lister inni.</p>
+    <p> skriv inn tall for å lage et array</p>
+
+    <label for="y">antall rader i y-akse</label><input type="number" id="y" min="0" max="15" value="4">
+    <label for="x">antall rader i x-akse</label><input type="number" id="x" min="0" max="15" value="3">
+
+    <p>dette er en visuell fremstilling av et 2 dimensjonalt array</p>
+
+    <div id="table"></div>
+
+    <p> koden få lage dette om til et array ville sett sånn ut</p>
+    <!--forklar med kode-->
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <p> resultat en slik kode ville vært dette er dette</p>
+    <code id="res" class="prettyprint"></code>
+    <code class="prettyprint">
+        let x = 0;<br>
+        let y = 0;<br>
+        let arrDim2 = [];<br>
+        let temp = [];<br>
+        let letters = "abcdefghijklmnopqrstuvwxyzæøå".split(""); //liste med bokstavene bare for å gjøre det enklere å se. ikke egentlig nødvendig
+        <br>
+        let l = ""; // samme her, ikke egentlig nødvendig for arrayet. bare for å få bokstaver linje for linje <br>
+
+        for(let i = 0; i &lt; y; i++){<br>
+        &nbsp;&nbsp;temp = [] <br>
+        &nbsp;&nbsp;l = letters.shift();  // her bruker vi l som en midlertidig variabel for å få bokstav på hver av linjene
+        <br>
+        &nbsp;&nbsp;for(let j = 0; j &lt; x; j++){<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;temp.push(l+j) // her brukes verdien til l og j, men andre verdier kan brukes. som å gange i og j for å lage gangetabell <br>
+        &nbsp;&nbsp;}<br>
+        &nbsp;&nbsp;arrDim2.push(temp) // push betyr "legg til vedien inni parantesen til lista/arrayet forran punktum"<br>
+        }
+    </code>
+    <hr>
+    <p> For å lese et slikt array bruker du bare 2 for loops. <br> skal du gjøre noe med hver enkelt verdi gjør du bare sånn:</p>
+    <code class="prettyprint"> arr[1][2];</code>
+    <p>
+        den vil da hente den andre verdien i den andre lista i lista arr.
+        <br>
+        i tilfelle på den lista vi hadde fra starten, vil være "b2".
+        <br>
+        det er fordi vi ved [1] velger list 1 telt fra null og så element 2 i den lista.
+        <br>
+        <br>
+        skal du gjøre noe med hert av elementene i lista så kan du skrive sånn som dette: <br>
+        <code class="prettyprint">
+            for(let i in arr){ <br>
+            &nbsp;&nbsp;for(let j in arr[i]){ <br>
+            &nbsp;&nbsp;&nbsp;&nbsp; // dataen for denne "cella" om du vil, ligger i arr[i][j]. <br>
+            &nbsp;&nbsp;&nbsp;&nbsp; // den kan du gjøre hva du vil med. <br>
+            &nbsp;&nbsp;&nbsp;&nbsp; // om du vil legge dem sammen til en stor sum kan du lage en variabel utenfor som du kaller summ og så bare " summ += arr[i][j]; "
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp; // det går desverre ikke med det arrayet vi har laget nå fordi det inneholder bokstaver
+            <br>
+            &nbsp;&nbsp;} <br>
+            }<br>
+        </code>
+    </p>
+
+</div>
+</body>
+</html>
