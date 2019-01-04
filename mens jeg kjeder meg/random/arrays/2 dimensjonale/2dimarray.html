@@ -18,8 +18,9 @@
 <div id="wrapper">
     <h1>2 dimmensjonale arrays</h1>
     <hr>
+    <h2>!nb jeg bruker arrays og lister litt om hverandre. sorry. arrays i javascript funker som assosiative lister... men begge kan gjøre det samme... VER GREI JEG ER TRØTT!!</h2>
     <p>et to dimmensjonalt array er en liste mend lister inni. man kan tenke på det som en tabell der hver rad er en liste av alle cellene i den raden og alle radene er i en liste. da ender man opp med en stor liste(tabellen) med lister inni.</p>
-    <p> skriv inn tall for å lage et array</p>
+    <p> skriv inn tall for å lage et array. skriver du 1 i noen av felten gjør du det hele bare om til en liste istedet for et 2 dimmenjonalt array.</p>
 
     <label for="y">antall rader i y-akse</label><input type="number" id="y" min="0" max="15" value="4">
     <label for="x">antall rader i x-akse</label><input type="number" id="x" min="0" max="15" value="3">
@@ -31,8 +32,6 @@
     <p> koden få lage dette om til et array ville sett sånn ut</p>
     <!--forklar med kode-->
     <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
-    <p> resultat en slik kode ville vært dette er dette</p>
-    <code id="res" class="prettyprint"></code>
     <code class="prettyprint">
         let x = 0;<br>
         let y = 0;<br>
@@ -52,6 +51,9 @@
         &nbsp;&nbsp;arrDim2.push(temp) // push betyr "legg til vedien inni parantesen til lista/arrayet forran punktum"<br>
         }
     </code>
+    <p> resultatet av denne kode ville vært denne lista</p>
+    <code id="res" class="prettyprint"></code>
+
     <hr>
     <p> For å lese et slikt array bruker du bare 2 for loops. <br> skal du gjøre noe med hver enkelt verdi gjør du bare sånn:</p>
     <code class="prettyprint"> arr[1][2];</code>
