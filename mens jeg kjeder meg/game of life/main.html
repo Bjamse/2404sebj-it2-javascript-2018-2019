@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>game of life</title>
+    <link rel="stylesheet" href="css.css">
+    <script src="board.js"></script>
+    <script src="cell.js"></script>
+</head>
+<body>
+<div id="brett"></div>
+<script>
+    let speed = 500;
+    let pause = true;
+    let brett = new Board(20,20,document.getElementById("brett"));
+    console.log(brett);
+    setTimeout(checkCells,1000);
+    document.getElementById("brett").onclick = trykk;
+
+    function trykk(evt) {
+        document.getElementById("brett").onclick = trykk;
+        let x = evt.target.getAttribute("x")*1;
+        let y = evt.target.getAttribute("y")*1;
+        let celle = brett.cellOnXY(x,y);
+        celle.switsj();
+        console.log(x +" "+ y)
+    }
+    function checkCells(){
+        console.log("testing");
+        if(pause){setTimeout(checkCells,speed);return;}
+        for(let i = 0; i < brett.height; i++){
+            for(let j = 0; j < brett.width; j++){
+                brett.cells[i][j].check();
+            }
+        }
+        for(let i = 0; i < brett.height; i++){
+            for(let j = 0; j < brett.width; j++){
+                brett.cells[i][j].doSuggestedAction()
+            }
+        }
+
+        setTimeout(checkCells,speed);
+    }
+</script>
+<button onclick="pause = !pause">start/stopp</button>
+</body>
+</html>
