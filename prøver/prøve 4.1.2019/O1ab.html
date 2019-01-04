@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>O1ab</title>
+    <link rel="stylesheet" href="resusrser/css.css">
+    <script>
+        window.onload = oppstart;
+        let boks;
+        let x = 50;
+        let y = 50;
+        let dx = 4;
+        let dy = 4;
+        let grader = 0;
+
+        function oppstart() {
+            boks = document.getElementById("ball");
+            x = document.getElementById("ramme").getBoundingClientRect().left;
+            y = document.getElementById("ramme").getBoundingClientRect().top;
+            setInterval(flytt, 40);
+        }
+        function startFlytt(){
+
+        }
+        function flytt() {
+            let ramme = document.getElementById("ramme").getBoundingClientRect();
+            boks.style.top = y + "px";
+            boks.style.left = x + "px";
+            if (x + boks.offsetWidth > ramme.right) {
+                dx = -dx;
+            }
+            else if (x < ramme.left) {
+                dx = -dx;
+            }
+            if (y + boks.offsetHeight > ramme.bottom) {
+                dy = -dy;
+            }
+            else if (y < ramme.top) {
+                dy = -dy;
+            }
+
+            boks.style.transform = "rotate(" + grader + "deg)";
+            x += dx;
+            y += dy;
+            //dx += ddx;
+            //dy += ddy;
+            grader += 5;
+        }
+
+    </script>
+    <style>
+        div#ramme{
+            height: 600px;
+            width: 800px;
+            background-color: lightgray;
+            border: solid green 2px;
+        }
+        img#ball{
+            position: absolute;
+
+        }
+    </style>
+</head>
+<body>
+<div id="wrapper">
+    <h1>oppgave 1a og b</h1>
+    <hr>
+    <div id="ramme">
+        <img src="resusrser/ball2.png" alt="bilde kunne ikke vises...." id="ball">
+
+    </div>
+    <sub> <code>    ved å gjøre den vhvite backgrunnen i pngfila for ballen gjennomsiktig og beskjære bildet litt vil sprettene av veggen se mye bedre ut da du ikke har den store stygge kanten rudnt bildet til en hver tid.</code></sub>
+</div>
+</body>
+</html>

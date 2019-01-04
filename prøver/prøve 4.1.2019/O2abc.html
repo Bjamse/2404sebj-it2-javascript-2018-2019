@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>O2abc</title>
+    <link rel="stylesheet" href="resusrser/css.css">
+    <script>
+        let venner = [                                          // list inneholder vennene som objekter. objektene har en liste hver med sine utgifter
+            {navn : "venn1", betalinger : [500,1000,3000,0]},
+            {navn : "venn2", betalinger : [400,900,700,0]},
+            {navn : "venn3", betalinger : [700,700,700,800]}
+            ];
+
+        let gjeld = 3133;
+
+
+        window.onload = boot;
+
+        function boot() {
+            skrivUtgifter();
+            lagLeggTilFelt();
+        }
+
+        function skrivUtgifter(){
+            let ut = "";
+            let totaleFellesBetallinger = 0;
+            for(let i in venner){
+                ut += venner[i].navn + " "+ venner[i].betalinger + " \n";
+                totaleFellesBetallinger += venner[i].betalinger.reduce((a,b) => a+b, 0);
+            }
+            for(let i in venner){
+                // venner[i].betalinger.reduce((a,b) => a+b, 0) er bare en kort og grei måte å summere lista betalinger på.
+                let ib = venner[i].betalinger.reduce((a,b) => a+b, 0);
+                ut += venner[i].navn +" har betalt: " + ib .toFixed()+ " - skulle betale: " + Number(totaleFellesBetallinger/venner.length).toFixed() +" skal få "+ Number(ib - (totaleFellesBetallinger/venner.length)).toFixed() +"\n";
+            }
+            document.getElementById("stat").innerText = ut;
+        }
+
+        function lagLeggTilFelt() {
+            let ut = "";
+            for(let i in venner){
+                ut += venner[i].navn +" : <input type='number' id='v"+i+"'>";
+            }
+            ut += "<button onclick='registrerBetalinger()'>Registrer</button>";
+            document.getElementById("leggtillBetalinger").innerHTML = ut;
+        }
+
+        function registrerBetalinger() {
+            for (let i in venner){
+
+                venner[i].betalinger.push(document.getElementById("v"+i).value === undefined ? 0 : Number(document.getElementById("v"+i).value)); // denne linja bare bytter ut undefined med 0. så legger den det til i lista betalinger for hver person.
+            }
+            skrivUtgifter();
+        }
+
+        function skrivTabell() {
+            let ut = "<table>";
+            ut +="<tr>";
+            for(let i in venner){
+                ut += "<td>"+ venner[i].navn +"</td>";
+            }
+            ut +="</tr>";
+
+            // Siden lengdene på listene med inbetalinger vil være like for hver eneste venn, så kan vi ta lengden på lista til den første ogg bruke dne som amal for alle.
+            for(let i in venner[0].betalinger){
+                ut += "<tr>";
+                for(let j in venner){
+                    ut += "<td>"+venner[j].betalinger[i]+ "</td>";
+                }
+                ut += "</tr>";
+            }
+
+
+            ut += "</table>";
+
+            document.getElementById("table").innerHTML = ut;
+
+        }
+    </script>
+    <style>
+        table, td, th {
+             border: solid black 1px;
+             border-spacing: 0;
+         }
+    </style>
+</head>
+<body>
+<div id="wrapper">
+    <h1>oppgave 2a, b og c</h1>
+    <hr>
+    <div id="leggtillBetalinger"></div>
+    <button onclick="skrivTabell()">skriv ut som tabell</button>
+    <div id="stat"></div>
+    <div id="table"></div>
+
+</div>
+</body>
+</html>
