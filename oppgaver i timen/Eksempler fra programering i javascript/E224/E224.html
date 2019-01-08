@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lese fra datafiler</title>
+    <script>
+        let xmlhttp;
+
+        window.onload = boot;
+
+        function boot(){
+            xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = statusforandring;
+            xmlhttp.open("get", "innhold.dat", true);
+            xmlhttp.send();
+        }
+
+        function statusforandring(){
+            if (xmlhttp.readyState === 4 && xmlhttp.status === 200){
+                let data = xmlhttp.responseText;
+                let linjer = data.spit("\n");
+                let out = "";
+                for (let  i in linjer){
+                    let linjedata = linje[i].split("%");
+
+                }
+
+            }
+        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

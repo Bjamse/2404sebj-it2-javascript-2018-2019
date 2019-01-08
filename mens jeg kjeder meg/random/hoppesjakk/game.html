@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hoppesjakk</title>
+    <link rel="stylesheet" href="resurser/css.css">
+    <script src="resurser/boardClass.js"></script>
+    <script src="resurser/gameClass.js"></script>
+    <script src="resurser/playerClass.js"></script>
+    <script src="resurser/pieceClass.js"></script>
+    <script>
+        window.onload = boot;
+        let board;
+        function boot() {
+            board = new boardClass(
+                400,    // bredde
+                400,    // høyde
+                document.getElementById("wrapper") //plasssering av brettet
+            );
+
+
+        }
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <h1>HOPPESJAKK</h1>
+    <hr>
+
+
+</div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+    <script>
+        let xmlhttp;
+
+        window.onload = boot;
+
+        function boot(){
+            xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = statusforandring;
+            xmlhttp.open("get", "innhold.dat", true);
+            xmlhttp.send();
+        }
+
+        function statusforandring(){
+            if (xmlhttp.readyState === 4 && xmlhttp.status === 200){
+                document.getElementById("dat").innerHTML = xmlhttp.responseText;
+            }
+        }
+
+    </script>
+</head>
+<body>
+<div id="dat"></div>
+</body>
+</html>
