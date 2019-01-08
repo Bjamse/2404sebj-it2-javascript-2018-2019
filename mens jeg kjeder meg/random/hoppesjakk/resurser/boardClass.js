@@ -12,15 +12,15 @@ class boardClass {
         b.style.border = "solid black 2px";
         b.style.backgroundColor = "white";
         b.style.margin = "auto";
+        b.style.overflow = "visible";
         where.appendChild(b);
         return b;
     }
 
-    get width(){
-        return this.htmlElement.style.width;
-    }
-    get height(){
-        return this.htmlElement.style.height;
-    }
-
+    get width(){    return this.htmlElement.getBoundingClientRect().width}
+    get height(){   return this.htmlElement.getBoundingClientRect().height}
+    get top(){      return this.htmlElement.getBoundingClientRect().top}
+    get bottom(){   return this.htmlElement.getBoundingClientRect().bottom}
+    get left(){     return this.htmlElement.getBoundingClientRect().left}
+    get right(){    return this.htmlElement.getBoundingClientRect().right}
 }
