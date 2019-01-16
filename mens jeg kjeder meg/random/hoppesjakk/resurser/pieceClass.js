@@ -1,22 +1,17 @@
 class pieceClass {
-    constructor(x,y,placement, color){
+    constructor(x,y,where, color){
         this.diameter = 20;
         this.x =x;
         this.y = y;
-        this.htmlElement = this.buildElement(placement, color);
-    }
-
-    buildElement(where, color){
-        let p = document.createElement("div");
-        p.style.position = "fixed";
-        p.style.width = this.diameter+"px";
-        p.style.height = this.diameter+"px";
-        p.style.border = "solid black 2px";
-        p.style.borderRadius = "100%";
-        p.style.backgroundColor = color;
-        p.style.left = (this.x - (this.diameter/2))+ "px";
-        p.style.top = (this.y - (this.diameter/2)) +"px";
-        where.appendChild(p);
-        return p;
+        this.htmlElement = document.createElement("div");
+        this.htmlElement.style.position = "fixed";
+        this.htmlElement.style.width = this.diameter+"px";
+        this.htmlElement.style.height = this.diameter+"px";
+        this.htmlElement.style.border = "solid black 2px";
+        this.htmlElement.style.borderRadius = "100%";
+        this.htmlElement.style.backgroundColor = color;
+        this.htmlElement.style.left = (this.x - (this.diameter/2))+ "px";
+        this.htmlElement.style.top = (this.y - (this.diameter/2)) +"px";
+        where.appendChild(this.htmlElement);
     }
 }

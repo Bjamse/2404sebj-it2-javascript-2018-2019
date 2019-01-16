@@ -17,5 +17,7 @@ class playerClass {
             this.pieces.push(new pieceClass(tmpX, tmpY, board.htmlElement, this.color));
         }
     }
+    turn(){
 
+    }
 }

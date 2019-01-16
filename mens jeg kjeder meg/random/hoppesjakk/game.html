@@ -10,18 +10,8 @@
     <script src="resurser/pieceClass.js"></script>
     <script>
         window.onload = boot;
-        let board;
         function boot() {
-            board = new boardClass(
-                400,    // bredde
-                400,    // høyde
-                document.getElementById("wrapper") //plasssering av brettet
-            );
-
-            let player_1 = new playerClass(true);
-            let player_2 = new playerClass(false);
-            player_1.placePieces(4,board);
-            player_2.placePieces(4,board);
+            game = new gameClass(document.getElementById("wrapper"));
 
         }
     </script>

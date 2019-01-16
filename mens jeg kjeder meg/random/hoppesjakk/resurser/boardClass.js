@@ -1,22 +1,15 @@
 class boardClass {
     constructor(width,height,where) {
-        this.htmlElement = this.buildElement(width,height,where);
-
+        this.htmlElement = document.createElement("div");
+        this.htmlElement.style.width = width +"px";
+        this.htmlElement.style.height = height +"px";
+        this.htmlElement.style.border = "solid black 2px";
+        this.htmlElement.style.backgroundColor = "white";
+        this.htmlElement.style.margin = "auto";
+        this.htmlElement.style.overflow = "visible";
+        where.appendChild(this.htmlElement);
 
     }
-
-    buildElement(w, h,where){
-        let b = document.createElement("div");
-        b.style.width = w +"px";
-        b.style.height = h +"px";
-        b.style.border = "solid black 2px";
-        b.style.backgroundColor = "white";
-        b.style.margin = "auto";
-        b.style.overflow = "visible";
-        where.appendChild(b);
-        return b;
-    }
-
     get width(){    return this.htmlElement.getBoundingClientRect().width}
     get height(){   return this.htmlElement.getBoundingClientRect().height}
     get top(){      return this.htmlElement.getBoundingClientRect().top}
