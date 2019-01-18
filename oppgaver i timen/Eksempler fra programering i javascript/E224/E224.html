@@ -18,12 +18,15 @@
         function statusforandring(){
             if (xmlhttp.readyState === 4 && xmlhttp.status === 200){
                 let data = xmlhttp.responseText;
-                let linjer = data.spit("\n");
+                let linjer = data.split("\n");
                 let out = "";
-                for (let  i in linjer){
-                    let linjedata = linje[i].split("%");
-
+                for (let i in linjer){
+                    console.log(i);
+                    let linjedata = linjer[i].split("%");
+                    let poeng = Number(linjedata[2]) + Number(linjedata[3]) + Number(linjedata[4]);
+                    out += "Deltager " + linjedata[0] + " (" + linjedata[1] + ") har fått "+ poeng + " <br>";
                 }
+                document.body.innerHTML += out
 
             }
         }
@@ -31,6 +34,7 @@
     </script>
 </head>
 <body>
+<h1>Skriv en </h1>
 
 </body>
 </html>
