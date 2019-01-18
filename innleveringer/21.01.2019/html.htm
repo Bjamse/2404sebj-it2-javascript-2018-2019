@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="resurser/css.css">
+    <script src="resurser/js.js"></script>
+    <title>21.1.2019</title>
+</head>
+<body>
+<div id="wrapper">
+    <h1>"Lokal database med innbetalinger"</h1>
+    <hr>
+    <!--felt for å legge til ny person med betalinger-->
+    <p>Registrer en ny person med innbetalt beløp:</p>
+    <label for="NyPerson">Person:</label><input type="text" id="NyPerson">
+    <label for="NyInnbetaling">Beløp: </label><input type="text" id="NyInnbetaling">kr<br>
+    <button id="registrer" onclick="registrerNy()">Registrer</button>
+
+
+    <!--tabell med folk-->
+    <div id="tabell"></div>
+    <!--sum totalt betaltinn-->
+
+    <h3>Total innbetalt : <span id="sum">--.--</span>kr</h3>
+
+    <button onclick="localStorage.clear();kunder=[]; oppdaterInfo()">fjern data</button>
+
+</div>
+</body>
+</html>
