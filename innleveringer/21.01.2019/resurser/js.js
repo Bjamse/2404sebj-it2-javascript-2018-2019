@@ -38,7 +38,6 @@ function oppdaterInfo() {
 
 function skrivTabell() {
     let out = "<table>";
-    let sumBetalt = 0;
     out += "<tr><th>Person</th><th>Innbetalt</th><th>fjern</th></tr>";
 
     for(let i in kunder){
@@ -49,15 +48,21 @@ function skrivTabell() {
             "<td><button onclick='fjernPerson("+i+")'>X</button></td>" +
             "</tr>";
 
-        sumBetalt += kunder[i].paid;
     }
     out += "</table>";
 
     document.getElementById("tabell").innerHTML = out;
-    document.getElementById("sum").innerHTML = sumBetalt.toFixed(2);
 }
 
 function fjernPerson(x) {
     kunder.splice(x, 1);
     oppdaterInfo()
+}
+
+function sumInnbetalinger(){
+    let sumBetalt = 0;
+    for(let i in kunder){
+        sumBetalt += kunder[i].paid;
+    }
+    document.getElementById("sum").innerText = sumBetalt.toFixed();
 }
