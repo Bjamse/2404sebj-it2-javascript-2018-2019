@@ -1,7 +1,9 @@
 //todo:
 // - blader
 // - animasjon av blader
-//  finn feilen der de ikke ligner opp riketig hver gang...
+// - finn feilen der de ikke ligner opp riketig hver gang... (kan være den ikke er så nøye men må teste videre)
+// - TEST i forskjellige nettlesere (IE, CHROME, FIREFOX, VIVALDI, EDGE...)
+
 
 window.onload = boot;
 
@@ -50,6 +52,7 @@ function boot(){
     bjork.style.top = (landRekt.top +(landRekt.height/8)) + "px";
     let bjorkRekt = bjork.getBoundingClientRect();
 
+    let tmpBlad =
 }
 
 function forandreVindstyrke(x) {
