@@ -9,7 +9,7 @@ window.onload = boot;
 
 let foiler;
 let bjork;
-let blad = [];
+let blad;
 let mast;
 let landskap;
 let a = new Audio("resurser/sommervind.mp3");
@@ -52,7 +52,12 @@ function boot(){
     bjork.style.top = (landRekt.top +(landRekt.height/8)) + "px";
     let bjorkRekt = bjork.getBoundingClientRect();
 
-    let tmpBlad =
+    blad = document.createElement("img");
+    document.getElementById("wrapper").appendChild(blad);
+    blad.src = "resurser/bilder/lov.png";
+    blad.className = "blad";
+    blad.style.left = (bjorkRekt.left + 125 ) + "px";
+    blad.style.top = (bjorkRekt.top + 242) + "px";
 }
 
 function forandreVindstyrke(x) {
@@ -61,12 +66,19 @@ function forandreVindstyrke(x) {
         bjork.style.setProperty("--wobbleTime", "-1s");
         foiler.style.setProperty("--spinTime", "-1s");
         soundShouldProbablyPlay = false;
+
+        blad.style.visibility = "hidden";
+
     }
     else if(x === 2){
         // dette er den svakeste vindstyrken
         bjork.style.setProperty("--wobbleTime", "2s");
-        bjork.style.setProperty("wobbleDegreesNegative", "-1deg");
-        bjork.style.setProperty("wobbleDegreesNegative", "1deg");
+        bjork.style.setProperty("--wobbleDegreesNegative", "-1deg");
+        bjork.style.setProperty("--wobbleDegreesPossitive", "1deg");
+
+        blad.style.visibility = "visible";
+        blad.style.setProperty("--bladTime", "3s");
+
 
         foiler.style.setProperty("--spinTime", "1.5s");
         soundShouldProbablyPlay = true;
@@ -74,8 +86,11 @@ function forandreVindstyrke(x) {
     else if(x === 3){
         // dette er den svakeste vindstyrken
         bjork.style.setProperty("--wobbleTime", "0.5s");
-        bjork.style.setProperty("wobbleDegreesNegative", "-12deg");
-        bjork.style.setProperty("wobbleDegreesNegative", "12deg");
+        bjork.style.setProperty("--wobbleDegreesNegative", "-12deg");
+        bjork.style.setProperty("--wobbleDegreesPossitive", "12deg");
+
+        blad.style.visibility = "visible";
+        blad.style.setProperty("--bladTime", "1s");
 
         foiler.style.setProperty("--spinTime", "0.3s");
 
