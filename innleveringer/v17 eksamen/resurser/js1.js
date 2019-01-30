@@ -34,7 +34,7 @@ function boot(){
     mast.height = 234;
     mast.style.left = landRekt.left +  (landRekt.width/4)*3 +"px";
     mast.style.top = landRekt.top + (landRekt.height/2)+"px";
-    let mastRekt = mast.getBoundingClientRect();
+    let mastRekt = document.getElementById("mast").getBoundingClientRect();
 
     foiler = document.createElement("img");
     document.getElementById("wrapper").appendChild(foiler);
