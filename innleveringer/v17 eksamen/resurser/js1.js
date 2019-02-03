@@ -1,10 +1,3 @@
-//todo:
-// - blader
-// - animasjon av blader
-// - finn feilen der de ikke ligner opp riketig hver gang... (kan være den ikke er så nøye men må teste videre)
-// - TEST i forskjellige nettlesere (IE, CHROME, FIREFOX, VIVALDI, EDGE...)
-
-
 window.onload = boot;
 
 let foiler;
@@ -100,4 +93,3 @@ function forandreVindstyrke(x) {
 
 
 }
-// foiler.style.setProperty("spinSpeed", "<sekkunder>")
