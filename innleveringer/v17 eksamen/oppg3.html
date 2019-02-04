@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="resurser/css.css">
+    <script src="resurser/js3.js"></script>
+</head>
+<body>
+<div id="wrapper">
+    <h1>oppgave 3</h1>
+    <hr>
+    <h2>a)</h2>
+    <p>
+        <strong>Psudokode:</strong><br>
+        få input fra hver 6 timersperionde og lagre i en liste <br>
+        lag variabel for totaltsum av watt produksjon <br>
+        for hver periode :<br>
+        &nbsp;for hver vindstyrke styrke i liste med styrker: <br>
+        &nbsp;&nbsp;test om inputten er innenfor styrken: <br>
+        &nbsp;&nbsp;&nbsp;gang watt produksjonen med 6 og legg til i totalen <br>
+        print total til skjerm <br>
+    </p>
+    <h2>b)</h2>
+    <br>
+    Skriv inn antatt gjennomsnittelig vindstyrke for periodene: <br>
+    <label for="2til8">02 til 08 :</label>
+    <input type="number" min="0" id="2til8">m/s
+    <br>
+    <label for="8til14">08 til 14:</label>
+    <input type="number" min="0" id="8til14">m/s
+    <br>
+    <label for="14til20">14 til 20:</label>
+    <input type="number" min="0" id="14til20">m/s
+    <br>
+    <label for="20til2">20 til 2:</label>
+    <input type="number" min="0" id="20til2">m/s
+    <br>
+    <input type="button" value="beregn" onclick="beregn()">
+    <br><br>
+    Produksjon i døgnet er ca.: <b id="out">--</b> watt
+
+</div>
+</body>
+</html>
