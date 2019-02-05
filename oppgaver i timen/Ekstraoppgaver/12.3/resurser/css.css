@@ -17,8 +17,7 @@ div#wrapper {
     padding: 20px;
     border: 2px black solid;
 }
-span.bar {
-    height: 20px;
-    background-color: blue;
-    display: inline-block;
+table, td, th{
+    border: solid black 2px;
+    border-collapse: collapse;
 }

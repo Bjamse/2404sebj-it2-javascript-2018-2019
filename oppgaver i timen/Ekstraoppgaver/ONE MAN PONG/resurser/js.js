@@ -15,7 +15,7 @@ function boot(){
     ball = document.getElementById("ball");
     rekkert = document.getElementById("rekkert");
     loop = setInterval(loopBallMotion,10);
-    document.onkeydown = buttonPush;
+    document.onmousemove = mouseMove;
 }
 
 
@@ -47,15 +47,9 @@ function loopBallMotion(){
     document.getElementById("poeng").innerText = "Poeng : " + poeng;
 }
 
-function buttonPush(evt) {
-    document.onkeydown = buttonPush;
-
-    if (evt.keyCode === taster.NED && rekkert.getBoundingClientRect().bottom < sh){
-        rekkert.style.top = Number(rekkert.getBoundingClientRect().top + 15) + "px";
-    }
-    if (evt.keyCode === taster.OPP && rekkert.getBoundingClientRect().top > 0){
-        rekkert.style.top = Number(rekkert.getBoundingClientRect().top - 15) + "px";
-    }
+function mouseMove(evt) {
+    rekkert.style.top = Number(evt.clientY - 45) + "px";
+    console.log(evt.clientY);
 }
 
 

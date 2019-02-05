@@ -12,17 +12,18 @@
         <hr>
         <!--input-->
         <h3>registrer ett nytt lag:</h3>
-        <label for="lagnavn">Lagnavn: </label><input type="text" id="lagnavn"><br>
-        <label for="ks">Kamper spillt: </label><input type="number" id="ks"><br>
-        <label for="s">Kamper vunnet</label><input type="number" id="s"><br>
-        <label for="u">Kamper uavgjort</label><input type="number" id="u"><br>
-        <label for="t">Kamper tapt</label><input type="number" id="t"><br>
-        <label for="mf">Mål for</label><input type="number" id="mf"><br>
-        <label for="mm">Mål mot</label><input type="number" id="mm"><br>
+        <label for="lagnavn">Lagnavn: </label><input type="text" id="lagnavn" value="odd"><br>
+        <label for="ks">Kamper spillt: </label><input type="number" id="ks" value="1"><br>
+        <label for="s">Kamper vunnet</label><input type="number" id="s" value="2"><br>
+        <label for="u">Kamper uavgjort</label><input type="number" id="u" value="3"><br>
+        <label for="t">Kamper tapt</label><input type="number" id="t" value="4"><br>
+        <label for="mf">Mål for</label><input type="number" id="mf" value="5"><br>
+        <label for="mm">Mål mot</label><input type="number" id="mm" value="6"><br>
         <button onclick="registrer()">Registrer</button>
 
         <!--tabell-->
-        <button onclick="sorterLag()">sorter</button>
+        <br><br><br>
+        <div id="tabell"></div>
     </div>
 </body>
 </html>

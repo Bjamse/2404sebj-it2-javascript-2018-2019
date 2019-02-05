@@ -31,13 +31,17 @@ function sorterLag(){
     } while (swapped);
     console.log(lag);
     skrivTabell();
+    console.log("feri sortering");
 }
 
 function skrivTabell() {
+    console.log("skriver");
     let out = "<table>";
     out += "<tr><th>#</th><th>Lag</th><th>KS</th><th>S</th><th>U</th><th>T</th><th>MF</th><th>MM</th><th>P</th></tr>";
 
     for (let i in lag){
-        out += "<tr><td>"+i+"</td><td>"+lag[i].navn+"</td><td>"+lag[i].ks+"</td></tr>";
+        out += "<tr><td>"+i+"</td><td>"+lag[i].navn+"</td><td>"+lag[i].ks+"</td><td>"+lag[i].s+"</td><td>"+lag[i].u+"</td><td>"+lag[i].t+"</td><td>"+lag[i].mf+"</td><td>"+lag[i].mm+"</td><td>"+lag[i].poeng+"</td></tr>";
     }
+    out += "</table>";
+    document.getElementById("tabell").innerHTML = out;
 }
