@@ -1,15 +1,12 @@
-
-
 window.onload = boot;
 
-let ball;
-let rekkert;
+let ball; // ballen
+let rekkert; // rekkerten
 let v = [5,2]; // hastighet x og y
 let sb = window.innerWidth; // bredde på nettside
 let sh = window.innerHeight; // høyde på nettside
-let loop;
-let taster = {OPP: 38, NED: 40};
-let poeng = 0;
+let loop; // for å kunne stoppe loopen må den vere lagt til i en variabel.
+let poeng = 0; // poengene som spilleren har sanket ved å spille
 
 function boot(){
     ball = document.getElementById("ball");
@@ -22,9 +19,6 @@ function boot(){
 function loopBallMotion(){
     let ballR = ball.getBoundingClientRect();
     let rekkertR = rekkert.getBoundingClientRect();
-
-
-
 
     if(ballR.left < -1){v[0] *=-1;}
 
