@@ -1,0 +1,12 @@
+html, body {
+    overflow: hidden;
+    font-family: "Comic Sans MS", serif;
+}
+
+img#rekkert{
+    position: absolute;
+    left: 98%;
+}
+img#ball{
+    position: absolute;
+}
