@@ -13,6 +13,7 @@ img#rekkert{
 }
 img#ball{
     position: absolute;
+    border-radius: 100%;
 }
 div#bakgrunn{
     width: 100%;
