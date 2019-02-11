@@ -1,20 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="css.css">
     <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<script>
-    function f() {
-        let a = [1,2,3, null, "ksdlk", null, 123, "kjakjksjlkfl"]
-        for (i in a){
-            console.log(a[i])
+    <title>test</title>
+    <style>
+        div#to{
+            border: orange 2px solid;
+            display: none;
         }
-    }
 
-</script>
+        div#en {
+            background: gray;
+            border-radius: 25px;
+            border: 2px black solid;
+        }
+
+        div#en:hover ~ div#to{
+            display: block;
+        }
+    </style>
+</head>
 <body>
-<input type="button" onclick="f()" value="Random navn">
-<p id="utskrift"></p>
+<div id="wrapper">
+    <div id="en">Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet</div>
+
+    <br>
+
+    <div id="to">Hidden tekst med mye morro</div>
+</div>
 </body>
 </html>
