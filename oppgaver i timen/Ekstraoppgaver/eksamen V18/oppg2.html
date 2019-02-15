@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RMM</title>
+    <link rel="stylesheet" href="resurser/css.css">
+    <script src="resurser/felles.js"></script>
+    <script src="resurser/oppg2.js"></script>
+
+</head>
+<body>
+<!--de 3 info dingsene til venstre-->
+<div id="infonav" onmouseleave="endreINFOnavTEXT('')">
+    <table>
+        <tr>
+            <td><img src="Vedlegg_V18/aapningstider.jpg" alt="" class="icon" onmouseover="endreINFOnavTEXT(infoTekst[0])"></td>
+            <td id="infoNavInfo" rowspan="3"></td>
+        </tr>
+        <tr>
+            <td><img src="Vedlegg_V18/priser.jpg" alt="" class="icon" onmouseover="endreINFOnavTEXT(infoTekst[1])"></td>
+
+        </tr>
+        <tr>
+            <td><img src="Vedlegg_V18/informasjon.jpg" alt="" class="icon" onmouseover="endreINFOnavTEXT(infoTekst[2])"></td>
+        </tr>
+    </table>
+
+</div>
+<div id="wrapper">
+    <!--tekst med museebilde og vit tekst over-->
+    <div id="overskrift" >
+        <div id="overskriftBakgrunn">
+            <h1>R.M.M.</h1>
+            <p>Ringve Musikkhistoriske Museeum</p></div>
+    </div>
+
+    <!--rad for de andre oppgavene-->
+    
+    <!--tabell-->
+
+    <h2>
+        Bestill Billetter!!!
+    </h2>
+    <img src="resurser/tabellArrangement.PNG" alt=""><br>
+    <!--velg arangement-->
+    <label for="arrangement">Velg et arrangement:</label>
+    <select name="arrangement" id="arrangement">
+        <option value="0">Trondheim kammermusikkfestival: Fabelaktig Formidag</option>
+        <option value="1">Spill opp!</option>
+        <option value="2">Onsdagskonsert</option>
+        <option value="3">Juiogat: joik for folk</option>
+    </select><br>
+    <!--velg antall voksne-->
+    <label for="antVoksne">Antall billetter for voksne (100kr):</label>
+    <input type="number" min="0" id="antVoksne"><br>
+    <!--velg antall banr-->
+    <label for="antBarn"> Antall biletter for barn (50kr): </label>
+    <input type="number" min="0" id="antBarn"><br>
+    <!--betal!-->
+    <input type="submit" value="bestill" onclick="BuyTickets()"><br>
+
+
+    <br>
+    <!--utskrift-->
+    <div id="Bestillingsutskrift"></div>
+</div>
+</body>
+</html>
+
+

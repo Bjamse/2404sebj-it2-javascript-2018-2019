@@ -51,6 +51,10 @@ img.icon{
     width: 50px;
     border-radius: 5px;
 }
+
+img.icon:hover{
+    border: solid darkblue 2px;
+}
 #infoNavInfo{
     visibility: hidden;
     border: solid black 2px;
