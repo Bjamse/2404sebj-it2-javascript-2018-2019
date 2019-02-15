@@ -3,7 +3,7 @@ let instrument=  [
     {id: 1,kilde: "Vedlegg_V18/floyte.gif", navn:"Fløyte", lyd:"Vedlegg_V18/floyte.mp3"},
     {id: 2,kilde: "Vedlegg_V18/klarinett.jpg", navn:"Klarinett", lyd:"Vedlegg_V18/klarinett.mp3"},
     {id: 3,kilde: "Vedlegg_V18/obo.jpg", navn:"Obo", lyd:"Vedlegg_V18/obo.mp3"},
-    {id: 4,kilde: "Vedlegg_V18/Valthorn.jpg", navn:"Valthort", lyd:"Vedlegg_V18/valthorn.mp3"}
+    {id: 4,kilde: "Vedlegg_V18/valthorn.jpg", navn:"Valthorn", lyd:"Vedlegg_V18/valthorn.mp3"}
 
 ];
 
