@@ -58,8 +58,8 @@ function svar(element){
         poeng +=1;
         hscore = Math.max(poeng, hscore);
         if(poeng === totaltAntallinstrument){
-            poeng="alle";
-            hscore = "alle";
+            poeng="klarte alle!";
+            hscore = "kalrte alle!";
             alert("gratulerer du klarte alle!");
             skrivStats();
             return;

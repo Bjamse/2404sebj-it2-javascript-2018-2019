@@ -36,10 +36,18 @@
     </div>
 
     <!--rad for de andre oppgavene-->
+    <br>
 
-    <h1>a)</h1>
-    lag en liste med
-    <h1>b)</h1>
+    <div ><a href="oppg1.html" class="linker"> oppgave 1 </a><a href="oppg2.html" class="linker">oppgave 2</a><a href="oppg3.html" class="linker">oppgave 3</a></div>
+
+    <h2>a)</h2>
+    lagde en liste med instriumenter som objekter. <br>
+    lytt til om brukeren har trykket start og spill av lyden til den første som de ksla gjette.<br>
+    skjekk om gjettingen er rittig og spill av neste fjern riktig fra lista<br>
+    hvis feil så spill av feil lyd i stedt  og  senk antall foorsøk igjen.<br>
+    skriv hele tiden til skjermen hva status er på de foskjellige.<br>
+    hvis ferdig så gratulerer brukeren og sånn..<br>
+    <h2>b)</h2>
     <h4> poeng = <span id="poeng">0</span> forsøk = <span id="forsøk">3</span> highscore = <span id="hscore">0</span></h4>
     <div id="spill" style="width: 100%;">
 
@@ -50,6 +58,20 @@
 
 
     <script>lagTabellForSpill(); skrivStats()</script>
+
+
+    <h2>c)</h2>
+    TESTPLAN <br>
+    	Sjekke om knappen funker, og om det kommer lyd fra lydknappen<br>
+    	Sjekke at alle fem instrumenter kan bli spilt av<br>
+    	Sjekke at «spill av igjen» knappen funker<br>
+    	Sjekke at riktig.mp3 spilles av når man velger rett, og at feil.mp3 spilles av når velger feil<br>
+    	Sjekke at antall feil blir registrert<br>
+    	Sjekke at ny highscore oppdateres når den er høyere enn den gamle. Hvis den nye er lavere enn den gamle skal den ikke skrives over<br>
+    	Se til at antall forsøk vises<br>
+    	Sjekke at du får «melding» når alt er rett<br>
+    	Sjekke at alt er likt som på starten når man trykker restart.<br>
+    	Evt. sjekke om ting krasjer hvis man legger til et instrument til.<br>
 
 
 
