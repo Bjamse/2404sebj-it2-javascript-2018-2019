@@ -1,0 +1,89 @@
+body {
+    width: 100%;
+    height: 100%;
+    font-family: "Comic Sans MS", serif;
+    overflow-x:hidden;
+}
+
+body {
+    background-image: url("http://xn--krk-ula.com/grayBack.jpg");
+}
+
+div#wrapper {
+    margin: auto;
+    height: 90%;
+    width: 70%;
+    background-color: lightgray;
+    border-radius: 25px;
+    padding: 20px;
+    border: 2px black solid;
+}
+
+div#overskrift{
+    width: 100%;
+    height: 20%;
+}
+
+div#overskriftBakgrunn{
+    width: 100%;
+    height: 100%;
+    /*filter: blur(5px);*/
+    background-image: url("./Blurrabakgrunn.png");
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    color: white;
+    /*position: absolute;*/
+    text-align: center;
+    vertical-align: middle;
+    backdrop-filter: blur(3px);
+    border-style: none;
+    text-shadow: 2px 2px #000000;
+}
+
+
+div#infonav{
+    position: fixed;
+    top: 40%;
+    z-index: 1000000;
+}
+img.icon{
+    width: 50px;
+    border-radius: 5px;
+}
+#infoNavInfo{
+    visibility: hidden;
+    border: solid black 2px;
+    border-radius: 5px;
+    backdrop-filter: opacity(0.83);
+    background: rgba(245,245,220,0.90);
+
+}
+#infonav:hover *  ~ #infoNavInfo{
+    visibility: visible;
+
+}
+
+.introimg{
+    overflow: hidden;
+    width: 100%;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    transition-duration: 1s;
+}
+#lArrow{
+    position: absolute;
+    left: 3%;
+    top: 60%;
+    width: 40px;
+}
+#rArrow{
+    position: absolute;
+    right: 3%;
+    top: 60%;
+    transform: rotate(180deg);
+    width: 40px;
+
+}
+

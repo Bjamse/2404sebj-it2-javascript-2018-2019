@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RMM</title>
+    <link rel="stylesheet" href="resurser/css.css">
+    <script src="resurser/index.js"></script>
+
+</head>
+<body>
+<!--de 3 info dingsene til venstre-->
+<div id="infonav" onmouseleave="endreINFOnavTEXT('')">
+    <table>
+        <tr>
+            <td><img src="Vedlegg_V18/aapningstider.jpg" alt="" class="icon" onmouseover="endreINFOnavTEXT(infoTekst[0])"></td>
+            <td id="infoNavInfo" rowspan="3"></td>
+        </tr>
+        <tr>
+            <td><img src="Vedlegg_V18/priser.jpg" alt="" class="icon" onmouseover="endreINFOnavTEXT(infoTekst[1])"></td>
+
+        </tr>
+        <tr>
+            <td><img src="Vedlegg_V18/informasjon.jpg" alt="" class="icon" onmouseover="endreINFOnavTEXT(infoTekst[2])"></td>
+        </tr>
+    </table>
+
+</div>
+<div id="wrapper">
+    <!--tekst med museebilde og vit tekst over-->
+    <div id="overskrift" >
+            <div id="overskriftBakgrunn">
+            <h1>R.M.M.</h1>
+            <p>Ringve Musikkhistoriske Museeum</p></div>
+    </div>
+
+    <!--rad for de andre oppgavene-->
+    <br><br><br>
+    <div style="margin: 0; padding: 0; border-spacing: 0; overflow: hidden; white-space: nowrap; position: relative" id="bildeserie">
+        <img src="Vedlegg_V18/intro1.jpg" alt="" class="introimg" id="img1">
+        <img src="Vedlegg_V18/intro2.jpg" alt="" class="introimg" id="img2">
+        <img src="Vedlegg_V18/intro3.jpg" alt="" class="introimg" id="img3">
+        <img src="Vedlegg_V18/intro4.jpg" alt="" class="introimg" id="img4">
+        <img src="resurser/arrow.png" alt="" id="lArrow" onclick="moveimages(-1)">
+        <img src="resurser/arrow.png" alt="" id="rArrow" onclick="moveimages(1)">
+    </div>
+
+
+</div>
+</body>
+</html>
+
+
