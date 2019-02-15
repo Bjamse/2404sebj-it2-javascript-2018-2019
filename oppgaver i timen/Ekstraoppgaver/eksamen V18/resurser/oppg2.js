@@ -18,8 +18,8 @@ function BuyTickets() {
         out += "<b>Bestilling:</b><br> du har bestilt "
             + Number( antV+ antB) + " billetter til "+ arrangement+", ";
     }
-    else{
-        document.getElementById("Bestillingsutskrift").innerHTML = "Sorry det skjedde en feil";
+    if (antB + antV ===  0){
+        document.getElementById("Bestillingsutskrift").innerHTML = "Sorry det skjedde en feil. sørg får å fylle ut alle felter!";
         return;
     }
     if (antV > 0){out += antV + " voksne"}

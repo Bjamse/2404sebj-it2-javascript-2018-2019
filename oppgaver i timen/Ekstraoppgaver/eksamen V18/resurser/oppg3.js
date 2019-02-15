@@ -25,18 +25,25 @@ function startSpill(startkanpp){
     startkanpp.disabled = true;
     document.getElementById("replay").style.visibility = "visible";
     currentlyd = Math.floor( Math.random()* (instrument.length));
-    spillLyd()
+    spillLyd(instrument[currentlyd].lyd)
 }
 
 let a;
-function spillLyd(){
+function spillLyd(x){
     if (a !== undefined){a.pause()}
-    a= new  Audio();
+    a= new  Audio(x);
     a.play();
 }
 
+let poeng = 0;
+let forsok = 3;
 function svar(element){
     if(element.id === currentlyd){
-        a
+        spillLyd("Vedlegg_V18/riktig.mp3");
+        element.style.display = "none";
+    }else{
+        spillLyd("Vedlegg_V18/feil.mp3");
+
+        forsok -=1;
     }
 }
