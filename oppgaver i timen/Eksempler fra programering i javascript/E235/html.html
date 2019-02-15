@@ -1,21 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="resurser/css.css">
-    <title>endre bakgrunn</title>
-    <script src="resurser/js.js"></script>
+    <meta charset="utf-8">
+    <title>Histore</title>
+    <style media="screen">
+        body{
+            height: 100%;
+            background-color: #00aaff;
+        }
+        #tag{
+            position: absolute;
+            top: 40%;
+            align-content: center;
+            margin:auto;
+        }
+        h1{
+            font-size: 80pt;
+            animation: a 5s linear infinite;
+            font-family: "Comic Sans MS", serif;
+        }
+
+        @keyframes a {
+            0%{
+                color: #ff00ff;
+                transform: rotate(0deg);
+            }
+
+            25%{
+                transform: rotate(90deg) ;
+                color: #0000ff;
+            }
+            50%{
+                transform: rotate(180deg) ;
+                color: #ff0000;
+            }
+            75%{
+                transform: rotate(270deg) ;
+                color: #00ff00;
+            }
+            100% {
+                transform: rotate(360deg);
+                color: #ff00ff;
+            }
+        }
+    </style>
 </head>
 <body>
-<div id="wrapper">
-    <h1>Bytt bakgrunnsfage!</h1>
-    <hr>
-    <p>
-        her kan du enkelt bytte bakgrunnsfarge tila kkurat den du vil
-    </p>
-    <input type="color" id="farge">
-    <input type="button" value="endre" onclick="endre()">
+<div id="tag">
+    <h1 id="historie">Jeg Gjør Histore</h1>
 
+    <script>
+        let h = document.getElementById("tag");
+        h.style.left = (document.body.getBoundingClientRect().width/2 - h.getBoundingClientRect().width/2) + "px" ;
+    </script>
 </div>
 </body>
 </html>
