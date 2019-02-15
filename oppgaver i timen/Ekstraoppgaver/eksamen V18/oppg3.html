@@ -36,16 +36,22 @@
     </div>
 
     <!--rad for de andre oppgavene-->
-    <h4> poeng = <span id="poeng"></span> forsøk = <span id="forsøk"></span> highscore = <span id="hscore"></span></h4>
+
+    <h1>a)</h1>
+    lag en liste med
+    <h1>b)</h1>
+    <h4> poeng = <span id="poeng">0</span> forsøk = <span id="forsøk">3</span> highscore = <span id="hscore">0</span></h4>
     <div id="spill" style="width: 100%;">
 
     </div>
     <input type="button" value="start spill" onclick="startSpill(this)">
-    <input type="button" value="spill av på nytt" onclick="spillLyd()" style="visibility: hidden" id="replay">
+    <input type="button" value="spill av på nytt" onclick="spillLyd(currentlyd.lyd)" style="visibility: hidden" id="replay">
+    <input type="button" value="restart" onclick="location.reload();" disabled id="reload">
 
 
+    <script>lagTabellForSpill(); skrivStats()</script>
 
-    <script>lagTabellForSpill()</script>
+
 
 </div>
 </body>

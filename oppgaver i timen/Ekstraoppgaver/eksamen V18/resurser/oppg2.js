@@ -19,7 +19,7 @@ function BuyTickets() {
             + Number( antV+ antB) + " billetter til "+ arrangement+", ";
     }
     if (antB + antV ===  0){
-        document.getElementById("Bestillingsutskrift").innerHTML = "Sorry det skjedde en feil. sørg får å fylle ut alle felter!";
+        document.getElementById("Bestillingsutskrift").innerHTML = "Sorry det skjedde en feil. Sørg får å fylle ut alle felter!";
         return;
     }
     if (antV > 0){out += antV + " voksne"}
