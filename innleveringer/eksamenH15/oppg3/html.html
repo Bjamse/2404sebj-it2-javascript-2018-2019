@@ -10,6 +10,29 @@
 <div id="wrapper">
     <h1>oppgave 3</h1>
     <hr>
+    <div id="alt">
+
+        rediger karakterene i følgende fag
+
+        <div id="out1"><script>skrivFag()</script></div>
+        <br>
+        ekstrafag/ekamener:
+        <div id="out2"></div>
+
+        <button onclick="add()">leggt il ekstrafag/eksamen</button>
+        Tillegspoeng : <label for='ekstrapoeng'></label><select name='ekstrapoeng"' id='ekstrapoeng'>
+            <option value='0'>0</option>
+            <option value='1'>1</option>
+            <option value='2'>2</option>
+            <option value='3'>3</option>
+            <option value='4'>4</option>
+        </select>
+
+    </div>
+
+    <button onclick="utskrift()">skriv ut ei liste over alle fag og karakterer sorterte etter karakterer</button>
+    <div id="utskrift"></div>
+    <div id="kalkuleringer"></div>
 
 </div>
 </body>
