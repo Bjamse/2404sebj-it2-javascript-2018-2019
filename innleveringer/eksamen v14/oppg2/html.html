@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>oppg2</title>
+    <link rel="stylesheet" href="css.css">
+    <script src="js.js"></script>
+</head>
+<body>
+<div id="wrapper">
+    <h1> oppgave 2</h1>
+    a) <br>
+    sammenlign
+    <select name="" id="aar1">
+        <option value="0">2002</option>
+        <option value="1">2003</option>
+        <option value="2">2004</option>
+        <option value="3">2005</option>
+        <option value="4">2006</option>
+        <option value="5">2007</option>
+    </select>
+    med
+    <select name="" id="aar2">
+        <option value="0">2002</option>
+        <option value="1">2003</option>
+        <option value="2">2004</option>
+        <option value="3">2005</option>
+        <option value="4">2006</option>
+        <option value="5">2007</option>
+    </select>
+    <input type="button" value="bekreft" onclick="sammenlign()">
+    <p id="sRes"></p>
+    <br>
+    b)
+    <br>
+    lag søylediagram for : <button onclick="skrivDiagramm(lovvbrudd.hastighet)">Ulovligh hastighet</button> <button onclick="skrivDiagramm(lovvbrudd.promille)">promille</button>
+    <br>
+    <div id="søyler">
+
+    </div>
+</div>
+</body>
+</html>
