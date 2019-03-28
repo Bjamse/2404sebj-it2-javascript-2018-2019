@@ -23,7 +23,7 @@
 </head>
 <body>
 <div id="wrapper">
-    trykk på skjermen
+    1
     <script>
         window.mobileAndTabletcheck = function() {
             let check = false;
@@ -34,7 +34,7 @@
             alert("mobil eller tablet")
         }
 
-        window.onmousemove = mouse();
+        window.onclick = mouse();
 
         function mouse(evt) {
             document.write(evt.clientX+ "");
