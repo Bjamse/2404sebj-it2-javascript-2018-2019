@@ -43,6 +43,7 @@ class Snake{
         document.body.appendChild(this.head);
         this.head.className = "piece";
         this.width = this.head.getBoundingClientRect().width;
+        this.head.id = "head";
         // alle delene av slangen er kvadratiske så da går det å bruke wifth til både hæden og bredden på kvadratene
         this.head.style.left = (restriction.right/2 - this.width/2) + "px";
         this.head.style.top = (restriction.bottom/2 - this.width/2 ) + "px";
@@ -123,12 +124,18 @@ let direction = "right";
 let ldirection ="right";
 function directionChange(evt){
     document.onkeydown = directionChange;
-    tmp ={37:"left", 39:"right", 38:"up", 40:"down",65:"left", 68:"right", 87:"up", 83:"down" }[evt.keyCode];
+    let tmp ={37:"left", 39:"right", 38:"up", 40:"down",65:"left", 68:"right", 87:"up", 83: "down" }[evt.keyCode];
     if( (tmp === "right" && ldirection !== "left")||
         (tmp === "left" && ldirection !== "right")||
         (tmp === "down" && ldirection !== "up")||
         (tmp === "up" && ldirection !== "down")){
         direction= tmp;
+        if(tmp === "right"){    s.head.style.transform= "rotate(0deg)" }
+        else if(tmp === "up"){  s.head.style.transform= "rotate(-90deg)" }
+        else if(tmp === "down"){s.head.style.transform= "rotate(90deg)" }
+        else if(tmp === "left"){
+            s.head.style.transform= "rotate(180deg)";
+        }
     }
 
 }

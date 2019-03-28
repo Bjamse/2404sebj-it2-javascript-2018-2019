@@ -14,7 +14,12 @@ html, body{
     height: 30px;
     position: absolute;
 
+
 }
+#head{
+    background-image: url("snakeHead.png");
+}
+
 h1#score{
     opacity: 60;
     position: absolute;
