@@ -69,8 +69,8 @@ class Snake{
             this.tail[i].style.left = this.tail[i-1].style.left;
             this.tail[i].style.top = this.tail[i-1].style.top;
         }
-        this.tail[1].style.left = this.head.style.left;
-        this.tail[1].style.top = this.head.style.top;
+        this.tail[0].style.left = this.head.style.left;
+        this.tail[0].style.top = this.head.style.top;
 
         // wrap around x axis
         if (this.head.getBoundingClientRect().left + mv[0] < 0) this.head.style.left = (window.innerWidth - this.width)+ "px";
@@ -79,7 +79,7 @@ class Snake{
 
         // wrap arround y axis
         if(this.head.getBoundingClientRect().top< 0)this.head.style.top = (window.innerHeight - this.width)+ "px";
-        else if(this.head.getBoundingClientRect().bottom > window.innerHeight)this.head.style.top = 0+ "px";
+        else if(this.head.getBoundingClientRect().bottom > window.innerHeight)this.head.style.top = 1 + "px";
         else this.head.style.top = (this.head.getBoundingClientRect().top + mv[1])+ "px";
 
         let tmpCollideid = this.collide(points);
@@ -134,7 +134,8 @@ function directionChange(evt){
         else if(tmp === "up"){  s.head.style.transform= "rotate(-90deg)" }
         else if(tmp === "down"){s.head.style.transform= "rotate(90deg)" }
         else if(tmp === "left"){
-            s.head.style.transform= "rotate(180deg)";
+            s.head.style.transform= "rotate(0deg)";
+            s.head.style.transform= "rotateY(180deg)";
         }
     }
 
