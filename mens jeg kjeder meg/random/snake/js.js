@@ -3,6 +3,8 @@ let restriction;
 let s;
 let loop;
 let delay = 100;
+let points =[];
+let score = 0;
 function boot() {
     restriction= {
         top:0,
@@ -19,9 +21,9 @@ function boot() {
     }, delay);
     points.push(pp());
 }
-let points =[];
 // place point
 function pp(){
+    let date = new Date();
     let tmp = document.createElement("div");
     tmp.className = "piece";
     tmp.style.backgroundColor = "black";
@@ -29,6 +31,7 @@ function pp(){
     tmp.style.left = Math.floor(Math.random() * window.innerWidth) + "px";
     tmp.style.top = Math.floor(Math.random() * window.innerHeight) + "px";
     document.body.appendChild(tmp);
+    tmp.id = date.getTime();
     return tmp
 }
 
@@ -77,6 +80,40 @@ class Snake{
         else if(this.head.getBoundingClientRect().bottom > window.innerHeight)this.head.style.top = 0+ "px";
         else this.head.style.top = (this.head.getBoundingClientRect().top + mv[1])+ "px";
 
+        let tmpCollideid = this.collide(points);
+        if (tmpCollideid !== false){
+            this.addTail(3);
+            score ++;
+            document.getElementById("score").innerText = score;
+            removeElementByID(points[tmpCollideid].id);
+            points.pop(tmpCollideid);
+            points.push(pp());
+        }
+
+
+        tmpCollideid= this.collide(this.tail);
+        if (tmpCollideid !== false ){
+            endGame();
+        }
+    }
+
+    collide(x){
+        for(let i in x){
+            if (this.head.getBoundingClientRect().left <= x[i].getBoundingClientRect().left + x[i].getBoundingClientRect().width && // en stor if test for å se om ballen og rekkerten deler noen piksler (har kollidert)
+                x[i].getBoundingClientRect().left <= this.head.getBoundingClientRect().left + this.head.getBoundingClientRect().width &&
+                this.head.getBoundingClientRect().top <= x[i].getBoundingClientRect().top + x[i].getBoundingClientRect().height &&
+                x[i].getBoundingClientRect().top <= this.head.getBoundingClientRect().top + this.head.getBoundingClientRect().height){
+                return i;
+            }
+        }
+        return false;
+    }
+
+    remove(){
+        removeElement(this.head);
+        for(let i in this.tail){
+           removeElement(this.tail[i])
+        }
     }
 
 
@@ -95,3 +132,18 @@ function directionChange(evt){
 
 }
 
+function removeElementByID(elementId){
+    // Removes an element from the document
+    let element = document.getElementById(elementId);
+    removeElement(element);
+}
+function removeElement(element) {
+    element.parentNode.removeChild(element);
+}
+
+
+function endGame() {
+    clearInterval(loop);
+    s.remove();
+    alert("GG")
+}
