@@ -28,10 +28,11 @@ function pp(){
     tmp.className = "piece";
     tmp.style.backgroundColor = "black";
     tmp.style.borderRadius = "100%";
-    tmp.style.left = Math.floor(Math.random() * window.innerWidth) + "px";
-    tmp.style.top = Math.floor(Math.random() * window.innerHeight) + "px";
     document.body.appendChild(tmp);
+    tmp.style.left = Math.floor(Math.random() * (window.innerWidth-tmp.getBoundingClientRect().width)) + "px";
+    tmp.style.top = Math.floor(Math.random() * (window.innerHeight-tmp.getBoundingClientRect().height)) + "px";
     tmp.id = date.getTime();
+
     return tmp
 }
 
@@ -82,7 +83,7 @@ class Snake{
 
         let tmpCollideid = this.collide(points);
         if (tmpCollideid !== false){
-            this.addTail(3);
+            this.addTail(2);
             score ++;
             document.getElementById("score").innerText = score;
             removeElementByID(points[tmpCollideid].id);
@@ -122,7 +123,7 @@ let direction = "right";
 let ldirection ="right";
 function directionChange(evt){
     document.onkeydown = directionChange;
-    tmp ={37:"left", 39:"right", 38:"up", 40:"down"}[evt.keyCode];
+    tmp ={37:"left", 39:"right", 38:"up", 40:"down",65:"left", 68:"right", 87:"up", 83:"down" }[evt.keyCode];
     if( (tmp === "right" && ldirection !== "left")||
         (tmp === "left" && ldirection !== "right")||
         (tmp === "down" && ldirection !== "up")||

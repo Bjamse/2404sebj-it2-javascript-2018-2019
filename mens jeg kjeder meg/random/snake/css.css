@@ -19,8 +19,10 @@ h1#score{
     opacity: 60;
     position: absolute;
     width: 100%;
-    top: 50%;
+    top: 45%;
     text-align: center;
     font-size: 72pt;
+    margin: 0;
+
 
 }
