@@ -23,7 +23,7 @@
 </head>
 <body>
 <div id="wrapper">
-    123
+    1234
     <script>
         window.mobileAndTabletcheck = function() {
             let check = false;
@@ -37,6 +37,7 @@
         window.onmousemove = mouse;
 
         function mouse(evt) {
+            window.onmousemove = mouse;
             document.write(evt.clientX+ "");
         }
     </script>
