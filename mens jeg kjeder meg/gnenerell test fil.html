@@ -34,7 +34,9 @@
             alert("mobil eller tablet")
         }
 
-        window.onmousemove = function (evt) {
+        window.onmousemove = mouse();
+
+        function mouse(evt) {
             document.write(evt.clientX+ "");
         }
     </script>
