@@ -23,7 +23,8 @@
 </head>
 <body>
 <div id="wrapper">
-    1234
+    12345
+    <h1 id="tall"></h1>
     <script>
         window.mobileAndTabletcheck = function() {
             let check = false;
@@ -31,14 +32,14 @@
             return check;
         };
         if (window.mobileAndTabletcheck()){
-            alert("mobil eller tablet")
+            // alert("mobil eller tablet")
         }
 
-        window.onmousemove = mouse;
+        document.onmousemove = mouse;
 
         function mouse(evt) {
-            window.onmousemove = mouse;
-            document.write(evt.clientX+ "");
+            document.onmousemove = mouse;
+            document.getElementById("tall").innerhtml = evt.pageX+ "";
         }
     </script>
 </div>
