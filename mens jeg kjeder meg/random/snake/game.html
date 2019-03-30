@@ -4,9 +4,24 @@
     <meta charset="UTF-8">
     <title>Snake</title>
     <link rel="stylesheet" href="css.css">
-    <script src="js.js"></script>
+    <script src="script.js"></script>
+    <script src="classes.js"></script>
 </head>
 <body>
-    <h1 id="score">0</h1>
+<h1 id="score">0</h1>
+<div id="StartMenu" class="menu">
+    <h1>Snake</h1>
+    <div class="button" onclick="newGame();removeElement(document.getElementById('StartMenu'))">
+        Start
+    </div>
+    <br>
+    <div class="button" onclick="scoreboard();removeElement(document.getElementById('StartMenu'))">
+        Scoreboard
+    </div>
+    <br>
+    <div class="button" onclick="window.close()">
+        Quit
+    </div>
+</div>
 </body>
 </html>

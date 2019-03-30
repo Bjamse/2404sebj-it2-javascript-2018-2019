@@ -31,3 +31,39 @@ h1#score{
 
 
 }
+
+div.menu{
+    position: absolute;
+    background: lightgray;
+    border: solid black 3px;
+    border-radius: 30px;
+    width: 400px;
+    height: 300px;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    text-align: center;
+    font-family: "Comic Sans MS",fantasy;
+
+}
+div.button{
+    border: solid black 2px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    margin: auto;
+    width: 40%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: green;
+    cursor: pointer;
+    
+
+}
+div#Scoreboard{
+    height: 450px;
+}
+table, th, td{
+    border: solid black 1px;
+    border-collapse: collapse;
+}
