@@ -2,10 +2,50 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>kjør HTML</title>
+    <style>
+        html, body {
+            width: auto;
+            height: auto;
+            font-family: "Comic Sans MS", serif;
+        }
+
+        body {
+            background-image: url("http://xn--krk-ula.com/grayBack.jpg");
+        }
+
+        div#wrapper {
+            margin: auto;
+            height: 90%;
+            width: 70%;
+            background-color: lightgray;
+            border-radius: 25px;
+            padding: 20px;
+            border: 2px black solid;
+        }
+    </style>
+    <script>
+        function goto() {
+            let url = document.getElementById("url").value;
+            url = url.replace("com/Bjamse","io");
+            url = url.replace("/blob/master","");
+            url = url.replace("github.","Bjamse.github.");
+            alert(url)
+        }
+    </script>
 </head>
 <body>
-
-
+<div id="wrapper">
+    <h1>Vis HTML sider</h1>
+    <p>
+        Denne sia kan du bruke for å se filer fra <a href="https://github.com/Bjamse/2404sebj-it2-javascript-2018-2019">Bjamse/2404sebj-it2-javascript-2018-2019</a>.
+        <br>
+        Alt du gjør er å gå inn i den html fila du vil se , og så kopierer du url-en: <br>
+        <img alt="" src="eksempel.png" style="width: 100%; height: auto;"><br>
+        og limer den inn her: <br>
+        <input id="url" placeholder="url" style="width: 500px" type="text"><br>
+        <input onclick="goto()" type="button" value="kjør">
+    </p>
+</div>
 </body>
 </html>
