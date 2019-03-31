@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bevegelse</title>
+    <link rel="stylesheet" href="css.css">
+<!--    bare for at kode eksemplene skal se bra ut å legger ejg til dette-->
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+</head>
+<body>
+<div id="wrapper">
+    <h1>forflyttning i javascript</h1>
+    <hr>
+    <h2>Teori</h2>
+
+    <ol>
+        <li>Skaff et objekt</li>
+        <li>sørg for at objektet har posision absolute</li>
+        <li>flytt objektet</li>
+    </ol>
+
+
+    <h2>Fremgangsmåte</h2>
+    <h3>1. finn/lag objektet i js</h3>
+    <p>
+        For å kunne bevege noe må du vite hva du vil bevege på. Hvis du allerede har et element i en html fil som du vil bevege på, så lagrer du dette i en variabel til bruk senere.
+        Det kan gjøres på følgende måte, hvis objektet har en kjent id:
+    </p>
+    <code class="prettyprint lang-js">
+        let element = document.getElemetById("idTilElementet");
+    </code>
+    <br>
+    <p>
+        Har du derimot ikke et element ferdig så kan du lage et nytt og legge det til i body på documentet ved å gjøre sånn:
+    </p>
+    <code class="prettyprint lang-js">
+        let elemet = document.createEement("div");<br>
+        document.body.appendChild(element);
+    </code>
+
+    <h3>2. sørg for at objektet har posision absolute</h3>
+    <p>
+        For å kunne forflytte et objekt fritt i forhold til andre objektetr på skjermen, så må objektet ha poition absolute.
+        His du vet hva forkjellen på absoulte, fixed og relative er, så kan du gtjerne bruke det, men her bruker vi absolute fordi det ofte gir ferrest problemer.
+        <br>
+        dette kan enten oppnås i css:
+
+
+    </p>
+    <code class="prettyprint lang-css">
+        #idTilElement{<br>
+        &nbsp; position : absolute;<br>
+        }
+    </code>
+    <p>
+        eller i javascript direkte sånn som dette:
+    </p>
+    <code class="prettyprint lang-js">
+        element.style.position = "absolute";
+    </code>
+
+    <h3>3. flytt objektet</h3>
+    <p>
+        så for å flytte objektet så tar vi å først finner posisjonen til hvor det er nå, og så legger vi til Eller trekker fra det vi vil flytte den med.
+        i dette eksempelet har vi lagt å flytte objektet horisontalt med 100 pixler:
+    </p>
+
+    <code class="prettyprint lang-js">
+        // her lagrer vi den forrige x koordinaten til elementet <br>
+        let forrigeX = element.getBoundingClientRect().left;<br>
+        <br>
+        // så setter vi en nye posisjonen til elementet <br>
+        element.style.left = (forrigeX + 100) + "px";<br>
+    </code>
+    <p>vil du gjøre dette på en linje i stedet for 2 ser det slik ut</p>
+    <code class="prettyprint lang-js">
+        element.style.left = (element.getBoundingClientRect().left + 100) + "px";
+    </code>
+
+
+    <h2>Eksempel:</h2>
+    <code class="prettyprint lang-js">
+        // får tak i elementet <br>
+        let element = document.getElemetById("idTilElementet"); <br>
+        // Setter posisjonstypen <br>
+        element.style.position = "absolute";<br>
+        // flytter elementet <br>
+        element.style.left = (element.getBoundingClientRect().left + 100) + "px";
+    </code>
+</div>
+</body>
+</html>
