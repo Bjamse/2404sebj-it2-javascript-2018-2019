@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+    <script>
+        // definerer global variabl
+        let xmlhttp;
+
+        // oppstart
+        window.onload = boot;
+
+        function boot(){
+            // start å lag en request etter data
+            xmlhttp = new XMLHttpRequest();
+            // gjør denne funksjonen når du får svar på en request etter data
+            xmlhttp.onreadystatechange = statusforandring;
+            // forklar hva requsten skal gjøre/hente og hvor
+            xmlhttp.open("get", "innhold.dat", true);
+            // send request etter data
+            xmlhttp.send();
+        }
+
+        function statusforandring(){
+            // hvis requesten fikk en possitiv respons med statuskode 200 (alt ok)
+            if (xmlhttp.readyState === 4 && xmlhttp.status === 200){
+                // skriver ut resultatet på skjermen
+                document.getElementById("dat").innerHTML = xmlhttp.responseText;
+            }
+        }
+
+    </script>
+</head>
+<body>
+<div id="dat"></div>
+</body>
+</html>

@@ -4,28 +4,45 @@
     <meta charset="UTF-8">
     <title>lese fra datafiler</title>
     <script>
+        // definer global variabel
         let xmlhttp;
 
+        // oppstart
         window.onload = boot;
 
         function boot(){
+            // start å lag en request etter data
             xmlhttp = new XMLHttpRequest();
+            // gjør denne funksjonen når du får svar på en request etter data
             xmlhttp.onreadystatechange = statusforandring;
-            xmlhttp.open("get", "innhold.dat", true);
+            // forklar hva requsten skal gjøre/hente og hvor
+            xmlhttp.open("get", "2.innhold.dat", true);
+            // send request etter data
             xmlhttp.send();
         }
 
         function statusforandring(){
+            // hvis requesten fikk en possitiv respons med statuskode 200 (alt ok)
             if (xmlhttp.readyState === 4 && xmlhttp.status === 200){
+                // lagre dataene fra responsen i en variabel data
                 let data = xmlhttp.responseText;
+                // del opp dataen inn i en liste med data for hver linje
                 let linjer = data.split("\n");
+                // lag en variabel for or alt som skal skrives ut til skjermen
                 let out = "";
+                // gå igjennom alle line i linjer
                 for (let i in linjer){
+                    // skriv ut til konsollen
                     console.log(i);
+                    // la linjedata være en liste for alt i linja og splitt opp lista for hver % i den
                     let linjedata = linjer[i].split("%");
+                    // gjør noen kalkuleringer
                     let poeng = Number(linjedata[2]) + Number(linjedata[3]) + Number(linjedata[4]);
+                    // skriv ut hver deltager , deltagernavnet, og antall poeng
                     out += "Deltager " + linjedata[0] + " (" + linjedata[1] + ") har fått "+ poeng + " <br>";
                 }
+
+                // skriv til skjermen
                 document.body.innerHTML += out
 
             }
