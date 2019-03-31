@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>localstorage</title>
+    <script>
+        // noen datatyper
+        let data1 = "masse rar tekst"; // tekst
+
+        let data2 = 23131; // tall
+
+        let data3 = [ // lsite med tilfeldig data (kan fylles med hva du vil):
+            1, //tall
+            2,// tall
+            55,// tall
+            "tekst",//tall
+            "ajhasjkdasj",//tekst
+            'kjskajdkasj',//tekst
+            {key:"value"}/* et objekt */
+        ];
+
+        // for å lagre
+
+        localStorage.data1 = data1;
+
+        localStorage.data2 = data2;
+
+        // data 3 er en liste og må lagres på en litt spesiell måte
+        localStorage.data3 = JSON.stringify(data3);
+
+
+        // for å hente ut dataen igjen
+        // text går greit
+        data1 = localStorage.data1;
+
+        // localstorage lagrer alt som tekst, derfor må vi gjøre det om til tall når vi henter det ut igjen
+        data2 = Number(localStorage.data2);
+
+        // lister og komplekse datastrukturer må hentes opp på denne måten
+        data3 = JSON.parse(localStorage.data3);
+    </script>
+</head>
+<body>
+<h1>se heller på kilde koden, mye mer spennende</h1>
+</body>
+</html>
