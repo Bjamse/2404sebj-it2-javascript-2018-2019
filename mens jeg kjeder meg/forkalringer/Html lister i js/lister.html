@@ -25,7 +25,7 @@
         }
     </style>
     <script>
-        window.onlaod = boot;
+        window.onload = boot;
 
         function boot(){
             //lager en tom variabel for all teksten som skal skrives ut til skjermen.
@@ -43,6 +43,29 @@
             out += "</ol>";
             // skriver til skjermen
             document.getElementById("output").innerHTML = out;
+
+            // start funksjonen med alternativ løsning ikke nødvendig for denne koden. er bare med så overgangen blir enklere og sillet klarere mellom løsningene.
+            f2();
+        }
+
+        function f2(){
+            // lager en variabel med et antall
+            let antall = 15;
+
+            //lager et liste element, her bruker vi uordna bare fordi jeg hadde lyst
+            let x = document.createElement("ul");
+
+            // legger till et antall liste elementer inni den uordna lista
+            for(let i = 0; i < antall; i++){
+                // lager et liste element til den uornda lista (et punkt på lista liksom)
+                let tmp = document.createElement("li");
+                // lager no random data vi fyller den med
+                tmp.innerHTML = "random data ini en tag";
+                // legger til som en "child" (underordna tag eller tagg inni en tag) til den uordna lista;
+                x.appendChild(tmp);
+            }
+            // legger til den uordna lista på den plassen vi vil ha den.
+            document.getElementById("output2").appendChild(x);
         }
     </script>
 </head>
@@ -52,6 +75,8 @@
     <p> dette er VELDIG basic, men se kildekoden for å se hva som skjer</p>
     <br><br>
     <div id="output"></div>
+    <p>alternativ 2</p>
+    <div id="output2"></div>
 </div>
 </body>
 </html>
