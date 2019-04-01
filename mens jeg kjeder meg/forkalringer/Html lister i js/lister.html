@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lister</title>
+    <style>
+        html, body {
+            width: auto;
+            height: auto;
+            font-family: "Comic Sans MS", fantasy;
+        }
+
+        body {
+            background-image: url("http://xn--krk-ula.com/grayBack.jpg");
+        }
+
+        div#wrapper {
+            margin: auto;
+            height: 90%;
+            width: 70%;
+            background-color: lightgray;
+            border-radius: 25px;
+            padding: 20px;
+            border: 2px black solid;
+        }
+    </style>
+    <script>
+        window.onlaod = boot;
+
+        function boot(){
+            //lager en tom variabel for all teksten som skal skrives ut til skjermen.
+            let out = "";
+            // lager en variabel med et antall
+            let antall = 15;
+
+            // legger til start taggen for en ordnet liste (hvis du vil ha uordna lister bruker du ul)
+            out += "<ol>";
+            // legger til et antall listeelementer i outputten lik antallet spesifisert i antall
+            for(let i = 0; i < antall; i++){
+                out += "<li> noe rar data</li>";
+            }
+            // legger til slutten av den ordna lista
+            out += "</ol>";
+            // skriver til skjermen
+            document.getElementById("output").innerHTML = out;
+        }
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <h1> lister</h1>
+    <p> dette er VELDIG basic, men se kildekoden for å se hva som skjer</p>
+    <br><br>
+    <div id="output"></div>
+</div>
+</body>
+</html>
