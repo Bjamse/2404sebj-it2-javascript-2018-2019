@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>klasser</title>
+</head>
+<script>
+    // lager en klasse (template/blueprint) for alle typer kjøretøy objekter
+    class Vehicle{
+
+        // en constructor  er en funksjon som legger til alle variablene og gjør nødvendige utregninger for objktet laget etter denne klassen
+        constructor(registreringsnummer, registreringsaar){
+            // lager en variabel for registreringsnummeret
+            // alle kjøretøy vil ha et registreringsnummer definert når de lages.
+            // det skal bli sendt som et argument når classen settes
+            this.regnr = registreringsnummer;
+
+            //samme for registreringsåret.
+            this.regaar = registreringsaar;
+
+        }
+    }
+
+    // lager en klasse for alle biler, arver alle egenskapene til klassen for kjøretøy
+    // det vil si at bilene kan gjøre alt det kjøre tøy kan og sine egne spesieele ting
+    class Car extends Vehicle{
+
+        constructor(registreringsnummer, registreringsaar, harSpoiler) {
+            // sender disse verdiene til classen Vehicle som den arver egenskapene til
+            super(registreringsnummer, registreringsaar);
+
+            // boolsk verdi (true/false) om bilen har spoiler
+            this.spoiler = harSpoiler;
+
+        }
+
+        //metode (funksjon i objektet) som lager en tutelyd
+        // funksjonen er static fordi den ikke kommer til å forandre outputen noensinne. kommer altid til å lage samme tut lyden
+        // andre metoder som kansje regner ut farten bilen kjører i og sånn bruker ikke static da verdiene den behandler kan variere
+        //les mer om dette i mozilla dokumentasjonen
+        static lyd(){
+            console.log("tuut");
+        }
+
+
+    }
+
+    class Trailer extends Vehicle{
+
+        constructor(registreringsnummer, registreringsaar, dekktype, lengdePaaVarselLyd) {
+            // sender disse verdiene til classen Vehicle som den arver egenskapene til
+            super(registreringsnummer, registreringsaar);
+
+            this.dekk = dekktype; // en string med hvalags dekk type lastebilen har
+
+            this.delayHorn = lengdePaaVarselLyd; // hvor lenge lyden fra varselhornet skal vare (her bare hvor mange æ-er som skal skrives av gangen)
+
+        }
+
+        // en metode for å få en string med riktig lengde på lyden som varselhornet skal lage.
+        sound(){
+            let x = "B";
+            for(let i = 0; i < this.delayHorn; i++){
+                x+= "Æ"
+            }
+            return x + "RT!!"
+        }
+
+        // tuter x antall ganger
+        tuutX(x){
+            for(let i = 0; i< x ; i++){
+                console.log(this.sound())
+            }
+        }
+    }
+
+
+    // definerer en ny bil objekt
+
+    let bil = new Car("NF1234567", 2001, true);
+
+    // definerer ny lastebil
+
+    let lastebil = new Trailer("GA9865432", 1987, "runde med sånn pigger", 10);
+
+
+
+    // tester de nye  objektene
+    console.log("objektet bil har regnr" + bil.regnr +", og ble laget i "+ bil.regaar + ", og har spoiler? ("+bil.spoiler+")");
+
+    console.log("objektet lastebil har regnr " +lastebil.regnr + ", og ble laget i "+ lastebil.regaar+ ", har dekktypen '"+ lastebil.dekk+ "'. \n" +
+        "lastebilen kan også tute og lydlengden er på "+ lastebil.delayHorn + "(enheter?). nå skal vi teste det 6 ganeger : \n");
+
+    // i chrome å dukker det bare opp et tall ved siden av outputen. den skriver ikke 6 linjer desverre
+    lastebil.tuutX(6);
+
+
+    // vil du teste objetene ytterligere? bare skriv latebil eller bil i consollen og se litt på hva som dukker opp
+
+
+
+
+</script>
+<body>
+bare se i javascripten. kommer ikke til å skrive noe til dokumentet så kan bare se i konsollen og kildekoden likegreit.
+</body>
+</html>
