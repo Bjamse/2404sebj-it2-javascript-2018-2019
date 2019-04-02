@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="resurser/css.css" rel="stylesheet">
+    <title>eksempel lyd</title>
+    <script>
+        // en lsite med lyd-objekter, alle med en kilde til lydfila
+        let a = [new Audio("resurser/lyd1.mp3"), new Audio("resurser/lyd2.mp3"), new Audio("resurser/lyd3.mp3"), new Audio("resurser/lyd4.mp3"), new Audio("resurser/lyd5.mp3"), new Audio("resurser/lyd6.mp3")];
+
+        // deklarerer en global variabel
+        let pause;
+
+        // en funksjon som tar inn en event som parameter når den kjøres
+        function playSounds(evt) {
+            // hvis en lyd blir spillt av akkurat nå så skal resten av koden hoppes over og funksjonen avsluttes her
+            if (pause === true){return;}
+
+            // denne linja tar å henter tallet som står på knappen, det -1 blir plaseringen på lydobjektet som skal spilles av fra lista
+            let x = Number(evt.target.innerText)-1;
+
+            // så spiller man av det objktet
+            a[x].play();
+
+            // setter variabelen pause til sant for at ingen andre lyder skal overlappe når denne kjører
+            pause = true;
+
+            // setter en timeout til å sette pause til ikke-sant når lyden er spillt ferdig
+            setTimeout(function () {
+                pause = false;
+            } ,Number(a[x].duration * 1000));// her ganges lydlengden med 1000 for å gjøre om sekunder til millisekunder (timeout tar milliseknder mens objektet returnerer varigheten på lyden i sekunder)
+
+        //    linje 25 til 31 + linje 17 er bare med for at ikke lyden skal overlappe. fjernes disse kommer alt til å fungere greit. bortsett fra at lyder kan spilles av oppå hverandre.
+        //    nb samme lyden vil ikke kunne overlappe seg selv. starter bare på nytt.
+        }
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <h1>Soundboard</h1>
+    <p> I dette eksempelet spiller hver knapp av en lyd, men koden hindrer lydene i å overlappe. lyden kan heller ikke
+        stoppes om den først har begynt å kjøre så man må bare vente til den er ferdig. det virker kansje som noenn
+        teite restriksjonenr med det er kunnn  for å bruke litt flere elementer ved det å spille av lyder i js.
+    </p>
+    <table onclick="playSounds(event)">
+        <tr>
+            <td><button>1</button></td>
+            <td><button>2</button></td>
+            <td><button>3</button></td>
+        </tr>
+        <tr>
+            <td><button>4</button></td>
+            <td><button>5</button></td>
+            <td><button>6</button></td>
+        </tr>
+
+    </table>
+
+</div>
+</body>
+</html>

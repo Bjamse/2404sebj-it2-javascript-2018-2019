@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        html, body {
+            width: auto;
+            height: auto;
+            font-family: "Comic Sans MS", serif;
+        }
+
+        body {
+            background-image: url("http://xn--krk-ula.com/grayBack.jpg");
+        }
+
+        div#wrapper {
+            margin: auto;
+            height: 90%;
+            width: 70%;
+            background-color: lightgray;
+            border-radius: 25px;
+            padding: 20px;
+            border: 2px black solid;
+        }
+    </style>
+    <script>
+        let a = new Audio("");
+        a.play();
+        a.duration;
+    </script>
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+    <title>Lydfiler</title>
+</head>
+<body>
+<div id="wrpapper">
+    <h1>Spille av lydr i js</h1>
+    <hr>
+    <p>Hvordan spille av lyder i js?</p>
+    <code class="prettyprint lang-js">
+        // lag et Audio objekt med kildeadressa (path) til lyden
+        let a = new Audio("./kilde.mp3");
+
+        // spill av fila slik
+        a.play();
+
+        // pause lyden slik
+        a.pause();
+
+        // skriv ut lengden på lydfila slik
+        console.log(a.duration);
+    </code>
+</div>
+
+</body>
+</html>
