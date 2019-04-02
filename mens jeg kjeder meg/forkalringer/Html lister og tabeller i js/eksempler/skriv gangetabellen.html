@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>gangetabellen</title>
+    <style>
+        table,td{
+            border: solid black 2px;
+            border-collapse: collapse;
+        }
+    </style>
+    <script>
+        // gangetabellen skal gå opp til x?
+        let antall = 15;
+        let table = document.createElement("table");
+        for(let i = 1; i< antall; i++){
+            let row = document.createElement("tr");
+            for(let j = 1; j< antall; j++){
+                let cell = document.createElement("td");
+
+                cell.innerHTML = (i*j)+"";
+
+                row.appendChild(cell);
+            }
+            table.appendChild(row);
+        }
+
+
+        window.onload = function(){
+            document.body.appendChild(table);
+        };
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
