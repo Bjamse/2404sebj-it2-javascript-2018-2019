@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bilde</title>
+    <style>
+        html, body {
+            width: auto;
+            height: auto;
+            font-family: "Comic Sans MS", serif;
+        }
+
+        body {
+            background-image: url("http://xn--krk-ula.com/grayBack.jpg");
+        }
+
+        div#wrapper {
+            margin: auto;
+            height: 90%;
+            width: 70%;
+            background-color: lightgray;
+            border-radius: 25px;
+            padding: 20px;
+            border: 2px black solid;
+        }
+    </style>
+    <script>
+        // sterter en funksjon ved oppstart
+        window.onload = oppstart;
+
+        // oppstartsfunksjonen
+        function oppstart(){
+            //definerer x som den lagrede verdien i localstorage
+            let x = localStorage.valgtBilde;
+
+            // tester om det fantes noen verdi i localstorage. hvis ikke ville x vere undefined
+            if(x !== undefined){
+                //setter det valgte bildet som et visningsbilde på sia
+                document.getElementById("out").innerHTML = '<h1>Det valgte bildet er</h1><img src="resurser/bilde'+x+'.jpg" width="300px">';
+            }
+        }
+
+
+        // når ett av bildene blir trykket på så blir denne funksjonen kjørt
+        function bilde(x){
+            //lagrer bildenummeret i localstorag
+            localStorage.valgtBilde = x;
+
+            //setter det valgte bildet som et visningsbilde på sia
+            document.getElementById("out").innerHTML = '<h1>Det valgte bildet er</h1><img src="resurser/bilde'+x+'.jpg" width="300px">';
+        }
+
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <div id="out"></div>
+
+    <p>Velg et bilde:</p>
+
+    <img alt="" onclick="bilde(1)" src="resurser/bilde1.jpg">
+    <img alt="" onclick="bilde(2)" src="resurser/bilde2.jpg">
+    <img alt="" onclick="bilde(3)" src="resurser/bilde3.jpg">
+
+</div>
+
+</body>
+</html>
