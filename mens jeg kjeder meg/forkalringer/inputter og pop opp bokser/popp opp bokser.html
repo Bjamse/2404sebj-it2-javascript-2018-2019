@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>pop opp</title>
+    <style>
+        html, body {
+            width: auto;
+            height: auto;
+            font-family: "Comic Sans MS", serif;
+        }
+
+        body {
+            background-image: url("http://xn--krk-ula.com/grayBack.jpg");
+        }
+
+        div#wrapper {
+            margin: auto;
+            height: 90%;
+            width: 70%;
+            background-color: lightgray;
+            border-radius: 25px;
+            padding: 20px;
+            border: 2px black solid;
+            transform-origin: center;
+        }
+
+    </style>
+    <!--    bare for at kode eksemplene skal se bra ut så legger jeg til dette-->
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+
+
+</head>
+<body>
+<div id="wrapper">
+    <h1>popp opp bokser</h1>
+    <hr>
+    <h5>alert()</h5>
+    <p>
+        Alert er en popp opp boks med bare text. <br>
+        texten sendes som et parameter til alert funksjonen. <br>
+        De kan skrives slik:
+    </p>
+    <code class="prettyprint lang-js">
+        alert("Noe text");
+    </code>
+    <br>
+    <button onclick="alert('Noe text');">Test koden</button>
+    <br>
+    <h5>confirm()</h5>
+    <p>
+        akkuratt lik alert, bare at brukeren får en godkjenn og en avbryt knapp <br>
+        Disse kan brukes til å presenter boolske avgjørelser for brukeren <br>
+        Her er et eksempel :
+    </p>
+    <code class="prettyprint lang-js">
+        // deklarerer global variabel for om nettsiden er rotert eller ikke akkuratt nå <br>
+        let rotert = false; <br>
+        <br>
+        // funksjon for å rotere nettsiden <br>
+        function rot(){ <br>
+        &nbsp;&nbsp;// sjekk om brukeren vil rotere skjermen eller ikke <br>
+        &nbsp;&nbsp;if(confirm("Roter siden?")){ <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;//roter skjermen, hvis den er rotert så roter tilbake; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;document.getElementById("wrapper").style.transform = rotert? "rotate(180deg)":"rotate(0deg)"; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;//flipper verdien om siden er rotert eller ikke <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;rotert = !rotert; <br>
+        &nbsp;&nbsp;} <br>
+        } <br>
+    </code> <br>
+    <button onclick="rot()">Test koden</button>
+    <script>
+        let rotert = false;
+        function rot(){
+            if(confirm("Roter siden?")){
+
+                document.getElementById("wrapper").style.transform = rotert? "rotate(0deg)":"rotate(180deg)";
+                rotert = !rotert;
+            }
+        }
+    </script>
+    <br>
+    <h5>prompt()</h5>
+    <p>
+        prompt er en alert boks med et input felt <br>
+        den kan brukes slik:
+
+    </p>
+    <code class="prettyprint lang-js">
+        let x = prompt("skriv inn en text som skal vises i ramma under"); <br>
+        <br>
+        document.getElementById("ramme").innerText = x; <br>
+    </code>
+    <br>
+    <button onclick="document.getElementById('ramme').innerText = prompt('skriv inn en text som skal vises i ramma under');">Test koden</button>
+    <br>
+    <sub id="ramme"></sub>
+    <br>
+
+
+</div>
+</body>
+</html>

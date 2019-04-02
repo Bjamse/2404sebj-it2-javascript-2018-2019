@@ -1,0 +1,126 @@
+formAlleJS.html
+f
+Type
+HTML
+Størrelse
+3 kB (3 248 byte)
+Brukt lagringsplass
+0 byteEies av undefined
+Plassering
+Maler
+Eier
+frode holmberg
+Endret
+14. sep. 2018 av frode holmberg
+Åpnet
+01:08 av meg
+Opprettet
+12. sep. 2018
+Ingen beskrivelse
+Folk med lesetilgang kan laste ned
+﻿<html>
+<head>
+    <script type="text/javascript">
+        window.onload = oppstart;
+        function oppstart() {
+            document.getElementById("btnVelkomst").onclick = visHilsen;
+            document.getElementById("chk1").onchange = visMelding;
+            document.getElementById("valg").onchange = visValg;
+            document.getElementById("r1").onchange = visRadio;
+            document.getElementById("r2").onchange = visRadio;
+
+        }
+        function d(elm) {  //funksjon for å slippe å skrive mye tekst
+            return document.getElementById(elm);
+        }
+        function skrivut(){
+            d("utskrift").innerHTML="Denne teksten er programert forkortet.";
+        }
+
+        function visHilsen() {
+            var txtNavn = document.getElementById("txtNavn");
+            alert("Hei og velkommen "+ txtNavn.value + "!");
+        }
+        function visMelding() {
+            if (document.getElementById("chk1").checked === true) {
+                alert("chk1 er krysset av");
+            }
+            else {
+                alert("chk1 er IKKE krysset av");
+            }
+        }
+        function visFarge()
+        {
+            var farge = document.getElementById("minFarge").value;
+            //var radioverdi = document.getElementsByName("r1");
+            alert(farge);
+        }
+        function visValg() {
+            var detteValg = document.getElementById("valg").value;
+            if (detteValg==="V1"){
+                alert("Du valgte første valg");
+
+            }
+
+        }
+        function visRadio() {
+            alert(document.getElementById("r1").value);
+            alert(document.getElementById("r2").value);
+        }
+    </script>
+</head>
+
+<body>
+
+<br />
+<!-- Skriv her (type="text"): <input type="text" id = "txtNavn" placeholder = "Ditt navn" /> -->
+Skriv her (type="text"): <input id = "txtNavn" type="text" value = "Ditt navn" />
+<button id="btnVelkomst" type="button">OK</button>
+<button id="btnVk2" onclick="visHilsen()" type="button">OK2</button>
+<br />
+
+
+<br />
+Velg select id="valg" : <select id="valg">
+    <option value="V1">Valg 1</option>
+    <option value="V2">Valg 2</option>
+    <option value="V3">Valg 3</option>
+</select>
+<br />
+<br />
+Velg denne også (input type="checkbox"):<br />
+<input checked="checked" id="chk1" type="checkbox" />Sjekk 1<br>
+<input id="chk2" type="checkbox" value="sjekk2" />Sjekk 2<br>
+<input id="chk3" type="checkbox" />Sjekk 3<br>
+<br />
+<br />
+Og denne (input type="radio"):<br>
+<input id="r1" name = "radiogruppe" type="radio" value="ja">Ja<br>
+<input id="r2" name = "radiogruppe" type="radio" value="nei">Nei<br>
+<br />
+<br />
+Velg farge: <input id = "minFarge" name="favcolor" type="color" />
+<input onclick="visFarge()" type="button" value="Vis farge">
+<br />
+<br />
+<br />
+Velg dato: <input id="bday" type="date" />
+<input type="button" />
+<br />
+Velg dato og tid: <input id="btday" type="datetime-local">
+<br />
+<br />
+E-mail: <input id="usremail" type="email" />   <input type="submit" />
+<br />
+<br />
+Mengde (mellom 1 og 5): <input id="quantity" max="5" min="1" type="number" />  <input type="submit" />
+<br />
+<br />
+<input onclick="skrivut()" type="button" value="Kjør javascript text" />  <br />
+<input onclick="skrivut()" type="button" value="Knapp som viser forkortet skrivemåte" />
+<p id="utskrift"></p>
+<br />
+<br />
+
+</body>
+</html>
