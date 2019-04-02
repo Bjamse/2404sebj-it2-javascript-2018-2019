@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>rotasjon</title>
+    <style>
+        #box{
+
+
+            width: 300px ;
+            height: 200px;
+
+            /*----*/
+            /*setter kunn plassering av objektet*/
+            left: 45%;
+            top: 45%;
+            position: absolute;
+            /*----*/
+
+            background-color: green;
+        }
+    </style>
+    <script>
+        window.onload= oppstart;
+
+        // definerer globale variabler
+        let box;
+        let rotation = 0;
+        let roationAmount = 5; // grader
+
+        function oppstart(){
+            box = document.getElementById("box"); // setter box variabelen lik elementet.
+
+
+            setInterval( // setter en funksjon til å loope i bakgrunnen  hvert 10 milliseknund
+                function (){ // en anonym funksjon med det som skla skje i intervallet.
+
+                    rotation += roationAmount; // øker vinkelen til elementet
+                    box.style.transform = "rotate("+rotation+"deg)"; // setter rotasjoen på elementet lik rotasjonsvariabelen
+                },
+                10 // kjører funksjonen hvert 10 millisekkund
+            )
+        }
+    </script>
+</head>
+<body>
+<div id="box"></div>
+
+</body>
+</html>
