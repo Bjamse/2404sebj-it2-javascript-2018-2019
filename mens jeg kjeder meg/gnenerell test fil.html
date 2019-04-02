@@ -35,7 +35,12 @@
             // alert("mobil eller tablet")
         }
 
-        document.onmousemove = mouse;
+        window.onload = boot;
+
+        function boot() {
+            document.onmousemove = mouse;
+        }
+
 
         function mouse(evt) {
             document.onmousemove = mouse;
