@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>boolske spørsmål</title>
+    <style>
+        html, body {
+            width: auto;
+            height: auto;
+            font-family: "Comic Sans MS", serif;
+        }
+
+        body {
+            background-image: url("http://xn--krk-ula.com/grayBack.jpg");
+        }
+
+        div#wrapper {
+            margin: auto;
+            height: 90%;
+            width: 70%;
+            background-color: lightgray;
+            border-radius: 25px;
+            padding: 20px;
+            border: 2px black solid;
+        }
+    </style>
+    <script>
+        let questions = [
+            {spm: "er 2+2 = 4", svar:true},
+            {spm: "kan elefanter gå på vannet om sommeren?", svar:false},
+            {spm: "er krysspunktet av 2 vektorer en vektor?", svar:true},
+            {spm: "er sola blå", svar:false},
+            {spm: "annanas funker på pizza?", svar:true},
+            {spm: "3+4=5", svar:false}
+        ];
+
+        window.onload = boot;
+
+        function boot(){
+            let out = "";
+
+            for (let i = 0; i < questions.length; i++){
+                out+= questions[i].spm +" <input type='checkbox' id='"+i+"'> <br>";
+            }
+            document.getElementById("spørsmål").innerHTML = out;
+        }
+
+        function test() {
+            let feil = 0;
+            let riktig = 0;
+            for (let i = 0; i < questions.length; i++){
+                if(document.getElementById(i+"").checked === questions[i].svar) riktig++;
+                else feil ++;
+            }
+            alert("resultat : \nRiktige:"+ riktig +"\nFeil:"+feil);
+        }
+
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <h1>spørsmål å svare på</h1>
+    <hr>
+    <div id="spørsmål"></div>
+    <button onclick="test()">tes antall</button>
+</div>
+</body>
+</html>
