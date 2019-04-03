@@ -27,9 +27,9 @@
     <script>
         function goto() {
             let url = document.getElementById("url").value;
-            url = url.replace("com/Bjamse","io");
-            url = url.replace("/blob/master","");
-            url = url.replace("github.","Bjamse.github.");
+            url = url.replace("com/Bjamse", "io");
+            url = url.replace("/blob/master", "");
+            url = url.replace("github.", "Bjamse.github.");
             document.getElementById("form").action = url;
         }
     </script>
@@ -43,10 +43,12 @@
         Alt du gjør er å gå inn i den html fila du vil se , og så kopierer du url-en: <br>
         <img alt="" src="eksempel.png" style="width: 100%; height: auto;"><br>
         og limer den inn her: <br>
-        <input id="url" onfocusout="goto()" placeholder="url" style="width: 500px" type="text"><br>
-    <form action="" id="form" target="_blank"></form>
-        <input type="submit" value="kjør side">
     </p>
+    <input id="url" onfocusout="goto()" placeholder="url" style="width: 500px" type="text"><br>
+    <form action="" id="form" target="_blank">
+        <input type="submit" value="kjør side">
+    </form>
+
 </div>
 </body>
 </html>
