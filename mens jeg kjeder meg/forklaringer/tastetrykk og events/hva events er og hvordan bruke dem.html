@@ -7,7 +7,7 @@
         html, body {
             width: auto;
             height: auto;
-            font-family: "Comic Sans MS", serif;
+            /*font-family: "Comic Sans MS", serif;*/
         }
 
         body {
@@ -24,13 +24,70 @@
             border: 2px black solid;
         }
     </style>
-    <script>
-
-    </script>
+    <!--    bare for at kode eksemplene skal se bra ut så legger jeg til dette-->
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
 </head>
 <body>
 <div id="wrapper">
+    <h1>Events i js</h1>
+    <hr>
+    <p>
+        <i><b>Et event er en handling (ofte gjort av brukeren), som harmuligheten til å trigge noe. </b></i><br>
+        <br>
+        Et rellativt trivielt eksempel er click (altså handlingen å trykke på no, f.eks. en knapp).<br>
+        Da er det vanlig å sette opp en lytter på et objekt og sette en funksjon som en reaksjon på at hendelsen skjedde.
+        <br>
+        eksempel: <br><br>
+        <u><i>html:</i></u><br>
+        <code class="prettyprint lang-html" >
+            &lt;button onclick="f()"&gt;knapp&lt;/button&gt;
+        </code><br><br>
+        <u><i>js:</i></u><br>
+        <code class="prettyprint lang-js" >
+            let x = 0;
+            function f(){ <br>
+            &nbsp;&nbsp;&nbsp;x++; <br>
+            &nbsp;&nbsp;&nbsp;alert("du har trykka på knappen"+ x +"ganger");<br>
+            } <br>
+        </code><br>
+        Man kan også sette opp lyteren i js: <br><br>
+        <code class="prettyprint lang-js" >
+            document.getElementById("[en eller annen id]").onclick = f; <br>
+        </code>
+    </p>
+    <hr>
+    <p>
+        Disse eksemplene viser ikke bruk av event objektet enda da... <br>
+        Event objketet er et objekt/variabel som blir sendt med funkjonskallet når handlingen trigger. <br>
+        Event objektet er på en måte handligen og inneholder en del data om det som skjedde. <br>
+        For å bruke dette med onclick i taggen, så må man legge til et event i parantesen til funksjonen som blir kallt:
+        <br>
+        <code class="prettyprint lang-html" >
+            &lt;button onclick="f(event)"&gt;knapp&lt;/button&gt;
+        </code><br><br>
+        Dette er ikk nødvendig når lytteren er definert i js direkte ( den med document.getE.....onclick = f;) <br>
+        da blir det parameteret sendt direkte uansett... <br>
 
+        <br>
+        la oss se på et eksempel der vi har satt opp en lytter for onmousemove: <br>
+        <code class="prettyprint lang-js" >
+            window.onmousemove = skrivPlassering;<br>
+            <br>
+            function skrivPlasering(evt){<br>
+            &nbsp;&nbsp;&nbsp;console.log(" x: "+ evt.clientX + "\n y:" + evt.clientY);<br>
+            }<br>
+        </code>
+        I denne koden vil det bli skriv 2 linjer til konsollen hver gang du flytter på datamusa innenfor vinduet. <br>
+        hadde vi satt lytteren på et mindre elemet, f.eks. en div, ville koden bare kjørt hvis peker nvar innenfor det området.
+        <br> <br>
+        I eksemplelt blir event objetktet brukt til å finne ut hvor pekeren er på det tidspunktet. <br>
+        Variablene clientY og clientY i objektet er spesifikke til akkurat denne hendelsen og kan ikke brukes på f.eks. onkeydown.
+        <br>
+        hva de forskjellige eventene har av funktionalitet er utenfor det som dette documentet skal forklare, men du kan vite det at det er relativt mye rare ting man kan få vite av det.
+        har du lyst til å ta en nermere kikk på det så kan du logge event objektet i konollen og se på funksjonene og variablene den inneholder.
+        <br>
+
+    </p>
 </div>
 </body>
 </html>
