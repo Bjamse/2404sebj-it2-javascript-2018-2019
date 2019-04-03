@@ -1,1 +1,1 @@
-## Får å kunne kjøre innholdet i html-fiene i dette reposotoriet [så bruk denne SIDEN](https://Bjamse.github.io/2404sebj-it2-javascript-2018-2019/._/kj%C3%B8r%20HTML.html)
+## Får å kunne kjøre innholdet i html-fiene i dette reposotoriet [så bruk denne SIDEN](https://bjamse.github.io/2404sebj-it2-javascript-2018-2019//mens%20jeg%20kjeder%20meg/random/lite%20viktig/kj%C3%B8r%20HTML.html)
