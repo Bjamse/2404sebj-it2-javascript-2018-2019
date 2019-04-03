@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dra bildet</title>
+    <style>
+        html, body {
+            width: auto;
+            height: auto;
+            font-family: "Comic Sans MS", serif;
+        }
+
+        body {
+            background-image: url("http://xn--krk-ula.com/grayBack.jpg");
+        }
+
+        div.draggable{
+            position: absolute;
+        }
+
+        div.bilde{
+            background-image:url('resurser/bilde1.jpg');
+            width: 128px;
+            height : 128px;
+        }
+    </style>
+    <script>
+        let pressed = false;
+        let flyttbartOBJ;
+        function trykt(x){
+            flyttbartOBJ = x;
+            pressed = true;
+        }
+
+        window.onmousemove = flytt;
+        window.onmouseup = slapp;
+
+        function flytt(evt) {
+            if(flyttbartOBJ !== undefined && pressed){
+                flyttbartOBJ.style.left = (evt.clientX - flyttbartOBJ.getBoundingClientRect().width/2) + "px";
+                flyttbartOBJ.style.top = (evt.clientY-flyttbartOBJ.getBoundingClientRect().height/2) + "px";
+            }
+        }
+        function slapp() {
+            pressed = false;
+            flyttbartOBJ = undefined;
+        }
+
+    </script>
+</head>
+<body>
+<div class="draggable bilde" onmousedown="trykt(this)" style="background-image: url('resurser/bilde1.jpg')"></div>
+<div class="draggable bilde" onmousedown="trykt(this)" style="background-image: url('resurser/bilde2.jpg')"></div>
+<div class="draggable bilde" onmousedown="trykt(this)" style="background-image: url('resurser/bilde3.jpg')"></div>
+
+</body>
+</html>
