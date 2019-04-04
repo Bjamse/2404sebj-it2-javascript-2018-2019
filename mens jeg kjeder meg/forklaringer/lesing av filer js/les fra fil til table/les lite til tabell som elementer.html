@@ -3,6 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>lese fra datafiler</title>
+    <style>
+        table,td,th{
+            border: solid black 2px;
+            border-collapse: collapse;
+        }
+    </style>
     <script>
         // definer global variabel
         let xmlhttp;
@@ -29,20 +35,38 @@
                 // del opp dataen inn i en liste med data for hver linje
                 let linjer = data.split("\n");
 
-                let out = "<table> <tr> <th>id</th> <th>navn</th><th>poeng</th></tr>";
+                // lager et table element
+                let table = document.createElement("table");
+
 
                 for (let i in linjer){
                     // la linjedata være en liste for alt i linja og splitt opp lista for hver % i den
-                    let linjedata = linjer[i].split("%");
-                    // gjør noen kalkuleringer mtp poengene (rgener sammen poeng 1,2,3)
-                    let poeng = Number(linjedata[2]) + Number(linjedata[3]) + Number(linjedata[4]);
-                    // skriv ut hver deltager , deltagernavnet, og antall poeng
-                    out += "<tr><td>" + linjedata[0] + "</td><td>" + linjedata[1] + "</td><td>"+ poeng + "</td><br> </tr>";
+                    let linjedata = linjer.split("%");
+
+                    // lager et table-row element (<tr>)
+                    let row = document.createElement("tr");
+
+                    //lager noen table data elementer (<td>)
+                    let id = document.createElement("td");
+                    let navn = document.createElement("td");
+                    let poeng = document.createElement("td");
+
+                    // fyller td elementene med data
+                    id.innerHTML = linjedata[0];
+                    navn.innerHTML = linjedata[1];
+                    poeng.innerHTML = linjedata[2] + ", "+linjedata[3] + ", "+linjedata[4];
+
+                    // legger td elementene inni tr elementet
+                    row.appendChild(id);
+                    row.appendChild(navn);
+                    row.appendChild(poeng);
+
+                    // legger tr elementet (med alt inni) inni table elementet
+                    table.appendChild(row);
                 }
 
-                out += "</table>";
-
-                document.getElementById("out").innerHTML = out;
+                // puttet tabellen inni diven med id out
+                document.getElementById("out").appendChild(table);
 
 
             }

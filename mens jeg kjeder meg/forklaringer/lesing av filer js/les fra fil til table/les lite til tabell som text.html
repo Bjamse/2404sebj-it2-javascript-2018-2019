@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lese fra datafiler</title>
+    <style>
+        table,td,th{
+            border: solid black 2px;
+            border-collapse: collapse;
+        }
+    </style>
+    <script>
+        // definer global variabel
+        let xmlhttp;
+
+        // oppstart
+        window.onload = boot;
+
+        function boot(){
+            // start å lag en request etter data
+            xmlhttp = new XMLHttpRequest();
+            // gjør denne funksjonen når du får svar på en request etter data
+            xmlhttp.onreadystatechange = statusforandring;
+            // forklar hva requsten skal gjøre/hente og hvor
+            xmlhttp.open("get", "2.innhold.dat", true);
+            // send request etter data
+            xmlhttp.send();
+        }
+
+        function statusforandring(){
+            // hvis requesten fikk en possitiv respons med statuskode 200 (alt ok)
+            if (xmlhttp.readyState === 4 && xmlhttp.status === 200){
+                // lagre dataene fra responsen i en variabel data
+                let data = xmlhttp.responseText;
+                // del opp dataen inn i en liste med data for hver linje
+                let linjer = data.split("\n");
+
+                // lager en utskrifftsvariabel med en table tag og noen table headers som forklarer hva som er i hver kolonne
+                let out = "<table> <tr> <th>id</th> <th>navn</th><th>poeng</th></tr>";
+
+                for (let i in linjer){
+                    // la linjedata være en liste for alt i linja og splitt opp lista for hver % i den
+                    let linjedata = linjer[i].split("%");
+                    // gjør noen kalkuleringer mtp poengene (rgener sammen poeng 1,2,3)
+                    let poeng = Number(linjedata[2]) + Number(linjedata[3]) + Number(linjedata[4]);
+                    // skriv ut hver deltager , deltagernavnet, og antall poeng
+                    out += "<tr><td>" + linjedata[0] + "</td><td>" + linjedata[1] + "</td><td>"+ poeng + "</td><br> </tr>";
+                }
+
+                out += "</table>";
+
+                document.getElementById("out").innerHTML = out;
+
+
+            }
+        }
+
+    </script>
+</head>
+<body>
+<h1>utskrift fra .dat fil </h1>
+<div id="out"></div>
+
+</body>
+</html>
