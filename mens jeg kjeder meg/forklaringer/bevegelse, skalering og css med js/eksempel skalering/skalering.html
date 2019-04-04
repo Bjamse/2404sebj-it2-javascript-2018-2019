@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>skalering</title>
+    <link href="css.css" rel="stylesheet">
+
+    <script>
+        function skaler(){
+            document.getElementById("bilde").style.width = document.getElementById("skalVerdi").value + "px";
+        }
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <h1>skaler bildet sånn du vil</h1>
+    <hr>
+    sett bredden på bildet til  <input id="skalVerdi" type="number"> pixler <button onclick="skaler()">ok</button>
+    <br>
+    <img alt="" id="bilde" src="bilde1.jpg">
+</div>
+</body>
+</html>
