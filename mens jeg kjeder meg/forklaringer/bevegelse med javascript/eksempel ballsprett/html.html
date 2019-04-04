@@ -18,6 +18,9 @@
             height: 50px;
             /*gjør ballen rund*/
             border-radius: 100%;
+
+            /*bare sånn at ballen ikke blinker en gang når fila loader før den blir plassert en random plass*/
+            left: -100px;
         }
     </style>
     <script>
@@ -32,9 +35,9 @@
             // setter balls om elementet med id "ball"
             ball = document.getElementById("ball");
 
-            // plasserer ballen på mideten
-            ball.style.left = "50%";
-            ball.style.top = "50%";
+            // plasserer ballen random
+            ball.style.left = (Math.random()*100)+"%";
+            ball.style.top = (Math.random()*100)+"%";
 
             // starter en evig loop der jeg flytter på ballen
             setInterval(move, 10);
