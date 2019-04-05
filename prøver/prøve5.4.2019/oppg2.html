@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>oppg2</title>
+    <link rel="stylesheet" href="resurser/css.css">
+    <script>
+        let xmlhttp;
+
+
+        function hentTabell(){
+            xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = statusforandring;
+            xmlhttp.open("get", "resurser/Bilsvar.csv", true);
+            xmlhttp.send();
+        }
+
+        function statusforandring(){
+            if (xmlhttp.readyState === 4 && xmlhttp.status === 200){
+                let data = xmlhttp.responseText;
+                let linjer = data.split("\n");
+
+                let HeaderData =linjer[0].split(";");
+                let out = "<table id='table'><tr><th>"+HeaderData[0]+"</th> <th>"+HeaderData[1]+"</th><th>"+HeaderData[2]+"</th><th>"+HeaderData[3]+"</th><th>"+HeaderData[4]+"</th><th>"+HeaderData[5]+"</th></tr>";
+
+                let utslipp = {a:0, snitt:0};
+                let antall = 0;
+                for (let i =1; i < linjer.length; i++){
+                    let linjedata = linjer[i].split(";");
+                    out += "<tr><td>" + linjedata[0] + "</td><td>" + linjedata[1] + "</td><td>" + linjedata[2] + "</td><td>" + linjedata[3] + "</td><td>" + linjedata[4] + "</td><td>" + linjedata[5] + "</td></tr>";
+
+                    // legget til en for hver biltype som skal regnes snittet på
+                    utslipp.a++;
+
+                    // tar snittet for hver bil og legger det til i en variabel
+                    utslipp.snitt += (Number(linjedata[1])+Number(linjedata[2]))/2;
+
+                    // teller opp antall merker
+                    antall += Number(linjedata[5]);
+                }
+                // utslippet blir summen av snittene på alle merkene / antall merker
+                utslipp = utslipp.snitt/utslipp.a;
+
+                out += "</table>";
+
+                document.getElementById("out").innerHTML = "gjennomsnittlig co2 utslipp er "+utslipp+". Totalt antall bilder er "+antall+" <br>"+out;
+
+            }
+        }
+
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <h1>oppgave2</h1>
+    <hr>
+    <h3 style="color: blue;">Biler</h3>
+    <button onclick="hentTabell()">Skriv tabell</button>
+    Velg farge: <input type="color" id="farge">
+    <button onclick="document.getElementById('table').style.background = document.getElementById('farge').value">Farge tabellbakgrunn</button>
+    <button onclick="document.getElementById('out').style.color = document.getElementById('farge').value">Farge text</button>
+    <br>
+    <div id="out">
+
+    </div>
+</div>
+</body>
+</html>

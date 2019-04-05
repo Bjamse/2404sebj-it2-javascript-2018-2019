@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>oppg3</title>
+    <link rel="stylesheet" href="resurser/css.css">
+    <script>
+        let fasit=[
+            [true,false,false,false],
+            [true,false,true,false,false]
+        ];
+
+        function sjekkSvar(){
+            let spm1 = document.getElementsByClassName("spm1");
+            let spm2 = document.getElementsByClassName("spm2");
+            let riktig = 0;
+            let feil = 0;
+            for(let i in spm1){
+                if(spm1[i].checked){
+                    if(spm1[i].checked === fasit[0][i]){
+                        riktig++;
+                    }else{
+                        feil ++;
+                    }
+                }
+
+            }
+            for(let i in spm2){
+                if(spm2[i].checked){
+                    if(spm2[i].checked === fasit[1][i]){
+                        riktig++;
+                    }else{
+                        feil ++;
+                    }
+                }
+            }
+            let maxAntallRiktigeMulig = 0;
+            for(let i in fasit){
+                for(let j in fasit[i]){
+                    if(fasit[i][j] === true){
+                        maxAntallRiktigeMulig++;
+                    }
+                }
+            }
+
+            document.getElementById("svar").innerHTML = "Du har krysset av "+riktig+" rette og "+feil+" feil kryss av totalt mulige "+maxAntallRiktigeMulig+" rette og totalt "+(spm1.length + spm2.length)+" mulige kryss!";
+        }
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <h1>oppgave3</h1>
+    <hr>
+    <h2>BilTest</h2>
+    Velg bilmerke: <br>
+    <label for="m0">Alfa Romeo</label><input type="radio" name="merke" id="m0">
+    <label for="m1">Audi</label><input type="radio" name="merke" id="m1">
+    <button>OK</button>
+    <h3>1. Hva er minsteprisen for denne bilen?</h3>
+    474 400<input type="checkbox" class="spm1"> <br>
+    370 500<input type="checkbox" class="spm1"> <br>
+    560 700<input type="checkbox" class="spm1"> <br>
+    630 300<input type="checkbox" class="spm1">
+    <hr>
+    <h3>2. Hvilke verdier ligger innenfor grensene av utslipp for denen bilen?</h3>
+    130<input type="checkbox" class="spm2"> <br>
+    120<input type="checkbox" class="spm2"> <br>
+    220<input type="checkbox" class="spm2"> <br>
+    230<input type="checkbox" class="spm2"> <br>
+    0<input type="checkbox" class="spm2">
+    <hr>
+    <button onclick="sjekkSvar()">sjekk svar</button>
+    <div id="svar"></div>
+
+</div>
+</body>
+</html>

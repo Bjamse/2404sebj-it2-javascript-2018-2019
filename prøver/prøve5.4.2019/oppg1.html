@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>oppg1</title>
+    <link rel="stylesheet" href="resurser/css.css">
+    <script>
+        function bilde1() {
+            if (document.getElementById("out").className !== "1"){
+                document.getElementById("out").innerHTML = '<img src="resurser/bil1.JPG" alt="" style="width: 100%; height: auto">';
+                document.getElementById("out").className = "1";
+            }
+            else{
+                document.getElementById("out").innerHTML = null;
+                document.getElementById("out").className = "";
+            }
+        }
+
+
+        function bilde2() {
+            if (document.getElementById("out").className !== "2"){
+                document.getElementById("out").innerHTML = '<h1>Gjett bilmerke</h1>' +
+                    '<img src="resurser/bil2.JPG" alt="" style="width: 50%; height: auto"> <br>' +
+                    'Mercedes<input type="radio" name="bilMerke" id="merke1"><br>' +
+                    'Folkevogn<input type="radio" name="bilMerke" id="merke2"><br>' +
+                    'Volvo<input type="radio" name="bilMerke" id="merke3"><br>' +
+                    '<button onclick="document.getElementById(\'merke2\').checked ? alert(\' du gjetta riktig\'): alert(\'du gjetta feil\')">sjekk svar</button>';
+                document.getElementById("out").className = "2";
+            }
+            else{
+                document.getElementById("out").innerHTML = null;
+                document.getElementById("out").className = "";
+            }
+        }
+
+
+        function bilde3() {
+            if (document.getElementById("out").className !== "3"){
+                document.getElementById("out").innerHTML = '<img src="resurser/bil3.JPG" alt="" style="width: 100%; height: auto">';
+                document.getElementById("out").className = "3";
+                let a = new Audio("resurser/lyd1.m4a");
+                a.play()
+            }
+            else{
+                document.getElementById("out").innerHTML = null;
+                document.getElementById("out").className = "";
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <h1>oppgave1</h1>
+    <hr>
+    <img src="resurser/bil1.JPG" alt="" onclick="bilde1()">
+    <img src="resurser/bil2.JPG" alt="" onclick="bilde2()">
+    <img src="resurser/bil3.JPG" alt="" onclick="bilde3()">
+    <hr>
+    <div id="out">
+
+    </div>
+</div>
+</body>
+</html>
