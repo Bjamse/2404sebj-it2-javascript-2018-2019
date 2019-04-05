@@ -50,6 +50,9 @@
             if(localStorage.beste !== undefined){
                 let beste = JSON.parse(localStorage.best);
                 out += "ditt forrige beste reultat var "+beste.riktig+"rette og "+beste.feil+"feil";
+                if(riktig >= beste.riktig || feil <= beste.feil){
+                    localStorage.beste = JSON.stringify({riktig:riktig,feil:feil})
+                }
             }else{
                 localStorage.beste = JSON.stringify({riktig:riktig,feil:feil})
             }
