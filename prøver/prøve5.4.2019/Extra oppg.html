@@ -2,13 +2,121 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>oppg3</title>
+    <title>Extra</title>
     <link rel="stylesheet" href="resurser/css.css">
     <script>
-        let fasit=[
-            [true,false,false,false],
-            [true,false,true,false,false]
-        ];
+        let fasit=[];
+
+        let merker = [];
+
+
+        window.onload = hentTabell;
+
+        function hentTabell(){
+            xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = statusforandring;
+            xmlhttp.open("get", "resurser/Bilsvar.csv", true);
+            xmlhttp.send();
+        }
+
+        function statusforandring(){
+            if (xmlhttp.readyState === 4 && xmlhttp.status === 200){
+                let data = xmlhttp.responseText;
+                let linjer = data.split("\n");
+
+                for (let i =1; i < linjer.length; i++){
+                    let linjedata = linjer[i].split(";");
+                    let tmp = {
+                        merke: linjedata[0],
+                        cfra: Number(linjedata[1]),
+                        ctil: Number(linjedata[2]),
+                        pfra: linjedata[3],
+                        ptil: linjedata[4],
+                        antall: linjedata[5]
+                    };
+                    merker.push(tmp);
+                }
+                skrivMerkeValg();
+            }
+        }
+        function skrivMerkeValg() {
+            let out = "";
+            for(let i in merker){
+                out += "<label for=\""+i+"\">"+merker[i].merke+"</label><input type=\"radio\" name=\"merke\" id=\""+i+"\">";
+            }
+            document.getElementById("vMerk").innerHTML = out;
+        }
+        function getValgMerke(){
+            for(let i in merker){
+                if(document.getElementById(i+"").checked){
+                    return i;
+                }
+            }
+            return null;
+        }
+
+        function lagSpm(){
+            let m = merker[getValgMerke()];
+            console.log(m);
+            let out = "<h3>1. Hva er minsteprisen for denne bilen?</h3>";
+
+            // index for riktig svar på spm1
+            let RandIdxSpm1 = Math.floor(Math.random()*4);
+
+            fasit[0] = [false,false,false,false];
+            fasit[0][RandIdxSpm1] = true;
+
+            for(let i = 0; i < 4; i++){
+                if(fasit[0][i] === true){
+                    out += m.pfra+"<input type=\"checkbox\" class=\"spm1\"> <br>";
+                }
+                else{
+                    while(true){
+                        let randompris = ""+Math.floor(Math.random()*10)+Math.floor(Math.random()*10)+Math.floor(Math.random()*10)+ " "+ Math.floor(Math.random()*10) + "00";
+
+                        if (randompris !== m.pfra){
+                            out += randompris+"<input type=\"checkbox\" class=\"spm1\"> <br>";
+                            break
+                        }
+                    }
+                }
+            }
+            out += "<hr><h3>2. Hvilke verdier ligger innenfor grensene av utslipp for denen bilen?</h3>";
+
+
+            // harkoder at det er 1-3 riktige svar men tilfeldig plassert
+            // stor sansynlighet for at de overlapper hverandre
+            let RandIdxSpm21 = Math.floor(Math.random()*5);
+            let RandIdxSpm22 = Math.floor(Math.random()*5);
+            let RandIdxSpm23 = Math.floor(Math.random()*5);
+            fasit[1] = [false,false,false,false,false];
+            fasit[1][RandIdxSpm21] = true;
+            fasit[1][RandIdxSpm22] = true;
+            fasit[1][RandIdxSpm23] = true;
+
+            for(let i = 0; i < 5; i++){
+                if(fasit[1][i] === true){
+                    out += Math.floor(Math.random()*(m.ctil-m.cfra)+m.cfra)+"<input type=\"checkbox\" class=\"spm2\"><br>";
+                }
+                else{
+                    while(true){
+                        let randUtslipp = Math.floor(Math.random()*(m.ctil*2));
+
+                        if (!(randUtslipp > m.cfra && randUtslipp < m.ctil)){
+                            out += randUtslipp+"<input type=\"checkbox\" class=\"spm2\"> <br>";
+                            break
+                        }
+                    }
+                }
+            }
+
+            out += "<hr>" +
+                "    <button onclick=\"sjekkSvar()\">sjekk svar</button>" +
+                "    <div id=\"svar\"></div>";
+            document.getElementById("spørsmål").innerHTML = out;
+
+        }
+
 
         function sjekkSvar(){
             let spm1 = document.getElementsByClassName("spm1");
@@ -49,28 +157,15 @@
 </head>
 <body>
 <div id="wrapper">
-    <h1>oppgave3</h1>
+    <h1>EKSTRA OPPGAVA</h1>
     <hr>
     <h2>BilTest</h2>
-    Velg bilmerke: <br>
-    <label for="m0">Alfa Romeo</label><input type="radio" name="merke" id="m0">
-    <label for="m1">Audi</label><input type="radio" name="merke" id="m1">
-    <button>OK</button>
-    <h3>1. Hva er minsteprisen for denne bilen?</h3>
-    474 400<input type="checkbox" class="spm1"> <br>
-    370 500<input type="checkbox" class="spm1"> <br>
-    560 700<input type="checkbox" class="spm1"> <br>
-    630 300<input type="checkbox" class="spm1">
-    <hr>
-    <h3>2. Hvilke verdier ligger innenfor grensene av utslipp for denen bilen?</h3>
-    130<input type="checkbox" class="spm2"> <br>
-    120<input type="checkbox" class="spm2"> <br>
-    220<input type="checkbox" class="spm2"> <br>
-    230<input type="checkbox" class="spm2"> <br>
-    0<input type="checkbox" class="spm2">
-    <hr>
-    <button onclick="sjekkSvar()">sjekk svar</button>
-    <div id="svar"></div>
+    <u>Velg bilmerke: </u><br>
+    <div id="vMerk"></div>
+
+    <button onclick="lagSpm()">OK</button>
+
+    <div id="spørsmål"></div>
 
 </div>
 </body>
