@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dynamiske flervalg</title>
+    <style>
+        html, body {
+            width: auto;
+            height: auto;
+            font-family: "Comic Sans MS", serif;
+        }
+
+        body {
+            background-image: url("http://xn--krk-ula.com/grayBack.jpg");
+        }
+
+        div#wrapper {
+            margin: auto;
+            height: 90%;
+            width: 70%;
+            background-color: lightgray;
+            border-radius: 25px;
+            padding: 20px;
+            border: 2px black solid;
+            transform-origin: center;
+        }
+
+    </style>
+    <!--    bare for at kode eksemplene skal se bra ut så legger jeg til dette-->
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+
+
+</head>
+<body>
+<div id="wrapper">
+    <h1>
+        Dynamiske flervalg
+    </h1>
+    <hr>
+    <h3>Hæ? </h3>
+    <p>
+        Dynamiske flervalgsalternativ vil si inputfelt med flere alternativer som forandrer seg i forhold til andre ting som brukeren har tastet inn.
+        Eksempler på dette kan være alt fra en bilforhandler som forandrer bil alternativene ettersom kunden har valgt fossilt eller eletrisk drivstoff,
+        eller en utleie tjeneste som fjerner enkelte tilbud ettersom de blir leid ut i en periode.
+        <br>
+        <br>
+        En annen tolkning er at et felrvalgsalternativ (dropp down menu eller bare radioknapper) forandrer tekst/ alternativ ettersom hva som står i en tekstfil/ i et array.
+        <Br>
+        <br>
+        Men dette er bare mine tolkninger. et raskt googlesøk viser et rasultat bestående av NADA og det virker da heller som om utrykkeet er opp for debatt. har du en annen forklaring eller tolkning så skriv gjerne en issue.
+        <br>
+        Første gang jeg kom over utrykket var i forberedelsen til eksamen 2019
+        <br>
+    </p>
+    <hr>
+    <h3>Hvordan implemeterer jeg dette?</h3>
+    <p>
+        Logikken er at du skriver koden på en sånn måte at den vil reagere når brukeren har gitt deg noe informasjon.
+        <br> Her er et eksempel: <br>
+        Si vi er en utleiefirma og leier ut hytter. vi er en god bedrift og har allerede fått inn noen avtaler for leie om et par måneder.
+        la oss si at vi har 5 hytter og hytte 3 er leid ut i hele mai. <br>
+        vi velger også å kun leie ut hele måneder for enklere kode.
+        <br><br><b>Eksempel :</b>
+    </p>
+    Velg hytte nr + måned: <br>
+
+    <input name="hytte" onclick="skrivMaa()" type="radio" value="0"> 1 <br>
+    <input name="hytte" onclick="skrivMaa()" type="radio" value="1"> 2 <br>
+    <input name="hytte" onclick="skrivMaa()" type="radio" value="2"> 3 <br>
+    <input name="hytte" onclick="skrivMaa()" type="radio" value="3"> 4 <br>
+    <input name="hytte" onclick="skrivMaa()" type="radio" value="4"> 5 <br>
+
+    <select id="maa" name="måned" style="display: none"></select>
+    <script>
+        let months = ["Januar","Februar","Mars", "April", "Mai", "juni", "Juli", "August", "September", "Oktober", "November", "Desember"];
+
+        function skrivMaa(){
+            let MSel = document.getElementById("maa");
+            MSel.innerHTML = "";
+            MSel.style.display = "block";
+            let valgteHytteNR= document.querySelector('input[name="hytte"]:checked').value;
+            valgteHytteNR = Number(valgteHytteNR);
+            for(let i = 0; i< months.length; i++){
+                if (utleiinger[valgteHytteNR][i] === true){
+                    MSel.innerHTML += "<option value='"+i+"' disabled>"+months[i]+"</option>";
+                }
+                else
+                    MSel.innerHTML += "<option value='"+i+"'>"+months[i]+"</option>";
+            }
+        }
+
+        let utleiinger =[
+            [],
+            [],
+            [],
+            [],
+            []
+        ];
+        // legger til en  utleiing  på hytte 3 den femte måneden :
+        utleiinger[2][4] = true;
+
+    </script>
+    <hr>
+    <p>
+        <b>Forklaring:</b><br>
+        <img alt="" src="logikk.png" style="width: 100%;"><br>
+        <b>Kode:</b><br>
+        html: <br>
+
+        <code class="prettyprint lang-html">&lt;input type="radio" name="hytte" value="0" onclick="skrivMaa()"&gt; 1 &lt;br&gt;<br>    &lt;input type="radio" name="hytte" value="1" onclick="skrivMaa()"&gt; 2 &lt;br&gt;<br>    &lt;input type="radio" name="hytte" value="2" onclick="skrivMaa()"&gt; 3 &lt;br&gt;<br>    &lt;input type="radio" name="hytte" value="3" onclick="skrivMaa()"&gt; 4 &lt;br&gt;<br>    &lt;input type="radio" name="hytte" value="4" onclick="skrivMaa()"&gt; 5 &lt;br&gt;<br><br>    &lt;select name="måned" id="maa" style="display: none"&gt;&lt;/select&gt;</code>
+        <br>
+        <br>
+        javascript: <br>
+        <code class="prettyprint lang-js">
+            let months = ["Januar","Februar","Mars", "April", "Mai", "juni", "Juli", "August", "September", "Oktober", "November", "Desember"];
+            <br>
+            <br>
+            function skrivMaa(){ <br>
+            &nbsp;&nbsp;let MSel = document.getElementById("maa"); <br>
+            &nbsp;&nbsp;MSel.innerHTML = ""; <br>
+            &nbsp;&nbsp;MSel.style.display = "block"; <br>
+            &nbsp;&nbsp;let valgteHytteNR= document.querySelector('input[name="hytte"]:checked').value; <br>
+            &nbsp;&nbsp;valgteHytteNR = Number(valgteHytteNR); <br>
+            &nbsp;&nbsp;for(let i = 0; i< months.length; i++){ <br>
+            &nbsp;&nbsp;if (utleiinger[valgteHytteNR][i] === true){ <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;MSel.innerHTML += "&lt;option value='"+i+"' disabled>"+months[i]+"&lt;/option>"; <br>
+            &nbsp;&nbsp;} <br>
+            &nbsp;&nbsp;else <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;MSel.innerHTML += "&lt;option value='"+i+"'>"+months[i]+"&lt;/option>"; <br>
+            &nbsp;} <br>
+            } <br>
+            <br>
+            let utleiinger =[ <br>
+            &nbsp;&nbsp;[], <br>
+            &nbsp;&nbsp;[], <br>
+            &nbsp;&nbsp;[], <br>
+            &nbsp;&nbsp;[], <br>
+            &nbsp;&nbsp;[] <br>
+            ]; <br>
+            <br>
+            // legger til en  utleiing  på hytte 3 den femte måneden : <br>
+            utleiinger[2][4] = true; <br>
+        </code>
+    </p>
+</div>
+</body>
+</html>
