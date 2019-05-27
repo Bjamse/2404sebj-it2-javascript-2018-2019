@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>oppgave2</title>
+    <link href="css.css" rel="stylesheet">
+    <script src="js.js"></script>
+</head>
+<body>
+<div id="wrapper">
+    <h1>oppgave2</h1>
+    <hr>
+    skriv inn snittet ditt: <input id="snitt" placeholder="snitt" type="number"><br>
+    skriv inn ekstra poengene dine : <input id="pp" placeholder="ekstrapoeng" type="number"> <br>
+    velg linje:
+    <select id="linje" name="linjer">
+        <script>
+            for(let i in linjer){
+                console.log(linjer[i]);
+                document.write("<option value='"+linjer[i].id+"'>"+linjer[i].name+"</option>")
+            }
+        </script>
+    </select>
+    <br>
+    <button onclick="kalkuler()">kommer jeg inn?</button>
+    <br>
+    kommer jeg inn? : <span id="svar"></span>
+</div>
+</body>
+</html>
