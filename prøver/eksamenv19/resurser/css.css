@@ -1,0 +1,31 @@
+html, body {
+    width: auto;
+    height: auto;
+    font-family: "Comic Sans MS", serif;
+}
+
+body {
+    background-image: url("grayBack.jpg");
+}
+
+div#wrapper {
+    margin: auto;
+    height: 90%;
+    width: 70%;
+    background-color: lightgray;
+    border-radius: 25px;
+    padding: 20px;
+    border: 2px black solid;
+}
+div#pop{
+    display: none;
+    position: fixed;
+    width: 40vh;
+    height: auto;
+    min-height: 30vh;
+    background: lightgray;
+    border: solid black 2px;
+    left: calc(50vw - 20vh);
+    top: 35vh;
+    font-size: 8pt;
+}
